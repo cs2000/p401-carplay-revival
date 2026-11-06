@@ -39,7 +39,7 @@ W2 enabled the existing `interworking=1` hostapd template option. W2 alone still
 
 ## Physical result
 
-The owner confirmed native wireless success on 5 November 2026; logs were acquired on 6 November. There was one successful Wi-Fi AirPlay session, screen frames, 26 touch calls and a return from the accessory UI to CarPlay. Two screen starts represent foreground transitions within that session, not two independent reconnections.
+I confirmed native wireless success on 5 November 2026 and reviewed the results on 6 November. There was one successful Wi-Fi AirPlay session, screen frames, 26 touch calls and a return from the accessory UI to CarPlay. Two screen starts represent foreground transitions within that session, not two independent reconnections.
 
 The packet order is particularly useful:
 

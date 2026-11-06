@@ -25,9 +25,9 @@ There are no merge scripts, fixed MCU assignments, one-time configuration migrat
 
 ## Standalone packaging
 
-The successful W3 experiment used userdata overrides and logger wrappers. The public consolidated image instead patches `/usr/lib/libAirPlay.so` directly and launches the exact same corrected DHCP binary from `/usr/libexec/carplay-revival/udhcpd` in the vendor hostapd startup script.
+The firmware patches `/usr/lib/libAirPlay.so` directly and launches the exact same corrected DHCP binary from `/usr/libexec/carplay-revival/udhcpd` in the vendor hostapd startup script.
 
-The original system BusyBox remains intact. D-Bus launches the vendor CarPlay executable directly. No capture preload, diagnostic collector, USB log marker or R4 helper is shipped. Old experiment files in userdata are left untouched and are not referenced by the new startup path.
+The original system BusyBox remains intact. D-Bus launches the vendor CarPlay executable directly.
 
 ## Flash format
 

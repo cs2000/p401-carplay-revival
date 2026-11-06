@@ -15,7 +15,7 @@ The reference came from this [public supplier share](https://u.pcloud.link/publi
 
 The reference identifies vendor software V3.22.1. The kernel payload contains Linux 3.4.0 #396, built 21 November 2025 with GCC 4.9.4 / Buildroot 2018.08. The kernel image is retained unchanged. The resulting rootfs and downloadable ZIP have separate hashes in the [release manifest](../releases/2026.11-w3-rc1/manifest.json).
 
-Only firmware-family defaults and code from the reference are used as build inputs. Owner configuration files, original export bundles, raw captures, phone names, addresses and workstation paths are not release inputs.
+The build uses the reference firmware and the project patches. My personal configuration and phone data are not included.
 
 BusyBox upstream source: https://busybox.net/downloads/busybox-1.38.0.tar.bz2
 

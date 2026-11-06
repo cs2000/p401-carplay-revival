@@ -2,9 +2,9 @@
 
 ## Did Apple introduce IPv6 CarPlay in iOS 17?
 
-We have not established that. IPv6 existed in iOS years earlier: [Apple's IPv6 guidance](https://developer.apple.com/support/ipv6/) describes the 2016 app compatibility requirement, and [Apple Platform Security](https://support.apple.com/en-gb/guide/security/seccb625dcd9/web) documents per-network link-local addressing in iOS 14.
+I haven't established that. IPv6 existed in iOS years earlier: [Apple's IPv6 guidance](https://developer.apple.com/support/ipv6/) describes the 2016 app compatibility requirement, and [Apple Platform Security](https://support.apple.com/en-gb/guide/security/seccb625dcd9/web) documents per-network link-local addressing in iOS 14.
 
-The owner reports that this box worked on iOS 16 and failed when iOS 17 arrived. A change in discovery, address selection, DHCP or timing could have exposed the old firmware restriction. That is a hypothesis, not proof of a specific iOS change. We have no matched iOS 16/17 captures or Apple statement establishing the trigger. The current capture proves successful IPv6 use after the box-side repair.
+My box worked on iOS 16 and failed when iOS 17 arrived. A change in discovery, address selection, DHCP or timing could have exposed the old firmware restriction. That is a hypothesis, not proof of a specific iOS change. I have no matched iOS 16/17 captures or Apple statement establishing the trigger. The current capture proves successful IPv6 use after the box-side repair.
 
 ## Was MFi authentication too old?
 
@@ -22,10 +22,10 @@ The examined Ottocast reference used an incompatible architecture and stack. It 
 
 Some original ARM applications and libraries can run under QEMU. The project demonstrated native control-request replay and the real Qt menu rendered through a framebuffer shim. That does not emulate the complete board, MCU, Wi-Fi radio, MFi hardware or an iPhone CarPlay video session. Offline success is reported separately from vehicle success.
 
-## Is this the exact image already flashed to the owner's box?
+## Has this download been tested in a car?
 
-The kernel/UI and fix binaries are the same proven components. The downloadable no-logger image is newly consolidated and preserves settings instead of repeating the owner's earlier configuration migration/recovery steps. Its complete image has offline verification only and is labelled rc1. The working staged installation remains the source of the field evidence.
+I've tested the kernel, menus and fix binaries on my box. The combined download packages them into one update while preserving existing settings. That exact image has only been checked offline so far, which is why it is labelled rc1.
 
 ## Does it back up the old firmware, or provide a recovery method?
 
-No. The maintainer and project provide neither a firmware backup nor a recovery image, route or method if the update fails. A factory-settings export is not a firmware backup.
+No. It does not back up your firmware, and I cannot provide a recovery image or method if it fails. A factory-settings export is not a firmware backup.

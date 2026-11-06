@@ -4,7 +4,7 @@ Useful contributions include precise compatibility reports, analysis of the nati
 
 For a hardware report, include the displayed software version, product family, selected MCU/BT/WLAN/display types, iOS version, whether wired CarPlay works, and whether native wireless reached the actual CarPlay screen. Include the release ZIP hash. State whether you used the consolidated release or a staged experimental installation.
 
-Do not post raw packet captures, pairing databases, authentication material, Wi-Fi credentials, phone contacts or identifying screenshots. Use a redacted description or minimal synthetic fixture. No logger is bundled in the release.
+Do not post raw packet captures, pairing databases, authentication material, Wi-Fi credentials, phone contacts or identifying screenshots. Use a redacted description or minimal synthetic fixture.
 
 Keep these release invariants:
 
