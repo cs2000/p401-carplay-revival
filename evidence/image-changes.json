@@ -1,0 +1,189 @@
+[
+  {
+    "path": "etc/carplay-revival-release",
+    "before": null,
+    "after": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 375,
+      "sha256": "c66eb33440369a401741f05defe875cf7909c15803121ba87f62354be3c5d1e7"
+    }
+  },
+  {
+    "path": "etc/hostapd.sh",
+    "before": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 840,
+      "sha256": "561d60bc3685718699e03c7cfda81f5aa22e6852cb89f038b8285c90ae720d77"
+    },
+    "after": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 869,
+      "sha256": "91f60ad1e3394d2e23afe6ebf1615d55e8ab22ecff1eb72beb80eb93cad1752a"
+    }
+  },
+  {
+    "path": "etc/hostapd/hostapd.conf",
+    "before": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 640,
+      "sha256": "bc072cef88f615edcbb946f64d8a103a4b8c4e308614967cbc28b9e83a94248c"
+    },
+    "after": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 639,
+      "sha256": "5ae0771fbcf4660257365db3407ff1256870da6c14da3aeeedacf014be6c8764"
+    }
+  },
+  {
+    "path": "etc/profile",
+    "before": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 3310,
+      "sha256": "133200d6f76be6c0fa4ee8605a516e14c08fe3cce95dbbcba3e922dc16d75dd9"
+    },
+    "after": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 3577,
+      "sha256": "c98b9fa8a030566076828d75c5f42634ab7a7b50950ab86f2b261bc63518aeff"
+    }
+  },
+  {
+    "path": "etc/rc.d/rcS",
+    "before": {
+      "mode": 33261,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 2457,
+      "sha256": "10b3cebb04e38a9f684a9103fd33d90a8d2404dc164b2c39d2aa9ef39e603c1b"
+    },
+    "after": {
+      "mode": 33261,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 2101,
+      "sha256": "ac98a0a3ba3dd82dc298c509ddfe4765968189e2efb552491ad67afb094cb628"
+    }
+  },
+  {
+    "path": "msnprofile/FactoryConfig.ini",
+    "before": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 454,
+      "sha256": "8275f68e41bb55f98c59cd2b617db06b51603888bf4e3bf8a5a45e4cacbb01d4"
+    },
+    "after": {
+      "mode": 41471,
+      "uid": 0,
+      "gid": 0,
+      "type": "symlink",
+      "target": "/data/msncfg/FactoryConfig.ini"
+    }
+  },
+  {
+    "path": "msnprofile/MsnProductInfo.ini",
+    "before": {
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 211,
+      "sha256": "a492fe1a12da87e3c7ddf16a00974b970d31f9d57fb5151e77611fb8228ffd32"
+    },
+    "after": {
+      "mode": 41471,
+      "uid": 0,
+      "gid": 0,
+      "type": "symlink",
+      "target": "/data/msncfg/MsnProductInfo.ini"
+    }
+  },
+  {
+    "path": "usr/bin/carplay-revival-check-settings.sh",
+    "before": null,
+    "after": {
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 382,
+      "sha256": "00d4def5ee21df7aec6f386a482ac531a13d42b943e53b4a1af00ad0a3a26049"
+    }
+  },
+  {
+    "path": "usr/lib/libAirPlay.so",
+    "before": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 187796,
+      "sha256": "f86ec8573bf9a1dbd1526b8e99a5e6ff503a4191fd5f9d0024518f7fc4110716"
+    },
+    "after": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 187796,
+      "sha256": "551112f2b5e525a0ff4994357ee1563c5d1e1dad56f59df6724962a0be8e34db"
+    }
+  },
+  {
+    "path": "usr/libexec",
+    "before": null,
+    "after": {
+      "mode": 16877,
+      "uid": 0,
+      "gid": 0,
+      "type": "directory"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival",
+    "before": null,
+    "after": {
+      "mode": 16877,
+      "uid": 0,
+      "gid": 0,
+      "type": "directory"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/udhcpd",
+    "before": null,
+    "after": {
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 93848,
+      "sha256": "bddafb863e3f37da68fc680db389f0c1b4c5fd0468953580f0f4422726c382d7"
+    }
+  }
+]

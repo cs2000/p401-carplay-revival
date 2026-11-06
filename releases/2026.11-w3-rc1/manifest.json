@@ -1,0 +1,41 @@
+{
+  "release": "2026.11-w3-rc1",
+  "date": "2026-11-06",
+  "status": "CONSOLIDATED_IMAGE_OFFLINE_VERIFIED_FIELD_PROVEN_FIX_COMPONENTS",
+  "complete_image_vehicle_tested": false,
+  "prior_staged_W3_wireless_vehicle_success": true,
+  "settings_migration": false,
+  "mcu_type_forced": false,
+  "diagnostic_logger_bundled": false,
+  "firmware_backup_provided": false,
+  "recovery_image_or_method_provided": false,
+  "vendor_ui": "V3.22.1 November 2025",
+  "kernel": "Unmodified Linux 3.4.0 #396, 2025-11-21",
+  "warning": "This does not back up current firmware. Flashing may make the unit unusable. Neither the maintainer nor the project provides a recovery firmware, route or method.",
+  "required_existing_configuration": [
+    "/data/msncfg/MsnProductInfo.ini",
+    "/data/msncfg/FactoryConfig.ini"
+  ],
+  "usb_files": [
+    {
+      "name": "update",
+      "bytes": 20,
+      "sha256": "fd4c7328b55789ea720829f7983ba47ca6342096da4bf9ce2f06136ad667679e"
+    },
+    {
+      "name": "zImage",
+      "bytes": 3255848,
+      "sha256": "04dc369f6fa30443a5c4353467cb5f8994af3a95798824e3f2815d360a46f9fc"
+    },
+    {
+      "name": "rootfs.img",
+      "bytes": 99614720,
+      "sha256": "f0a56487359a94c556fc4bd38026b648b98d6ee55a94ccef8d3512a299537e4d"
+    }
+  ],
+  "download": {
+    "name": "P401_2026.11_W3_RC1_NO_LOGGER.zip",
+    "bytes": 80047345,
+    "sha256": "826592230326d57be22895fc89a1228504a16d45015c5996e5d6cca4c1e02278"
+  }
+}

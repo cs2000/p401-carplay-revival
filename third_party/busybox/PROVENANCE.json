@@ -1,0 +1,14 @@
+{
+  "version": "1.38.0",
+  "source_url": "https://busybox.net/downloads/busybox-1.38.0.tar.bz2",
+  "source_sha256": "34f9ea6ff8636f2c9241153b9114eefa9e65674a45318ae1ef95bb5f31c53bb2",
+  "source_patches": [],
+  "configured_applets": [
+    "udhcpd"
+  ],
+  "field_tested_binary_sha256": "bddafb863e3f37da68fc680db389f0c1b4c5fd0468953580f0f4422726c382d7",
+  "binary_bytes": 93848,
+  "compiler": "Alpine clang 20.1.8",
+  "target_flags": "--target=armv6-alpine-linux-musleabihf -march=armv7-a -mfpu=vfpv3-d16 -mfloat-abi=hard -fuse-ld=lld",
+  "config_sha256": "a91c83af8737031199d02d4b99d9023d5b3970e9dd3965fef23b5eee129a1076"
+}

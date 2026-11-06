@@ -1,0 +1,60 @@
+#!/bin/sh
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t ramfs -n none /tmp
+mount -t ramfs -n none /media
+mount -t ramfs -n none /var
+mkdir -p /var/run /var/lib/lockdown /data
+sync
+/sbin/mdev -s
+
+# Resolve the existing named data partition; never guess a partition number.
+# In this experimental build a mount error must not erase the owner's data.
+data_ok=0
+data_mtd=$(sed -n 's/^mtd\([0-9][0-9]*\):.*"userdata"$/\1/p' /proc/mtd)
+case "$data_mtd" in
+    ''|*[!0-9]*) data_mtd= ;;
+esac
+if [ -n "$data_mtd" ] && grep -q ' / ubifs ' /proc/mounts; then
+    data_ubi=
+    for entry in /sys/class/ubi/ubi[0-9]*/mtd_num; do
+        [ -f "$entry" ] || continue
+        if [ "$(cat "$entry")" = "$data_mtd" ]; then
+            data_ubi=${entry%/mtd_num}
+            data_ubi=${data_ubi##*/}
+        fi
+    done
+    if [ -z "$data_ubi" ]; then
+        ubiattach /dev/ubi_ctrl -m "$data_mtd"
+        /sbin/mdev -s
+        for entry in /sys/class/ubi/ubi[0-9]*/mtd_num; do
+            [ -f "$entry" ] || continue
+            if [ "$(cat "$entry")" = "$data_mtd" ]; then
+                data_ubi=${entry%/mtd_num}
+                data_ubi=${data_ubi##*/}
+            fi
+        done
+    fi
+    if [ -n "$data_ubi" ]; then
+        if mount -o sync -t ubifs "$data_ubi:userdata" /data; then
+            data_ok=1
+        fi
+    fi
+elif [ -n "$data_mtd" ] && grep -q ' / yaffs2 ' /proc/mounts; then
+    if mount -t yaffs2 "/dev/mtdblock$data_mtd" /data; then data_ok=1; fi
+fi
+if [ "$data_ok" -eq 1 ]; then
+    echo persistent > /tmp/p401-data-mode
+else
+    if mount -t tmpfs -o size=8m,mode=0755 p401-data /data; then
+        echo volatile > /tmp/p401-data-mode
+        echo 'CarPlay Revival: userdata mount failed; temporary settings only, NO format.'
+    else
+        echo 'CarPlay Revival: cannot mount userdata or RAM fallback; startup stopped.'
+        # Keep the init sysinit stage here rather than starting apps against /data
+        # on the root filesystem. No automatic reboot or destructive recovery.
+        while :; do sleep 60; done
+    fi
+fi

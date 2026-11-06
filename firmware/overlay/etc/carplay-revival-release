@@ -1,0 +1,6 @@
+2026.11-w3-rc1
+Vendor UI: V3.22.1 (2025-11), kernel: unmodified Linux 3.4.0 #396.
+Includes W2 interworking, W3 link-local control repair and BusyBox 1.38.0 DHCP.
+Preserves existing userdata configuration. No configuration migration or logger.
+Consolidated image: offline verified; this exact image is not yet vehicle-tested.
+No firmware backup or recovery route is provided.

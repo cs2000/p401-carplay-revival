@@ -1,0 +1,48 @@
+{
+  "status": "NATIVE_WIRELESS_CARPLAY_SUCCESS_CONFIRMED_BY_OWNER_AND_LOGS",
+  "device_log_date": "2026-11-05",
+  "acquired_date": "2026-11-06",
+  "installation_checks_passed": true,
+  "patched_library_selected": true,
+  "patched_library_mapped": true,
+  "new_dhcp_server_running": true,
+  "auth_successes": 1,
+  "native_control_successes": 1,
+  "native_control_failures": 0,
+  "wireless_airplay_sessions": 1,
+  "screen_stream_starts": 2,
+  "first_frame_shown": true,
+  "touch_calls": 26,
+  "packets": 9161,
+  "dhcp_counts": {
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "5": 1
+  },
+  "causal_limit": "Both W3 changes were installed together. IPv6 control/media use directly exercises the link-local patch, and DHCP REQUEST/ACK establishes successful address assignment; independent necessity of each change has not been tested.",
+  "long_term_reliability_verified": false,
+  "scope": "Historic R1 + recovery + W2 + W3 installation, not the consolidated rc1 image.",
+  "packet_order": [
+    {
+      "index": 38,
+      "event": "IPv6 link-local GET /ctrl-int/1/connect"
+    },
+    {
+      "index": 40,
+      "event": "IPv6 HTTP 200 OK"
+    },
+    {
+      "index": 62,
+      "event": "unicast DHCP OFFER"
+    },
+    {
+      "index": 64,
+      "event": "DHCP REQUEST"
+    },
+    {
+      "index": 65,
+      "event": "unicast DHCP ACK"
+    }
+  ]
+}
