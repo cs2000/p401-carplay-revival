@@ -1,0 +1,214 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "ARM shell syntax run-ui.sh",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /data/p401-w3/bin/udhcpd",
+      "passed": true
+    },
+    {
+      "check": "verified /data/p401-w3/lib/libAirPlay.so",
+      "passed": true
+    },
+    {
+      "check": "verified /etc/hostapd.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/p401-recovery-diagnostics.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/p401-run-carplay-log.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/carplay",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/hostapd",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libAirPlay.so",
+      "passed": true
+    },
+    {
+      "check": "verified /lib/modules/3.4.0/wlan_rtl8189fs.ko",
+      "passed": true
+    },
+    {
+      "check": "verified /etc/udhcpd.conf",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/p401-r4/p401-diag",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/p401-r4/libp401-capture.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/p401-log-stream.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/p401-r4-observers.sh",
+      "passed": true
+    },
+    {
+      "check": "verified /etc/hostapd/hostapd.conf",
+      "passed": true
+    },
+    {
+      "check": "verified /data/carplay-revival/lib/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "verified /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "verified /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "verified /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "rollback exact prior usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "rollback exact prior data/p401-w3/install-checks.txt",
+      "passed": true
+    },
+    {
+      "check": "only GUI runner changes in W3 manifest",
+      "passed": true
+    },
+    {
+      "check": "no kernel, MCU, firmware or user profile replacement",
+      "passed": true
+    },
+    {
+      "check": "healthy launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "healthy preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "unsupported-bt launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "unsupported-bt preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "disabled launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "disabled preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "no-w3 launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "no-w3 preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "crash launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "crash preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "notready launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "notready preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "timeout launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "timeout preserves factory profile",
+      "passed": true
+    }
+  ],
+  "scope": "Actual ARM BusyBox and CRC verifier, redirected filesystem, recorded GUI process launches; no physical device."
+}

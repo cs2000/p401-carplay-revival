@@ -11,3 +11,7 @@ The added DHCP binary is built from unmodified BusyBox 1.38.0 source with only t
 The reference contains Linux, BusyBox, Qt and other third-party and proprietary components, with their respective licenses and rights. This repository does not contain the complete vendor BSP/kernel/application source corresponding to the November 2025 firmware. The separate public Arkmicro kernel projects are not asserted to match this binary. The two-byte patch does not transfer ownership or relicense the original library.
 
 The downloadable firmware is an unofficial modified vendor image. Source availability and redistribution terms for inherited components remain separate from the original project tools' MIT license. The repository must not be described as a fully open-source CarPlay implementation.
+
+## Experimental Jaguar interface
+
+The UI1 extension dynamically links to the existing vendor Qt 4.7.4 libraries. Qt header licenses and the Qt LGPL exception are retained under `experimental/ui1/licenses/qt`; build instructions identify the pinned upstream header source. Jaguar leaper/wordmark artwork and screenshots are excluded from the project MIT license. Jaguar trademarks remain the property of their respective rights holders; this project is unofficial and is not endorsed by Jaguar.

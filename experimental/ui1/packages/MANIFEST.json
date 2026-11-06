@@ -1,0 +1,61 @@
+{
+  "revision": "ui1-2026-11-06",
+  "status": "PC-tested experimental extension; no physical UI1 test reported",
+  "library_sha256": "aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35",
+  "baseline": "Existing R1 plus field W3 installation; not the standalone public RC1 layout",
+  "packages": [
+    {
+      "file": "INSTALL.zip",
+      "bytes": 96837,
+      "sha256": "2d43baa7ce7f244e48fcb14cde7d9a853be6e599f3b3fa47d8ab83391b06c53f",
+      "files": {
+        "msn_autocopy/data/carplay-revival/compatibility.txt": {
+          "bytes": 444,
+          "sha256": "c9ca8dfa08f99e83b3cb3b311bd305a164a3a24a7f24148cb6d047f4086061cf"
+        },
+        "msn_autocopy/data/carplay-revival/lib/libp401-ui.so": {
+          "bytes": 301908,
+          "sha256": "aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35"
+        },
+        "msn_autocopy/data/carplay-revival/run-ui.sh": {
+          "bytes": 2094,
+          "sha256": "a69e2459da88d57bf514347d99146e6e6d765da93192e22e8bd5b9b736798735"
+        },
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 8,
+          "sha256": "e056a35db086947e2f5969d747f0a7517bff00c7ffff1f9e7b47b72bfac9d948"
+        },
+        "msn_autocopy/data/p401-w3/install-checks.txt": {
+          "bytes": 753,
+          "sha256": "099a60eaf7b0b4798938884a1818ebcce758fee588c4e16cd0cd385578c01361"
+        },
+        "msn_autocopy/usr/bin/p401-recovery-run-core.sh": {
+          "bytes": 1348,
+          "sha256": "3a58e976c9a47196b0c8c07be039acd63edca2e1f4f20ac757c06d64d4ccfc9a"
+        }
+      }
+    },
+    {
+      "file": "ROLLBACK.zip",
+      "bytes": 1535,
+      "sha256": "6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 9,
+          "sha256": "b5ea375becd3088862c16fc97fe379532c583079829fcf1fdcb549e6808262fb"
+        },
+        "msn_autocopy/data/p401-w3/install-checks.txt": {
+          "bytes": 753,
+          "sha256": "b31f349ae1b61923b122ee0b7e90a1b1b8e3a4558d53d05ab3851acef3d79786"
+        },
+        "msn_autocopy/usr/bin/p401-recovery-run-core.sh": {
+          "bytes": 1172,
+          "sha256": "61f62da7ed8909b20fa6546d46e8199b51754a05fbaed84d1cfd68fe0141c452"
+        }
+      }
+    }
+  ],
+  "rollback_note": "Archive rebuilt with canonical msn_autocopy root; payload bytes match the tested prior state.",
+  "flash_backup": false,
+  "full_flash_restore_available": false
+}

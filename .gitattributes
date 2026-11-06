@@ -6,6 +6,9 @@
 *.zip -text
 *.bz2 -text
 *.png -text
+*.so -text
+experimental/ui1/lab/reference/p401-diag -text
+experimental/ui1/baseline/** -text
 firmware/bin/udhcpd -text
 # Preserve the donor scripts' harmless original whitespace for exact build inputs.
 firmware/overlay/** whitespace=-blank-at-eol,-blank-at-eof

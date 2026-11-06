@@ -1,0 +1,148 @@
+{
+  "library_sha256": "aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35",
+  "cases": [
+    {
+      "case": "default",
+      "native": {
+        "saved_name": "",
+        "child_preload": "unset",
+        "name_validation": "PASS",
+        "current_mode_app": "1",
+        "hostapd_ssid": "carplay_test",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "advertised_ssid": "carplay_test",
+        "bt_panel": "found,adapter=0x8ae828",
+        "bluetooth_desired": "Car Audio",
+        "visible_apps": "10",
+        "native_restart_lock": "available"
+      },
+      "routes": [],
+      "passed": true
+    },
+    {
+      "case": "invalid",
+      "native": {
+        "saved_name": "",
+        "child_preload": "unset",
+        "name_validation": "PASS",
+        "current_mode_app": "1",
+        "hostapd_ssid": "carplay_test",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "advertised_ssid": "carplay_test",
+        "bt_panel": "found,adapter=0x8ae828",
+        "bluetooth_desired": "Car Audio",
+        "visible_apps": "10",
+        "native_restart_lock": "available"
+      },
+      "routes": [],
+      "passed": true
+    },
+    {
+      "case": "maximum",
+      "native": {
+        "saved_name": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "child_preload": "unset",
+        "name_validation": "PASS",
+        "current_mode_app": "1",
+        "hostapd_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "advertised_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "bt_panel": "found,adapter=0x8aeab8",
+        "bluetooth_desired": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "visible_apps": "10",
+        "native_restart_lock": "available"
+      },
+      "routes": [],
+      "passed": true
+    },
+    {
+      "case": "jaguar",
+      "native": {
+        "saved_name": "Jaguar XFR",
+        "child_preload": "unset",
+        "name_validation": "PASS",
+        "current_mode_app": "1",
+        "hostapd_ssid": "Jaguar XFR",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "advertised_ssid": "Jaguar XFR",
+        "bt_panel": "found,adapter=0x8b2448",
+        "bluetooth_desired": "Jaguar XFR",
+        "visible_apps": "10",
+        "native_restart_lock": "available"
+      },
+      "routes": [
+        {
+          "label": "CarPlay",
+          "expected": 4,
+          "visible": [
+            4
+          ],
+          "passed": true
+        },
+        {
+          "label": "Android Auto",
+          "expected": 13,
+          "visible": [
+            13
+          ],
+          "passed": true
+        },
+        {
+          "label": "Bluetooth",
+          "expected": 3,
+          "visible": [
+            3
+          ],
+          "passed": true
+        },
+        {
+          "label": "Music",
+          "expected": 2,
+          "visible": [
+            2
+          ],
+          "passed": true
+        },
+        {
+          "label": "Video",
+          "expected": 7,
+          "visible": [
+            10
+          ],
+          "passed": true
+        },
+        {
+          "label": "Mirroring",
+          "expected": 11,
+          "visible": [
+            11
+          ],
+          "passed": true
+        },
+        {
+          "label": "Exit",
+          "expected": 9,
+          "visible": [
+            9
+          ],
+          "passed": true
+        },
+        {
+          "label": "Settings",
+          "expected": 8,
+          "visible": [
+            8
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "hardware_radio_tested": false,
+  "passed": true
+}

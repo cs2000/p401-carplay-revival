@@ -29,3 +29,5 @@ The filename is **`update`**, without an extension. It starts the full firmware 
 I've tested the fixes on my box. This combined download has passed offline checks but has not yet been tested in a vehicle, so it is labelled **rc1**.
 
 [Release details and checksums](releases/2026.11-w3-rc1/README.md) · [Installation help](docs/installation.md) · [Technical notes](docs/README.md)
+
+Experimental work: [Jaguar menu and custom CarPlay name](experimental/ui1/README.md) · [Cloud project handover](docs/cloud-handover.md)

@@ -1,0 +1,64 @@
+#!/bin/sh
+# Experimental GUI extension; the W3 CarPlay launchers remain unchanged.
+area=/data/carplay-revival
+helper=/usr/lib/p401-r4/p401-diag
+stock() {
+    unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES
+    MsnCoreApp -qws
+}
+if [ ! -f /tmp/p401-w3-install-ok ] ||
+   [ "$(cat "$area/state" 2>/dev/null)" != enabled ] ||
+   ! "$helper" verify "$area/compatibility.txt" @MANIFEST_CHECK@; then
+    echo 'Revival UI inactive; starting original interface.'
+    stock
+    exit $?
+fi
+compatible=yes
+while read -r crc size path; do
+    if ! "$helper" verify "$path" "$crc" "$size"; then
+        echo "Revival UI compatibility check failed: $path"
+        compatible=no
+    fi
+done < "$area/compatibility.txt"
+if [ "$compatible" != yes ]; then
+    stock
+    exit $?
+fi
+
+# Name handling is validated for the SD-RDA module's native adapter (type 3).
+# MCU choice and every existing factory setting are read-only.
+P401_UI_NAMES=0
+bt_type=$(awk -F= '/^\[/ { group=$0; sub(/\r$/, "", group) }
+    group=="[General]" && $1=="BlueToothType" { value=$2; sub(/\r$/, "", value) }
+    END { print value }' /msnprofile/MsnProductInfo.ini)
+[ "$bt_type" != 3 ] || P401_UI_NAMES=1
+export P401_UI_NAMES
+rm -f /tmp/p401-ui-ready /tmp/p401-ui-timeout
+LD_PRELOAD="$area/lib/libp401-ui.so" P401_UI_LAYOUT=xfr MsnCoreApp -qws &
+core_pid=$!
+(
+    ticks=0
+    while [ "$ticks" -lt 60 ] && kill -0 "$core_pid" 2>/dev/null && [ ! -f /tmp/p401-ui-ready ]; do
+        sleep 1
+        ticks=$((ticks + 1))
+    done
+    if kill -0 "$core_pid" 2>/dev/null && [ ! -f /tmp/p401-ui-ready ]; then
+        echo timeout > /tmp/p401-ui-timeout
+        kill "$core_pid" 2>/dev/null
+        sleep 2
+        kill -9 "$core_pid" 2>/dev/null
+    fi
+) &
+watch_pid=$!
+wait "$core_pid"
+result=$?
+kill "$watch_pid" 2>/dev/null
+wait "$watch_pid" 2>/dev/null
+if [ "$result" -ne 0 ] || [ ! -f /tmp/p401-ui-ready ] || [ -f /tmp/p401-ui-timeout ]; then
+    printf 'disabled\n' > "$area/state.new" && mv "$area/state.new" "$area/state"
+    sync
+    echo 'Revival UI failed; disabled it and restarting the original interface.'
+    stock
+    exit $?
+fi
+exit 0
