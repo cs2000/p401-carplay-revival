@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "scope": "Actual ARM production preferences.cpp with vendor Qt in isolated offline QEMU fixtures; no physical storage/endurance claim.",
+  "source_sha256": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181",
+  "probe_sha256": "8d221a5c13b7123dafca9086fdf06103322025fb7d9dc0efebb42830af070062",
+  "build_command": [
+    "clang++",
+    "--target=arm-linux-gnueabihf",
+    "-march=armv7-a",
+    "-mfpu=vfpv3-d16",
+    "-mfloat-abi=hard",
+    "-isystem",
+    "/usr/include/arm-linux-musleabihf",
+    "-I/repo/experimental/ui1/build/include",
+    "-I/repo/experimental/ui1/build/include/QtCore",
+    "-I/repo/experimental/ui1/build/include/QtGui",
+    "-I/repo/experimental/ui1/src",
+    "-fuse-ld=lld",
+    "-fPIC",
+    "-shared",
+    "-nostdlib",
+    "-nostdinc++",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-std=c++11",
+    "-O2",
+    "-Wno-deprecated",
+    "-Wno-reserved-user-defined-literal",
+    "/repo/experimental/ui1/src/preferences.cpp",
+    "/repo/experimental/ui1/lab/cloud/preferences_probe.cpp",
+    "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+    "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+    "/repo/experimental/ui1/build/cloud/vendor-root/lib/libstdc++.so.6",
+    "/repo/experimental/ui1/build/cloud/vendor-root/lib/libc.so.6",
+    "-o",
+    "/repo/experimental/ui1/build/cloud/preferences/probe.so"
+  ],
+  "sources": {
+    "src/preferences.cpp": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181",
+    "src/preferences.h": "cb6e53a088143fd574c47568934277758e278b6890919585d0b13106d9e2c106",
+    "lab/cloud/preferences_probe.cpp": "463d3ad11cbb34be44f84878b60e9766f0c91b26d07de57e356e1bbfe43c13d9"
+  },
+  "checks": [
+    {
+      "name": "missing defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "empty defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "truncated defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "duplicate-order defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "unknown-version defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "bad-accent defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "bad-picture defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "extra-key defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "extra-byte defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "noncanonical defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "oversized defaults as a whole",
+      "passed": true
+    },
+    {
+      "name": "symlink input rejected",
+      "passed": true
+    },
+    {
+      "name": "valid custom save applies",
+      "passed": true
+    },
+    {
+      "name": "canonical exact bytes",
+      "passed": true
+    },
+    {
+      "name": "private saved mode",
+      "passed": true
+    },
+    {
+      "name": "no temporary files remain",
+      "passed": true
+    },
+    {
+      "name": "name and factory fixture unchanged",
+      "passed": true
+    },
+    {
+      "name": "custom reload after restart",
+      "passed": true
+    },
+    {
+      "name": "invalid-order save rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid-accent save rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid-picture save rejected",
+      "passed": true
+    },
+    {
+      "name": "read-only save failure preserves current",
+      "passed": true
+    },
+    {
+      "name": "restore defaults saves complete record",
+      "passed": true
+    }
+  ]
+}

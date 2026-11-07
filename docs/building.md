@@ -55,6 +55,28 @@ The [public release](../releases/2026.11-jaguar-xfr-rc1/README.md) contains the 
 
 ## Download / USB verification
 
+### Jaguar RC2
+
+After the native RC2 feature/regression/storage suites pass for one frozen binary, run `python experimental/ui1/lab/cloud/aggregate_rc2.py`. The complete aggregate includes the exact UI source snapshot. Both packagers refuse incomplete or mismatched evidence.
+
+```sh
+python tools/build_jaguar_image.py --variant rc2 \
+  --source-tar build/onboarding/release/rootfs_source_tree.tar \
+  --ui-library experimental/ui1/build/libp401-ui.so \
+  --ui-evidence experimental/ui1/build/cloud/rc2/NATIVE_EVIDENCE.json \
+  --verifier build/jaguar/verifier/verify \
+  --verifier-evidence build/jaguar/verifier/BUILD.json \
+  --build-dir build/jaguar/full-image-rc2
+```
+
+Use the documented offline build container and a new destination. Roundtrip the new `rootfs.img` with `archive_ubi_tree.py`; run `verify_jaguar_image.py --variant rc2 --ui-evidence ...`, `test_startup.py --variant rc2 --ui-evidence ...`, and `test_jaguar_ui_startup.py --real-timeout`. Native integration uses `validate_firmware.py --variant rc2 --ui-evidence ... --probe-library ...` against the roundtrip tar with the freshly built plain observer from the RC2 regression directory. RC2's native name navigation is located from the model's visible row geometry, because Appearance precedes CarPlay name.
+
+The update selector still requests only kernel/filesystem. No userdata payload, formatting or defaults migration is added; full RC1 users retain existing factory values, name, appearance and UI enable/disable state. Compatible hardware and valid existing configuration remain required. Native fixtures verify preserved userdata but do not perform an actual vehicle flash.
+
+`package_ui1_rc2_upgrade.py` creates the separate six-file field-layout overlay for the current car; `test_ui1_rc2_upgrade.py` checks ARM CRC chains, fail-open behavior and the exact previous-UI restore. These field files are never used by the full-image builder. Public [RC2 downloads](../releases/2026.11-jaguar-xfr-rc2/README.md) retain the simple README/checksums/firmware ZIP layout; [technical records](../experimental/ui1/full-image-rc2/README.md), [current-car update](../upgrades/2026.11-jaguar-xfr-rc2/README.md) and [full-image UI controls](../recovery/2026.11-jaguar-xfr-rc2/README.md) are separate.
+
+### Generic W3 RC1
+
 ```text
 python tools/verify_usb.py PATH_TO_EXTRACTED_ZIP
 ```

@@ -1,0 +1,18 @@
+{
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "passed": true,
+  "clock_start": "01:44",
+  "clock_end": "01:45",
+  "clock_pixels_changed": true,
+  "artwork_decoded": "768x512",
+  "setting_window_visible": true,
+  "clock_overlay_hidden_in_settings": true,
+  "home_screenshots": [
+    "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-clock-glass.png",
+    "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-clock-next-minute.png",
+    "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-returned.png"
+  ],
+  "settings_header": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/settings-native-title.png",
+  "scope": "Exact ARM candidate, production mode LAB unset, private synthetic profile and English source-model fixture. Natural Qt clock minute advance; host time unchanged.",
+  "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2"
+}

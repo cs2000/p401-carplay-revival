@@ -65,7 +65,7 @@ cmd=['clang++','--target=arm-linux-gnueabihf','-march=armv7-a','-mfpu=vfpv3-d16'
      '-fuse-ld=lld','-fPIC','-shared','-nostdlib','-nostdinc++','-fno-exceptions','-fno-rtti',
      '-fno-stack-protector','-fno-unwind-tables','-fno-asynchronous-unwind-tables',
      '-Wl,--hash-style=both,-soname,libp401-ui.so','-std=c++11','-O2','-Wall','-Wextra','-Wno-deprecated','-Wno-reserved-user-defined-literal',
-     str(SRC/'ui.cpp'),str(SRC/'name_store.cpp'),str(SRC/'name_hooks.cpp'),str(SRC/'lab_probe.cpp'),*[str(p) for p in libs],'-o',str(OUT/'libp401-ui.so')]
+     *[str(SRC/name) for name in ['ui.cpp','name_store.cpp','name_hooks.cpp','lab_probe.cpp','preferences.cpp','appearance_editor.cpp','connection_status.cpp','settings_style.cpp']],*[str(p) for p in libs],'-o',str(OUT/'libp401-ui.so')]
 r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
 (OUT/'build.log').write_text(r.stdout)
 if r.returncode:

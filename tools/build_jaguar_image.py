@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble the Jaguar full image from pinned public RC1 and owner-tested UI1.
+"""Assemble Jaguar RC1 or a validated RC2 candidate from pinned public W3 RC1.
 
 Run as root in a disposable Linux build environment. Creates only NEW local
 outputs; never opens a flash device. It does not rebuild or re-patch W3/UI1.
@@ -24,6 +24,9 @@ from build_image import inventory
 REPO = Path(__file__).resolve().parents[1]
 RELEASE = "2026.11-jaguar-xfr-rc1"
 ARCHIVE_NAME = "P401_2026.11_JAGUAR_XFR_RC1.zip"
+RC2_RELEASE = "2026.11-jaguar-xfr-rc2"
+RC2_ARCHIVE_NAME = "P401_2026.11_JAGUAR_XFR_RC2.zip"
+VERIFIER_SHA = "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48"
 SOURCE_TAR_SHA = "be982d06fdefbc91229cd9d72081ac47f08ac3dc9733fcfa8aac02af10ee1b56"
 BASE_ZIP_SHA = "826592230326d57be22895fc89a1228504a16d45015c5996e5d6cca4c1e02278"
 UI_INSTALL_SHA = "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383"
@@ -38,6 +41,13 @@ HELPER = "usr/libexec/carplay-revival/verify"
 LIBRARY = UI_ROOT + "/libp401-ui.so"
 MANIFEST = UI_ROOT + "/compatibility.txt"
 RUNNER = UI_ROOT + "/run-ui.sh"
+RC2_ABI_PINS = {
+    "usr/lib/libLinkLibs.so": {
+        "bytes": 129180,
+        "crc32": "59ed7170",
+        "sha256": "ac7d73df4bdd7dfa59e4042dbf46c19797eb3ce84cca630dff79308911e8acdc",
+    },
+}
 W3_PINS = {
     "usr/lib/libAirPlay.so": "551112f2b5e525a0ff4994357ee1563c5d1e1dad56f59df6724962a0be8e34db",
     "usr/libexec/carplay-revival/udhcpd": "bddafb863e3f37da68fc680db389f0c1b4c5fd0468953580f0f4422726c382d7",
@@ -106,6 +116,44 @@ def read_ui_zip(path: Path) -> tuple[bytes, bytes]:
     return library, compatibility
 
 
+def rc2_source_snapshot() -> dict:
+    # Use the same exact production-source map as the native evidence aggregate.
+    # Keep this dependency outside the historical default RC1 branch.
+    from package_ui1_candidate import source_snapshot
+    return source_snapshot()
+
+
+def candidate_ui(library_path: Path, evidence_path: Path) -> tuple[bytes, dict]:
+    """Require complete fresh native evidence for the exact new RC2 library."""
+    library = library_path.read_bytes()
+    check_elf(library, static=False)
+    require(struct.unpack_from("<H", library, 16)[0] == 3, "RC2 UI library must be an ARM shared object")
+    library_sha = digest(library)
+    require(library_sha != UI_LIBRARY_SHA, "RC2 requires a new UI library, not the owner-tested RC1 artifact")
+    evidence_bytes = evidence_path.read_bytes()
+    evidence = json.loads(evidence_bytes)
+    require(evidence.get("passed") is True and evidence.get("complete") is True,
+            "RC2 native UI evidence must be passed and complete")
+    require(evidence.get("library_sha256") == library_sha, "RC2 native evidence does not match supplied UI library")
+    snapshot = rc2_source_snapshot()
+    require(evidence.get("source_snapshot") == snapshot,
+            "RC2 native evidence does not match the current production UI sources/assets")
+    cases = evidence.get("cases")
+    require(isinstance(cases, list) and bool(cases) and
+            all(isinstance(case, dict) and case.get("passed") is True for case in cases),
+            "RC2 native UI evidence must contain passed cases")
+    return library, {"library_sha256": library_sha, "passed": True, "complete": True,
+                     "case_count": len(cases), "source_snapshot_sha256": snapshot["sha256"],
+                     **description(evidence_bytes)}
+
+
+def input_file(path: Path, data: bytes | None = None) -> dict:
+    """Record a reproducible input identity without requiring a workstation path."""
+    resolved = path.resolve()
+    name = resolved.relative_to(REPO).as_posix() if resolved.is_relative_to(REPO) else path.name
+    return {"file": name, **description(path.read_bytes() if data is None else data)}
+
+
 def validate_tar(path: Path) -> None:
     require(sha(path) == SOURCE_TAR_SHA, "Use exact metadata-preserving public RC1 extraction")
     with tarfile.open(path) as archive:
@@ -117,20 +165,46 @@ def validate_tar(path: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--variant", choices=("rc1", "rc2"), default="rc1",
+                    help="rc1 retains the owner-tested UI; rc2 requires a new native-validated library")
     ap.add_argument("--source-tar", type=Path, required=True)
     ap.add_argument("--base-zip", type=Path, default=REPO / "releases/2026.11-w3-rc1/P401_2026.11_W3_RC1.zip")
-    ap.add_argument("--ui-install", type=Path, default=REPO / "experimental/ui1/candidates/glass-clock-2026-11-06/INSTALL.zip")
+    ap.add_argument("--ui-install", type=Path, default=REPO / "experimental/ui1/candidates/glass-clock-2026-11-06/INSTALL.zip",
+                    help="Pinned owner-tested installer; supplies RC1 UI and the vendor ABI baseline for both variants")
+    ap.add_argument("--ui-library", type=Path, help="New RC2 ARM UI library; unavailable in rc1 mode")
+    ap.add_argument("--ui-evidence", type=Path, help="Complete passed native evidence for that exact RC2 library")
     ap.add_argument("--verifier", type=Path, required=True)
     ap.add_argument("--verifier-evidence", type=Path)
     ap.add_argument("--build-dir", type=Path, required=True)
     args = ap.parse_args()
     require(os.geteuid() == 0, "Linux root is required to preserve vendor ownership and modes")
+    if args.variant == "rc1":
+        require(args.ui_library is None and args.ui_evidence is None,
+                "RC1 uses only its pinned owner-tested UI; select --variant rc2 for a candidate")
+    else:
+        require(args.ui_library is not None and args.ui_evidence is not None,
+                "RC2 requires both --ui-library and --ui-evidence")
+    release = RELEASE if args.variant == "rc1" else RC2_RELEASE
+    archive_name = ARCHIVE_NAME if args.variant == "rc1" else RC2_ARCHIVE_NAME
     source = args.source_tar.resolve()
     base_files = read_base_zip(args.base_zip)
     library, old_compatibility = read_ui_zip(args.ui_install)
+    native_evidence = None
+    input_files = None
+    if args.variant == "rc2":
+        library, native_evidence = candidate_ui(args.ui_library, args.ui_evidence)
+        input_files = {
+            "base_zip": input_file(args.base_zip), "source_tar": input_file(source),
+            "ui_abi_baseline_zip": input_file(args.ui_install),
+            "ui_library": input_file(args.ui_library, library),
+            "ui_evidence": input_file(args.ui_evidence),
+        }
     validate_tar(source)
     verifier = args.verifier.read_bytes()
     check_elf(verifier, static=True)
+    if args.variant == "rc2":
+        require(digest(verifier) == VERIFIER_SHA, "RC2 must retain the exact RC1 verifier")
+        input_files["verifier"] = input_file(args.verifier, verifier)
     evidence = None
     if args.verifier_evidence:
         evidence = json.loads(args.verifier_evidence.read_text())
@@ -143,6 +217,8 @@ def main() -> None:
         require(evidence.get("source") == "firmware/jaguar/verify.c" and
                 evidence.get("source_sha256") == sha(REPO / "firmware/jaguar/verify.c"),
                 "Verifier evidence does not match current helper source")
+    if args.variant == "rc2" and args.verifier_evidence:
+        input_files["verifier_evidence"] = input_file(args.verifier_evidence)
     build = args.build_dir.absolute()
     require(not build.exists() and not build.is_symlink(), "Build directory must be new")
     require(not build.resolve().is_relative_to((REPO / "releases").resolve()), "Use an ignored build directory, not releases")
@@ -170,6 +246,15 @@ def main() -> None:
         crc, size, path = line.decode("ascii").split()
         data = (root / path.lstrip("/")).read_bytes()
         require(crc_length(data) == crc + " " + size, "Public RC1 differs from tested UI vendor ABI: " + path)
+    extra_abi_rows = b""
+    if args.variant == "rc2":
+        for path, pin in RC2_ABI_PINS.items():
+            data = (root / path).read_bytes()
+            require(description(data) == {key: pin[key] for key in ("bytes", "sha256")},
+                    "Public RC1 differs from RC2 connection API ABI: " + path)
+            require(crc_length(data) == pin["crc32"] + " " + str(pin["bytes"]),
+                    "RC2 connection API CRC pin mismatch: " + path)
+            extra_abi_rows += manifest_row(path, data)
 
     def install(path: str, data: bytes, mode: int) -> None:
         dest = root / path
@@ -181,7 +266,9 @@ def main() -> None:
 
     install(LIBRARY, library, 0o644)
     install(HELPER, verifier, 0o755)
-    compatibility = manifest_row(LIBRARY, library) + b"".join(line + b"\n" for line in old_compatibility.splitlines()[1:]) + manifest_row(HELPER, verifier)
+    compatibility = (manifest_row(LIBRARY, library) +
+                     b"".join(line + b"\n" for line in old_compatibility.splitlines()[1:]) +
+                     extra_abi_rows + manifest_row(HELPER, verifier))
     install(MANIFEST, compatibility, 0o644)
     runner = templates["run-ui.sh.in"].replace(b"@MANIFEST_CHECK@", crc_length(compatibility).encode("ascii"))
     install(RUNNER, runner, 0o755)
@@ -219,7 +306,7 @@ def main() -> None:
     for name in ("update", "zImage"):
         (usb / name).write_bytes(base_files[name])
     shutil.copyfile(build / "rootfs.img", usb / "rootfs.img")
-    archive_path = build / ARCHIVE_NAME
+    archive_path = build / archive_name
     with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name in sorted(BASE_FILES):
             info = zipfile.ZipInfo(name, (2026, 11, 7, 0, 0, 0))
@@ -232,12 +319,21 @@ def main() -> None:
         require(all(archive.read(name) == (usb / name).read_bytes() for name in BASE_FILES), "Output ZIP payload differs")
     source_paths = [Path(__file__), REPO / "tools/build_jaguar_verifier.py",
                     *(REPO / "firmware/jaguar").rglob("*")]
+    if args.variant == "rc2":
+        source_paths.append(REPO / "tools/package_ui1_candidate.py")
     source_snapshot = {p.relative_to(REPO).as_posix(): description(p.read_bytes()) for p in sorted(source_paths) if p.is_file() and "__pycache__" not in p.parts}
+    if args.variant == "rc2":
+        ui_snapshot = rc2_source_snapshot()
+        require(ui_snapshot["sha256"] == native_evidence["source_snapshot_sha256"],
+                "Production UI sources changed during RC2 image assembly")
+        source_snapshot.update(ui_snapshot["files"])
     summary = {
-        "release": RELEASE,
-        "status": "New full-image candidate; exact W3 and UI components retained; requires independent image validation",
+        "release": release,
+        "status": ("New full-image candidate; exact W3 and UI components retained; requires independent image validation"
+                   if args.variant == "rc1" else
+                   "New full-image candidate; exact W3 retained with new native-validated UI; requires independent image validation"),
         "base_zip_sha256": BASE_ZIP_SHA, "source_tar_sha256": SOURCE_TAR_SHA,
-        "ui_installer_sha256": UI_INSTALL_SHA, "library_sha256": UI_LIBRARY_SHA,
+        "ui_installer_sha256": UI_INSTALL_SHA, "library_sha256": digest(library),
         "verifier": description(verifier), "verifier_build_evidence": evidence,
         "source_snapshot": source_snapshot,
         "rootfs_sha256": sha(build / "rootfs.img"), "rootfs_bytes": (build / "rootfs.img").stat().st_size,
@@ -246,12 +342,20 @@ def main() -> None:
         "download": {"name": archive_path.name, **description(archive_path.read_bytes())},
         "changed_paths": [row["path"] for row in changes],
         "kernel_and_update_unchanged": True, "w3_components_unchanged": True,
-        "owner_tested_ui_binary_unchanged": True, "requires_field_w3_layout": False,
+        "owner_tested_ui_binary_unchanged": args.variant == "rc1", "requires_field_w3_layout": False,
         "settings_migration": False, "mcu_type_forced": False, "device_writes": False,
         "complete_image_vehicle_tested": False, "full_flash_recovery_proven": False,
         "reproducibility": "Repeatable content/metadata assembly; UBIFS timestamps/UUID can change whole-image hashes",
         "versions": {name: run([name, "--version"]).splitlines()[0] for name in ("mkfs.ubifs", "ubinize", "tar")},
     }
+    if args.variant == "rc2":
+        summary.update(variant="rc2", input_files=input_files, extra_abi_pins=RC2_ABI_PINS,
+                       ui_source_snapshot_sha256=native_evidence["source_snapshot_sha256"],
+                       ui_native_evidence={"file": input_files["ui_evidence"]["file"], **native_evidence},
+                       ui_library_origin={"kind": "fresh-native-validated-rc2-candidate",
+                                          "file": input_files["ui_library"]["file"],
+                                          "sha256": digest(library), "owner_tested": False,
+                                          "vendor_abi_baseline_installer_sha256": UI_INSTALL_SHA})
     (build / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps({key: summary[key] for key in ("release", "rootfs_sha256", "rootfs_bytes", "ubifs_lebs", "changed_paths", "download")}, indent=2))
 

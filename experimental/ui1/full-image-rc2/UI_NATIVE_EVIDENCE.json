@@ -1,0 +1,735 @@
+{
+  "schema_version": 2,
+  "variant": "rc2",
+  "passed": true,
+  "complete": true,
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "build": {
+    "qt_tag": "v4.7.4",
+    "qt_commit": "092cd760d5fddf9640a310214fe01929f0fff3a8",
+    "qreal": "float (verified vendor symbol ABI)",
+    "bytes": 952768,
+    "sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+    "command": [
+      "clang++",
+      "--target=arm-linux-gnueabihf",
+      "-march=armv7-a",
+      "-mfpu=vfpv3-d16",
+      "-mfloat-abi=hard",
+      "-isystem",
+      "/usr/include/arm-linux-musleabihf",
+      "-I/repo/experimental/ui1/build/include",
+      "-I/repo/experimental/ui1/build/include/QtCore",
+      "-I/repo/experimental/ui1/build/include/QtGui",
+      "-fuse-ld=lld",
+      "-fPIC",
+      "-shared",
+      "-nostdlib",
+      "-nostdinc++",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-stack-protector",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wl,--hash-style=both,-soname,libp401-ui.so",
+      "-std=c++11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wno-deprecated",
+      "-Wno-reserved-user-defined-literal",
+      "/repo/experimental/ui1/src/ui.cpp",
+      "/repo/experimental/ui1/src/name_store.cpp",
+      "/repo/experimental/ui1/src/name_hooks.cpp",
+      "/repo/experimental/ui1/src/lab_probe.cpp",
+      "/repo/experimental/ui1/src/preferences.cpp",
+      "/repo/experimental/ui1/src/appearance_editor.cpp",
+      "/repo/experimental/ui1/src/connection_status.cpp",
+      "/repo/experimental/ui1/src/settings_style.cpp",
+      "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "/repo/experimental/ui1/build/cloud/vendor-root/lib/libstdc++.so.6",
+      "/repo/experimental/ui1/build/cloud/vendor-root/lib/libc.so.6",
+      "/repo/experimental/ui1/build/cloud/vendor-root/lib/libdl.so.2",
+      "/repo/experimental/ui1/build/cloud/vendor-root/lib/libm.so.6",
+      "-o",
+      "/repo/experimental/ui1/build/libp401-ui.so"
+    ]
+  },
+  "source_snapshot": {
+    "sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d",
+    "encoding": "SHA256 of canonical JSON files map (sorted keys, compact separators)",
+    "files": {
+      "experimental/ui1/src/appearance_editor.cpp": {
+        "bytes": 10100,
+        "sha256": "256064f3b207b29c313310fc909c6c415b205b6bff24ad78e5ffbbc4a74fe668"
+      },
+      "experimental/ui1/src/appearance_editor.h": {
+        "bytes": 192,
+        "sha256": "6128c5f5333c2d71b53013a006cd9ec0b1f3cc84e457f2a9125e15fd03ec14d0"
+      },
+      "experimental/ui1/src/assets/branding-source.json": {
+        "bytes": 362,
+        "sha256": "3c6a35c550bfa7b881b449127e89d7bd071947c7f6f4a0870a168d65dc37ad5c"
+      },
+      "experimental/ui1/src/assets/glass-artwork-source.json": {
+        "bytes": 282,
+        "sha256": "923532125fecdb0e7b2cf79ae62e704d733121ec2e07c17de105fbe4cfc29f11"
+      },
+      "experimental/ui1/src/assets/glass-tile-atlas.png": {
+        "bytes": 578134,
+        "sha256": "a7dff60fcdfaea8ed0b17874011dcdb833c0b235750dfec6ed6e458c8cf080f7"
+      },
+      "experimental/ui1/src/assets/jaguar-reference.png": {
+        "bytes": 228329,
+        "sha256": "0f59941f44a9426a62fb8d6e9626cbc5a533d4d496f547b1ab1fd1564a4ae8b6"
+      },
+      "experimental/ui1/src/assets/jaguar-stacked.svg": {
+        "bytes": 70381,
+        "sha256": "f719bb0728b84e8710e49f26809eae1cbf173be967f057d258dd18227d738473"
+      },
+      "experimental/ui1/src/brand_paths.h": {
+        "bytes": 331137,
+        "sha256": "578db600aba96e4386438056da1c9c049a9319e7aeb3281cab81d79aee7dfc51"
+      },
+      "experimental/ui1/src/build.py": {
+        "bytes": 4222,
+        "sha256": "33049ab533d25cca7e63aa0e9b6d65b8f6d91f8c48121d529683a3aa2029dc09"
+      },
+      "experimental/ui1/src/connection_status.cpp": {
+        "bytes": 3708,
+        "sha256": "fe3580618682225ad0566f3c5342d5d58f0e1e50b22c0a90fb79182145631cd1"
+      },
+      "experimental/ui1/src/connection_status.h": {
+        "bytes": 359,
+        "sha256": "a291838143c2ee47c51dfbd07e94e00c72528a3f3c91ac013cb7f1b703f82287"
+      },
+      "experimental/ui1/src/lab_probe.cpp": {
+        "bytes": 5045,
+        "sha256": "39ce405221b43e4bf5f5256bcd72d5488383f7a68a356018c1085c386d2d65f6"
+      },
+      "experimental/ui1/src/make_brand.py": {
+        "bytes": 2451,
+        "sha256": "a02d8e7aa9938fa02a2ad17515a01d1bfce4b95b75424ad9c86f43aaa94de2c2"
+      },
+      "experimental/ui1/src/name_hooks.cpp": {
+        "bytes": 2828,
+        "sha256": "bb8014486b1a9ee3a705114fab9c9388419733f2e3291c8b771a0fb22311c0f5"
+      },
+      "experimental/ui1/src/name_store.cpp": {
+        "bytes": 5218,
+        "sha256": "fc43ef7edd4914dfba21166c63be874fe45192229c076ebac377aa9bc46a0187"
+      },
+      "experimental/ui1/src/name_store.h": {
+        "bytes": 295,
+        "sha256": "6f94878ab21b2d3534b551d7f857e7f6fc369553e39783fed457eb058b712969"
+      },
+      "experimental/ui1/src/preferences.cpp": {
+        "bytes": 6317,
+        "sha256": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181"
+      },
+      "experimental/ui1/src/preferences.h": {
+        "bytes": 823,
+        "sha256": "cb6e53a088143fd574c47568934277758e278b6890919585d0b13106d9e2c106"
+      },
+      "experimental/ui1/src/run-ui.sh.in": {
+        "bytes": 1978,
+        "sha256": "1178d0969f83e4137c640281eb0f6aefec411fd02ad10501cc249d53caa70c4b"
+      },
+      "experimental/ui1/src/settings_style.cpp": {
+        "bytes": 14457,
+        "sha256": "1b66ff8901cdc8530cf85ac9485307d0c90f4bbe40d593c8dac6322df154896a"
+      },
+      "experimental/ui1/src/settings_style.h": {
+        "bytes": 401,
+        "sha256": "2adaf63f15fd8418c876b003d18cce48782d1681ff57e331a18233d8d8fd3781"
+      },
+      "experimental/ui1/src/trace_brand.py": {
+        "bytes": 2430,
+        "sha256": "cfc98d92883e8d1e4352f7dccd9ef0ebb0b8c1af216605a045d2593e2817b381"
+      },
+      "experimental/ui1/src/ui.cpp": {
+        "bytes": 31737,
+        "sha256": "f4de269f9d50e1a63ee36a35ab0b1e89d2197007a8e77f7c757a3334149fcd74"
+      }
+    },
+    "note": "Source snapshot at packaging; not a claim of byte-for-byte reproducibility."
+  },
+  "cases": [
+    {
+      "case": "features",
+      "passed": true
+    },
+    {
+      "case": "naming",
+      "passed": true
+    },
+    {
+      "case": "menu",
+      "passed": true
+    },
+    {
+      "case": "clock",
+      "passed": true
+    },
+    {
+      "case": "preferences_storage",
+      "passed": true
+    }
+  ],
+  "reports": {
+    "features": {
+      "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+      "observer_sha256": "7b651b58b64152a6dcd1c72fef799c61a9949504ab0de72dcfb333ede1818cdb",
+      "complete": true,
+      "passed": true,
+      "expected_case_count": 5,
+      "cases": [
+        {
+          "case": "connection-native-events",
+          "passed": true,
+          "native_status_handler": true,
+          "bluetooth_ready_tags_insufficient": true,
+          "steps": [
+            {
+              "type": 0,
+              "status": 1,
+              "connected": false
+            },
+            {
+              "type": 7,
+              "status": 3,
+              "connected": false
+            },
+            {
+              "type": 2,
+              "status": 4,
+              "connected": false
+            },
+            {
+              "type": 7,
+              "status": 4,
+              "connected": true
+            },
+            {
+              "type": 7,
+              "status": 6,
+              "connected": true
+            },
+            {
+              "type": 0,
+              "status": 10,
+              "connected": true
+            },
+            {
+              "type": 2,
+              "status": 5,
+              "connected": true
+            },
+            {
+              "type": 7,
+              "status": 8,
+              "connected": false
+            },
+            {
+              "type": 0,
+              "status": 4,
+              "connected": true
+            },
+            {
+              "type": 0,
+              "status": 39,
+              "connected": true
+            },
+            {
+              "type": 0,
+              "status": 5,
+              "connected": false
+            },
+            {
+              "type": 7,
+              "status": 4,
+              "connected": true
+            },
+            {
+              "type": 7,
+              "status": 2,
+              "connected": false
+            },
+            {
+              "type": 0,
+              "status": 4,
+              "connected": true
+            },
+            {
+              "type": 0,
+              "status": 3,
+              "connected": false
+            }
+          ],
+          "default_english_fixture_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/HOME-ENGLISH-FIXTURE.png",
+          "waiting_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/WAITING.png",
+          "connected_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/CONNECTED.png"
+        },
+        {
+          "case": "appearance-pointer-save",
+          "passed": true,
+          "private_atomic_file": true,
+          "existing_network_name_unchanged": true,
+          "accent_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-ACCENTS.png",
+          "pictures_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-PICTURES.png",
+          "order_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-ORDER.png",
+          "home_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/HOME-PERSONALISED.png",
+          "english_fixture_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/HOME-ENGLISH-FIXTURE.png"
+        },
+        {
+          "case": "appearance-cancel",
+          "passed": true,
+          "persisted_file_unchanged": true
+        },
+        {
+          "case": "appearance-reload-native-routing",
+          "passed": true,
+          "bluetooth_original_row": true,
+          "name_endpoints_preserved": true,
+          "fixed_settings_footer": true,
+          "settings_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-reload/SETTINGS-PERSONALISED.png"
+        },
+        {
+          "case": "settings-native-advanced",
+          "passed": true,
+          "real_pointer_native_slot": true,
+          "advanced_tab": 2,
+          "native_mcu_version_label_preserved": true,
+          "synthetic_runtime_version_cache": true,
+          "factory_values_unchanged": true,
+          "native_optional_display_selector_hidden": true,
+          "settings_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/SETTINGS.png",
+          "display_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/DISPLAY-NATIVE-CONTROLS.png",
+          "factory_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/FACTORY.png",
+          "advanced_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/ADVANCED-NO-PIN.png"
+        }
+      ],
+      "scope": "Actual ARM native GUI in private Docker network/PID/IPC namespaces, fake framebuffer and real Qt pointer path. Link statuses are controlled native-handler fixtures, not live phone/radio sessions. No MCU, iPhone, physical restart, vehicle install, kernel boot or full-flash recovery proven. Historical RC1 artifacts/evidence unchanged."
+    },
+    "naming": {
+      "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+      "passed": true,
+      "cases": [
+        {
+          "case": "type3",
+          "passed": true,
+          "production_mode": true,
+          "names_available": true,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-type3/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-type3/name-editor.png",
+          "real_editor_commit": true,
+          "native_restart_dispatched": true
+        },
+        {
+          "case": "busy-restart-lock",
+          "passed": true,
+          "production_mode": true,
+          "names_available": true,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-busy-restart-lock/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-busy-restart-lock/name-editor.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "whitespace-crlf",
+          "passed": true,
+          "production_mode": true,
+          "names_available": true,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-whitespace-crlf/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-whitespace-crlf/name-editor.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "general-case",
+          "passed": true,
+          "production_mode": true,
+          "names_available": true,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-general-case/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-general-case/name-editor.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "quoted-type",
+          "passed": true,
+          "production_mode": true,
+          "names_available": true,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-quoted-type/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-quoted-type/name-editor.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "lowercase-key",
+          "passed": true,
+          "production_mode": true,
+          "names_available": false,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-lowercase-key/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-lowercase-key/disabled-panel.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "unsupported",
+          "passed": true,
+          "production_mode": true,
+          "names_available": false,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-unsupported/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-unsupported/disabled-panel.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "invalid-type",
+          "passed": true,
+          "production_mode": true,
+          "names_available": false,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-invalid-type/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-invalid-type/disabled-panel.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "missing-key",
+          "passed": true,
+          "production_mode": true,
+          "names_available": false,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-key/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-key/disabled-panel.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "missing-file",
+          "passed": true,
+          "production_mode": true,
+          "names_available": false,
+          "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-file/name-panel.png",
+          "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-file/disabled-panel.png",
+          "real_editor_commit": false,
+          "native_restart_dispatched": false
+        },
+        {
+          "case": "reload-saved",
+          "passed": true,
+          "production_mode": true,
+          "endpoints": {
+            "saved_name": "CLOUD",
+            "hostapd_ssid": "CLOUD",
+            "advertised_ssid": "CLOUD",
+            "bluetooth_desired": "CLOUD",
+            "other_key": "6",
+            "unrelated_ssid": "Unrelated network",
+            "child_preload": "unset"
+          }
+        },
+        {
+          "case": "maximum-name",
+          "passed": true,
+          "production_mode": true,
+          "endpoints": {
+            "saved_name": "ABCDEFGHIJKLMNOPQRSTUVWX",
+            "hostapd_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+            "advertised_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+            "bluetooth_desired": "ABCDEFGHIJKLMNOPQRSTUVWX",
+            "other_key": "6",
+            "unrelated_ssid": "Unrelated network",
+            "child_preload": "unset"
+          }
+        },
+        {
+          "case": "invalid-saved-file",
+          "passed": true,
+          "production_mode": true,
+          "endpoints": {
+            "saved_name": "",
+            "hostapd_ssid": "CLOUD-default",
+            "advertised_ssid": "CLOUD-default",
+            "bluetooth_desired": "Car Audio",
+            "other_key": "6",
+            "unrelated_ssid": "Unrelated network",
+            "child_preload": "unset"
+          }
+        }
+      ],
+      "scope": "Exact ARM GUI with real Settings/editor pointer events, native save/atomic rename/private file permissions and forwarded vendor reboot request; fresh production-mode process naming endpoint checks. Separate test observer, synthetic private profiles, fake framebuffer, private network/PID/IPC container with no reboot capability or device access. No radio, MCU, iPhone, physical reboot, vehicle or flash success established. Historical evidence unchanged.",
+      "expected_case_count": 13,
+      "complete": true,
+      "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2",
+      "navigation": "Read-only native Settings model label/visualRect observed, then real pointer tap on CarPlay name."
+    },
+    "menu": {
+      "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+      "passed": true,
+      "cases": [
+        {
+          "case": "unknown-exit-classification-and-original-native-footer-actions",
+          "passed": true,
+          "sampled_boot_frames": 2,
+          "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-footer/unknown-exit-footer.png",
+          "exit_native_app": 9,
+          "settings_native_app": 8
+        },
+        {
+          "case": "static-menu-does-not-repaint",
+          "passed": true,
+          "sampled_boot_frames": 2,
+          "menu_paints": 3
+        },
+        {
+          "case": "model-empty-restores-stock-without-flicker",
+          "passed": true,
+          "sampled_boot_frames": 2
+        },
+        {
+          "case": "model-missing-restores-stock-without-flicker",
+          "passed": true,
+          "sampled_boot_frames": 2
+        },
+        {
+          "case": "model-unknown-only-restores-stock-without-flicker",
+          "passed": true,
+          "sampled_boot_frames": 2
+        },
+        {
+          "case": "model-exit-only-restores-stock-without-flicker",
+          "passed": true,
+          "sampled_boot_frames": 2
+        },
+        {
+          "case": "model-main-only-restores-stock-without-flicker",
+          "passed": true,
+          "sampled_boot_frames": 2
+        },
+        {
+          "case": "initial-empty-waits-for-model",
+          "passed": true,
+          "sampled_boot_frames": 2,
+          "loading_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-empty/loading.png",
+          "home_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-empty/recovered-home.png"
+        },
+        {
+          "case": "initial-missing-waits-for-model",
+          "passed": true,
+          "sampled_boot_frames": 2,
+          "loading_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-missing/loading.png",
+          "home_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-missing/recovered-home.png"
+        },
+        {
+          "case": "hidden-launcher-ready-without-forcing-home-visible",
+          "passed": true,
+          "sampled_boot_frames": 3,
+          "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-hidden-before-paint/returned-home.png"
+        },
+        {
+          "case": "invalid-model-timeout-fails-open",
+          "passed": true,
+          "sampled_boot_frames": 3,
+          "seconds_waited": 59.45,
+          "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-invalid-timeout/stock-fallback.png"
+        }
+      ],
+      "scope": "Actual ARM Qt GUI in private Docker namespaces and fake framebuffer, production P401_UI_LAB unset. Separate test-only model fixtures cover delayed/empty/missing/unrecognized/lost models, original native Exit row lookup, stable repaint behavior and hidden-before-first-paint readiness. The hidden fixture represents an off-screen launcher; it does not activate or emulate real automatic CarPlay. Boot frames are sampled, not proof of physical boot display timing or sub-frame tearing. Shell watchdog/package delivery checks are separate.",
+      "historical_evidence_modified": false,
+      "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2"
+    },
+    "clock": {
+      "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+      "passed": true,
+      "clock_start": "01:44",
+      "clock_end": "01:45",
+      "clock_pixels_changed": true,
+      "artwork_decoded": "768x512",
+      "setting_window_visible": true,
+      "clock_overlay_hidden_in_settings": true,
+      "home_screenshots": [
+        "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-clock-glass.png",
+        "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-clock-next-minute.png",
+        "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/home-returned.png"
+      ],
+      "settings_header": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/final-clock-glass/settings-native-title.png",
+      "scope": "Exact ARM candidate, production mode LAB unset, private synthetic profile and English source-model fixture. Natural Qt clock minute advance; host time unchanged.",
+      "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2"
+    },
+    "preferences_storage": {
+      "passed": true,
+      "scope": "Actual ARM production preferences.cpp with vendor Qt in isolated offline QEMU fixtures; no physical storage/endurance claim.",
+      "source_sha256": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181",
+      "probe_sha256": "8d221a5c13b7123dafca9086fdf06103322025fb7d9dc0efebb42830af070062",
+      "build_command": [
+        "clang++",
+        "--target=arm-linux-gnueabihf",
+        "-march=armv7-a",
+        "-mfpu=vfpv3-d16",
+        "-mfloat-abi=hard",
+        "-isystem",
+        "/usr/include/arm-linux-musleabihf",
+        "-I/repo/experimental/ui1/build/include",
+        "-I/repo/experimental/ui1/build/include/QtCore",
+        "-I/repo/experimental/ui1/build/include/QtGui",
+        "-I/repo/experimental/ui1/src",
+        "-fuse-ld=lld",
+        "-fPIC",
+        "-shared",
+        "-nostdlib",
+        "-nostdinc++",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fno-stack-protector",
+        "-fno-unwind-tables",
+        "-fno-asynchronous-unwind-tables",
+        "-std=c++11",
+        "-O2",
+        "-Wno-deprecated",
+        "-Wno-reserved-user-defined-literal",
+        "/repo/experimental/ui1/src/preferences.cpp",
+        "/repo/experimental/ui1/lab/cloud/preferences_probe.cpp",
+        "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+        "/repo/experimental/ui1/build/cloud/vendor-root/usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+        "/repo/experimental/ui1/build/cloud/vendor-root/lib/libstdc++.so.6",
+        "/repo/experimental/ui1/build/cloud/vendor-root/lib/libc.so.6",
+        "-o",
+        "/repo/experimental/ui1/build/cloud/preferences/probe.so"
+      ],
+      "sources": {
+        "src/preferences.cpp": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181",
+        "src/preferences.h": "cb6e53a088143fd574c47568934277758e278b6890919585d0b13106d9e2c106",
+        "lab/cloud/preferences_probe.cpp": "463d3ad11cbb34be44f84878b60e9766f0c91b26d07de57e356e1bbfe43c13d9"
+      },
+      "checks": [
+        {
+          "name": "missing defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "empty defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "truncated defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "duplicate-order defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "unknown-version defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "bad-accent defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "bad-picture defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "extra-key defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "extra-byte defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "noncanonical defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "oversized defaults as a whole",
+          "passed": true
+        },
+        {
+          "name": "symlink input rejected",
+          "passed": true
+        },
+        {
+          "name": "valid custom save applies",
+          "passed": true
+        },
+        {
+          "name": "canonical exact bytes",
+          "passed": true
+        },
+        {
+          "name": "private saved mode",
+          "passed": true
+        },
+        {
+          "name": "no temporary files remain",
+          "passed": true
+        },
+        {
+          "name": "name and factory fixture unchanged",
+          "passed": true
+        },
+        {
+          "name": "custom reload after restart",
+          "passed": true
+        },
+        {
+          "name": "invalid-order save rejected",
+          "passed": true
+        },
+        {
+          "name": "invalid-accent save rejected",
+          "passed": true
+        },
+        {
+          "name": "invalid-picture save rejected",
+          "passed": true
+        },
+        {
+          "name": "read-only save failure preserves current",
+          "passed": true
+        },
+        {
+          "name": "restore defaults saves complete record",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "report_files": {
+    "features": {
+      "file": "experimental/ui1/build/cloud/rc2/RC2_FEATURE_CHECKS.json",
+      "bytes": 4767,
+      "sha256": "4dd464cee7aa048278e294558a7ea82c0b1501a3e682c522e4a102fcdab5eb8a"
+    },
+    "naming": {
+      "file": "experimental/ui1/build/cloud/rc2/regression/SETTINGS_CLOUD_CHECKS.json",
+      "bytes": 6889,
+      "sha256": "739d339492c99407c4787102c92a5877fe0f883dbc363ba90bf8744f993d0b02"
+    },
+    "menu": {
+      "file": "experimental/ui1/build/cloud/rc2/regression/MENU_CLOUD_CHECKS.json",
+      "bytes": 3320,
+      "sha256": "34a4d7349363a5260931644b9298542edde6a5b0c69f29422ab4b64511e37c5c"
+    },
+    "clock": {
+      "file": "experimental/ui1/build/cloud/rc2/regression/CLOCK_CLOUD_CHECKS.json",
+      "bytes": 1127,
+      "sha256": "12daaa23c2ef944d5f472b10d564c608a2fe78b615472474cbffba69cb956d42"
+    },
+    "preferences_storage": {
+      "file": "experimental/ui1/build/cloud/preferences/RESULT.json",
+      "bytes": 3742,
+      "sha256": "8cc4e2a4612013d97b3e8b4e8851fe60c3b9e2f2c9f6355273ee7868ba5914d0"
+    }
+  },
+  "physical_device_tested": false,
+  "hardware_radio_tested": false,
+  "hardware_reboot_tested": false,
+  "full_flash_recovery_proven": false,
+  "historical_evidence_modified": false,
+  "scope": "Fresh exact ARM UI feature, naming, menu/startup and natural clock checks in isolated offline Docker/QEMU with separate observers, synthetic private profiles/model/status fixtures and fake framebuffer. Storage checks compile the exact unchanged production preferences sources separately. No physical radios, iPhone/MFi session, MCU, reboot, kernel boot, vehicle installation or full-flash recovery are emulated."
+}

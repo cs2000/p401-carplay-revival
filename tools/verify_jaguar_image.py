@@ -16,6 +16,7 @@ import zipfile
 import zlib
 
 from image_checks import dependencies, medium
+from test_startup import RC2_EXTRA_ABI_PINS, RC2_HELPER_SHA, VENDOR_ABI_PATHS as ABI_PATHS, rc2_native_evidence
 from verify_usb import verify as verify_usb
 
 REPO = Path(__file__).resolve().parents[1]
@@ -28,11 +29,6 @@ COMPATIBILITY = UI_ROOT + '/compatibility.txt'
 RUNNER = UI_ROOT + '/run-ui.sh'
 HELPER = 'usr/libexec/carplay-revival/verify'
 ALLOWED = {'etc/profile', HELPER, UI_ROOT, LIBRARY, COMPATIBILITY, RUNNER}
-ABI_PATHS = {'/usr/bin/MsnCoreApp', '/usr/lib/libBlueTooth.so', '/usr/lib/libLauncher-Box.so',
-             '/usr/lib/libSetting.so', '/usr/lib/libMsnCommons.so',
-             '/usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4',
-             '/usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4',
-             '/lib/libstdc++.so.6', '/lib/libc.so.6'}
 W3_PINS = {
     'usr/lib/libAirPlay.so': '551112f2b5e525a0ff4994357ee1563c5d1e1dad56f59df6724962a0be8e34db',
     'usr/libexec/carplay-revival/udhcpd': 'bddafb863e3f37da68fc680db389f0c1b4c5fd0468953580f0f4422726c382d7',
@@ -113,10 +109,16 @@ def metadata_inventory(path):
     return document, rows
 
 
-def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=None):
+def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=None,
+             variant='rc1', ui_evidence_path=None):
+    if variant not in ('rc1', 'rc2'):
+        raise ValueError('Unknown Jaguar image variant: ' + variant)
+    if (variant == 'rc2') != (ui_evidence_path is not None):
+        raise ValueError('Only RC2 requires and accepts ui_evidence_path')
     checks = []
     completed = False
     report = {}
+    expected_ui_sha = UI_SHA
 
     def check(label, value):
         checks.append({'check': label, 'passed': bool(value)})
@@ -130,12 +132,22 @@ def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=No
         base = tar_inventory(base_tar)
         expected = json.loads((build / 'inventory.json').read_text())
         summary = json.loads((build / 'summary.json').read_text())
+        if variant == 'rc2':
+            ui_evidence = rc2_native_evidence(ui_evidence_path.read_bytes())
+            expected_ui_sha = ui_evidence['library_sha256']
+            check('RC2 summary identifies the explicit new image revision', summary['release'] == '2026.11-jaguar-xfr-rc2')
+            check('RC2 summary pins the exact complete native evidence file and UI library',
+                  all(summary['ui_native_evidence'].get(key) == value for key, value in ui_evidence.items()))
+            check('RC2 does not inherit the owner-tested RC1 UI claim', summary['owner_tested_ui_binary_unchanged'] is False)
+            check('RC2 summary pins the exact native connection provider', summary['extra_abi_pins'] == RC2_EXTRA_ABI_PINS)
+            report.update(variant=variant, ui_native_evidence=ui_evidence, owner_tested_ui_binary_unchanged=False)
         image = build / 'rootfs.img'
         image_sha = digest(image.read_bytes())
         check('builder summary pins the image being checked',
               summary['rootfs_sha256'] == image_sha and summary['rootfs_bytes'] == image.stat().st_size)
-        check('builder used the pinned RC1 base and exact owner-tested UI',
-              summary['source_tar_sha256'] == BASE_TAR_SHA and summary['library_sha256'] == UI_SHA)
+        check('builder used the pinned RC1 base and exact owner-tested UI' if variant == 'rc1' else
+              'builder used the pinned RC1 base and exact newly native-validated RC2 UI',
+              summary['source_tar_sha256'] == BASE_TAR_SHA and summary['library_sha256'] == expected_ui_sha)
         metadata, actual = metadata_inventory(roundtrip / 'rootfs_metadata.json')
         archive = roundtrip / 'rootfs_source_tree.tar'
         tar_rows = tar_inventory(archive)
@@ -163,8 +175,14 @@ def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=No
             row = actual['msnprofile/' + name]
             check('existing persistent settings alias retained: ' + name,
                   row['type'] == 'symlink' and row['target'] == '/data/msncfg/' + name)
-        for path, pinned in {LIBRARY: UI_SHA, **W3_PINS}.items():
-            check('exact unchanged component: ' + path, actual[path]['sha256'] == pinned)
+        for path, pinned in {LIBRARY: expected_ui_sha, **W3_PINS}.items():
+            check(('exact native-validated RC2 component: ' if variant == 'rc2' and path == LIBRARY else
+                   'exact unchanged component: ') + path, actual[path]['sha256'] == pinned)
+        if variant == 'rc2':
+            check('RC2 retains the exact verified static ARM integrity helper', actual[HELPER]['sha256'] == RC2_HELPER_SHA)
+            for path, pin in RC2_EXTRA_ABI_PINS.items():
+                check('RC2 retains exact native connection provider: ' + path,
+                      actual[path]['sha256'] == pin['sha256'] and actual[path]['bytes'] == pin['bytes'])
         with tarfile.open(archive) as tf:
             read = lambda path: tf.extractfile(path).read()
             manifest = read(COMPATIBILITY)
@@ -174,9 +192,15 @@ def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=No
             check('exact wrapper is CRC-pinned at the original profile launch point', crc_length(wrapper) in profile)
             check('compatibility manifest is CRC-pinned by the exact wrapper', crc_length(manifest) in wrapper)
             parsed = [line.decode('ascii').split(' ', 2) for line in manifest.splitlines()]
-            check('compatibility manifest pins UI, nine vendor ABI files and static verifier',
-                  len(parsed) == 11 and parsed[0][2] == '/' + LIBRARY and parsed[-1][2] == '/' + HELPER and
-                  {row[2] for row in parsed} == ABI_PATHS | {'/' + LIBRARY, '/' + HELPER})
+            extra_abi = RC2_EXTRA_ABI_PINS if variant == 'rc2' else {}
+            check('compatibility manifest pins UI, nine vendor ABI files and static verifier' if variant == 'rc1' else
+                  'RC2 compatibility manifest pins UI, ten vendor ABI files and static verifier',
+                  len(parsed) == 11 + len(extra_abi) and parsed[0][2] == '/' + LIBRARY and parsed[-1][2] == '/' + HELPER and
+                  {row[2] for row in parsed} == ABI_PATHS | {'/' + LIBRARY, '/' + HELPER} | {'/' + path for path in extra_abi})
+            if variant == 'rc2':
+                check('RC2 connection provider compatibility row pins exact CRC and length',
+                      all([pin['crc32'], str(pin['bytes']), '/' + path] in parsed
+                          for path, pin in extra_abi.items()))
             for crc, size, path in parsed:
                 safe_path(path.lstrip('/'))
                 check('manifest matches actual installed bytes: ' + path,
@@ -189,12 +213,21 @@ def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=No
               report['media']['superblock']['min_io_size'] == 2048 and
               report['media']['superblock']['leb_size'] == 126976 and
               report['media']['superblock']['max_leb_cnt'] == 848 and image.stat().st_size < 106 * 1024 * 1024)
-        report['dependencies'] = dependencies(archive, extra_seeds=(LIBRARY, HELPER))
-        check('ARM dependency closure includes installed UI preload and verifier',
-              not report['dependencies']['missing'] and LIBRARY in report['dependencies']['files'] and
-              HELPER in report['dependencies']['files'])
+        seeds = (LIBRARY, HELPER) + (tuple(RC2_EXTRA_ABI_PINS) if variant == 'rc2' else ())
+        report['dependencies'] = dependencies(archive, extra_seeds=seeds)
+        check('ARM dependency closure includes installed UI preload and verifier' if variant == 'rc1' else
+              'RC2 ARM dependency closure includes installed UI preload, verifier and connection provider',
+              not report['dependencies']['missing'] and all(path in report['dependencies']['files'] for path in seeds))
         usb = usb_root or build / 'usb'
         manifest_document = json.loads(manifest_path.read_text()) if manifest_path else summary
+        if variant == 'rc2':
+            check('RC2 delivery manifest names the correct revision and exact native-validated UI',
+                  manifest_document.get('release') == '2026.11-jaguar-xfr-rc2' and
+                  manifest_document.get('library_sha256') == expected_ui_sha)
+            check('RC2 delivery manifest has no inherited owner/full-image/recovery test claim',
+                  manifest_document.get('owner_tested_ui_binary_unchanged') is False and
+                  manifest_document.get('complete_image_vehicle_tested') is False and
+                  manifest_document.get('full_flash_recovery_proven') is False)
         check('USB verifier accepts the exact three image files', verify_usb(usb, manifest_document))
         check('USB has only the kernel/filesystem update files', {p.name for p in usb.iterdir()} == {'update', 'zImage', 'rootfs.img'})
         for name, pin in BOOT_PINS.items():
@@ -212,7 +245,7 @@ def validate(build, roundtrip, base_tar, output, manifest_path=None, usb_root=No
                   all(z.read(name) == (usb / name).read_bytes() for name in z.namelist()))
         check('new full image is not labelled vehicle/recovery proven',
               summary['complete_image_vehicle_tested'] is False and summary['full_flash_recovery_proven'] is False)
-        report.update(library_sha256=UI_SHA, rootfs_sha256=image_sha, base_image_sha256=BASE_IMAGE_SHA,
+        report.update(library_sha256=expected_ui_sha, rootfs_sha256=image_sha, base_image_sha256=BASE_IMAGE_SHA,
                       changed_paths=changes, complete_inventory_matches=True, usb_payload_verified=True)
         completed = True
     finally:
@@ -233,6 +266,12 @@ if __name__ == '__main__':
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--manifest', type=Path, help='Published manifest; defaults to builder summary')
     parser.add_argument('--usb-root', type=Path, help='Extracted download to check; defaults to build-dir/usb')
+    parser.add_argument('--variant', choices=('rc1', 'rc2'), default='rc1',
+                        help='Default keeps the exact owner-tested RC1 UI pin; RC2 requires new native evidence')
+    parser.add_argument('--ui-evidence', type=Path, help='Required only for rc2: complete passed native evidence for the new library')
     args = parser.parse_args()
-    result = validate(args.build_dir, args.roundtrip_dir, args.base_tar, args.output, args.manifest, args.usb_root)
+    if (args.variant == 'rc2') != (args.ui_evidence is not None):
+        parser.error('--variant rc2 requires --ui-evidence; RC1 does not accept it')
+    result = validate(args.build_dir, args.roundtrip_dir, args.base_tar, args.output, args.manifest, args.usb_root,
+                      args.variant, args.ui_evidence)
     print(json.dumps({key: result[key] for key in ('passed', 'count', 'rootfs_sha256', 'complete_inventory_matches')}, indent=2))

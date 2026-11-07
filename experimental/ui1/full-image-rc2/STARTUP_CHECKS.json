@@ -1,0 +1,270 @@
+{
+  "passed": true,
+  "count": 63,
+  "checks": [
+    {
+      "check": "RC2 builder summary identifies the exact newly native-validated UI",
+      "passed": true
+    },
+    {
+      "check": "RC2 builder pins the exact complete native evidence file",
+      "passed": true
+    },
+    {
+      "check": "RC2 has no inherited owner/full-image/recovery test claim",
+      "passed": true
+    },
+    {
+      "check": "RC2 summary pins the exact native connection provider",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: etc/profile",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: etc/rc.d/rcS",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: etc/hostapd.sh",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: usr/bin/carplay-revival-check-settings.sh",
+      "passed": true
+    },
+    {
+      "check": "MCU 7: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 7: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 6: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 6: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 0: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 0: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 12: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 12: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "RAM fallback rejected",
+      "passed": true
+    },
+    {
+      "check": "missing factory file rejected",
+      "passed": true
+    },
+    {
+      "check": "missing factory file not created",
+      "passed": true
+    },
+    {
+      "check": "empty factory file rejected",
+      "passed": true
+    },
+    {
+      "check": "invalid configuration section rejected",
+      "passed": true
+    },
+    {
+      "check": "case-insensitive CRLF configuration accepted",
+      "passed": true
+    },
+    {
+      "check": "rootfs profile aliases existing userdata: MsnProductInfo.ini",
+      "passed": true
+    },
+    {
+      "check": "rootfs profile aliases existing userdata: FactoryConfig.ini",
+      "passed": true
+    },
+    {
+      "check": "no configuration migration or recovery call",
+      "passed": true
+    },
+    {
+      "check": "no automatic erase/format/environment write in startup",
+      "passed": true
+    },
+    {
+      "check": "no diagnostic helpers installed",
+      "passed": true
+    },
+    {
+      "check": "direct native CarPlay D-Bus activation",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: dedicated Jaguar UI launcher",
+      "passed": true
+    },
+    {
+      "check": "Jaguar RC2 uses the exact newly native-validated ARM UI library",
+      "passed": true
+    },
+    {
+      "check": "RC2 retains the exact verified static ARM integrity helper",
+      "passed": true
+    },
+    {
+      "check": "RC2 retains exact native connection provider: usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "dedicated Jaguar launcher is CRC-gated from profile",
+      "passed": true
+    },
+    {
+      "check": "existing settings guard precedes all vendor initialization",
+      "passed": true
+    },
+    {
+      "check": "UI integration has no field-W3 or logger prerequisites",
+      "passed": true
+    },
+    {
+      "check": "UI startup does not require the unavailable awk applet",
+      "passed": true
+    },
+    {
+      "check": "production startup never enables laboratory naming",
+      "passed": true
+    },
+    {
+      "check": "compatibility manifest is pinned by dedicated launcher",
+      "passed": true
+    },
+    {
+      "check": "compatibility manifest pins installed UI library",
+      "passed": true
+    },
+    {
+      "check": "RC2 compatibility manifest pins UI, ten vendor ABI files and static verifier",
+      "passed": true
+    },
+    {
+      "check": "RC2 connection provider compatibility row pins exact CRC and length",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier accepts /usr/libexec/carplay-revival/verify",
+      "passed": true
+    },
+    {
+      "check": "actual ARM verifier rejects changed bytes",
+      "passed": true
+    },
+    {
+      "check": "field-tested DHCP executable runs help under ARM emulation",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves MsnFirstInit",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves carplay",
+      "passed": true
+    },
+    {
+      "check": "native CarPlay selects the installed patched library",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves gocsdk",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves hostapd",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves Jaguar UI preload",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves connection provider: usr/lib/libLinkLibs.so",
+      "passed": true
+    }
+  ],
+  "variant": "rc2",
+  "scope": "Actual ARM BusyBox/loader in fixtures; no kernel boot, MCU, radio or full CarPlay session.",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "ui_native_evidence": {
+    "bytes": 30357,
+    "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc",
+    "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+    "source_snapshot_sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d"
+  },
+  "owner_tested_ui_binary_unchanged": false,
+  "complete_image_vehicle_tested": false,
+  "full_flash_recovery_proven": false
+}

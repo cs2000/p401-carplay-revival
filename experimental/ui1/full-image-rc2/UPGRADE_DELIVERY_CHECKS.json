@@ -1,0 +1,388 @@
+{
+  "passed": true,
+  "complete": true,
+  "checks": [
+    {
+      "check": "RC2 exact six UI-only paths",
+      "passed": true
+    },
+    {
+      "check": "restore exact six prior UI-only paths",
+      "passed": true
+    },
+    {
+      "check": "restore archive byte-for-byte owner-tested previous installer",
+      "passed": true
+    },
+    {
+      "check": "restore payload byte-for-byte previous working files",
+      "passed": true
+    },
+    {
+      "check": "restore exact previous c62 library",
+      "passed": true
+    },
+    {
+      "check": "historical disable archive unchanged",
+      "passed": true
+    },
+    {
+      "check": "new binary differs from previous owner-tested binary",
+      "passed": true
+    },
+    {
+      "check": "both versions enable their respective Jaguar UI",
+      "passed": true
+    },
+    {
+      "check": "RC2 compatibility has UI plus ten vendor rows",
+      "passed": true
+    },
+    {
+      "check": "RC2 retains previous nine vendor ABI rows",
+      "passed": true
+    },
+    {
+      "check": "RC2 adds exact native connection ABI pin",
+      "passed": true
+    },
+    {
+      "check": "RC2 ARM shell, all compatibility rows and startup/fallback fixtures pass",
+      "passed": true
+    },
+    {
+      "check": "INSTALL.zip ZIP integrity",
+      "passed": true
+    },
+    {
+      "check": "INSTALL.zip unique safe autocopy paths",
+      "passed": true
+    },
+    {
+      "check": "ROLLBACK.zip ZIP integrity",
+      "passed": true
+    },
+    {
+      "check": "ROLLBACK.zip unique safe autocopy paths",
+      "passed": true
+    },
+    {
+      "check": "exact six-file GUI-only installer",
+      "passed": true
+    },
+    {
+      "check": "exact three-file rollback",
+      "passed": true
+    },
+    {
+      "check": "original rollback archive byte-for-byte",
+      "passed": true
+    },
+    {
+      "check": "rollback baseline data/carplay-revival/state",
+      "passed": true
+    },
+    {
+      "check": "rollback baseline data/p401-w3/install-checks.txt",
+      "passed": true
+    },
+    {
+      "check": "rollback baseline usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "W3 manifest changes only GUI runner",
+      "passed": true
+    },
+    {
+      "check": "GUI runner row pins exact new bytes",
+      "passed": true
+    },
+    {
+      "check": "new wrapper CRC pinned by GUI runner",
+      "passed": true
+    },
+    {
+      "check": "installer enabled and rollback disabled",
+      "passed": true
+    },
+    {
+      "check": "wrapper pins compatibility bytes",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax data/carplay-revival/run-ui.sh",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /data/carplay-revival/lib/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "ARM CRC verifies /usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "healthy launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "healthy preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "disabled launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "disabled preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "no-w3 launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "no-w3 preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "incompatible-vendor launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "incompatible-vendor preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "crash launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "crash preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "notready launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "notready preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "timeout launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "timeout preserves factory profile",
+      "passed": true
+    },
+    {
+      "check": "RC2 ARM shell syntax usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "RC2 ARM shell syntax data/carplay-revival/run-ui.sh",
+      "passed": true
+    },
+    {
+      "check": "RC2 W3 manifest pins its exact runner",
+      "passed": true
+    },
+    {
+      "check": "RC2 runner pins its exact UI wrapper",
+      "passed": true
+    },
+    {
+      "check": "RC2 wrapper pins its exact compatibility manifest",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /data/carplay-revival/lib/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "RC2 actual ARM CRC /usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "previous ARM shell syntax usr/bin/p401-recovery-run-core.sh",
+      "passed": true
+    },
+    {
+      "check": "previous ARM shell syntax data/carplay-revival/run-ui.sh",
+      "passed": true
+    },
+    {
+      "check": "previous W3 manifest pins its exact runner",
+      "passed": true
+    },
+    {
+      "check": "previous runner pins its exact UI wrapper",
+      "passed": true
+    },
+    {
+      "check": "previous wrapper pins its exact compatibility manifest",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /data/carplay-revival/lib/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "previous actual ARM CRC /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "upgrade W3 manifest changes only the GUI runner pin",
+      "passed": true
+    },
+    {
+      "check": "synthetic upgrade installs all exact RC2 payload bytes",
+      "passed": true
+    },
+    {
+      "check": "synthetic upgrade preserves name, appearance, factory, W3, startup and kernel sentinels",
+      "passed": true
+    },
+    {
+      "check": "synthetic restore returns all six exact previous working files",
+      "passed": true
+    },
+    {
+      "check": "synthetic restore preserves name, appearance, factory, W3, startup and kernel sentinels",
+      "passed": true
+    }
+  ],
+  "scope": "Fresh archive, actual ARM BusyBox/CRC and redirected process fixtures; synthetic userdata apply/restore. The redirected wrapper watchdog is shortened from 60 seconds to two seconds only in its process fixture. Unchanged W3 rows are preserved, not a fresh test of unavailable field logging payloads. No physical radio, MCU, reboot, autocopy, flash or unbootable-unit recovery proof.",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "installer_sha256": "793f9b3c2b799aab42a9e6fc21b1099afb7e1e47c289e8daf32b930bfbdbaaad",
+  "restore_sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383",
+  "disable_sha256": "6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03",
+  "check_count": 94
+}

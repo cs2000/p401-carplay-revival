@@ -1,0 +1,153 @@
+{
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "passed": true,
+  "cases": [
+    {
+      "case": "type3",
+      "passed": true,
+      "production_mode": true,
+      "names_available": true,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-type3/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-type3/name-editor.png",
+      "real_editor_commit": true,
+      "native_restart_dispatched": true
+    },
+    {
+      "case": "busy-restart-lock",
+      "passed": true,
+      "production_mode": true,
+      "names_available": true,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-busy-restart-lock/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-busy-restart-lock/name-editor.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "whitespace-crlf",
+      "passed": true,
+      "production_mode": true,
+      "names_available": true,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-whitespace-crlf/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-whitespace-crlf/name-editor.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "general-case",
+      "passed": true,
+      "production_mode": true,
+      "names_available": true,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-general-case/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-general-case/name-editor.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "quoted-type",
+      "passed": true,
+      "production_mode": true,
+      "names_available": true,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-quoted-type/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-quoted-type/name-editor.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "lowercase-key",
+      "passed": true,
+      "production_mode": true,
+      "names_available": false,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-lowercase-key/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-lowercase-key/disabled-panel.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "unsupported",
+      "passed": true,
+      "production_mode": true,
+      "names_available": false,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-unsupported/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-unsupported/disabled-panel.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "invalid-type",
+      "passed": true,
+      "production_mode": true,
+      "names_available": false,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-invalid-type/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-invalid-type/disabled-panel.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "missing-key",
+      "passed": true,
+      "production_mode": true,
+      "names_available": false,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-key/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-key/disabled-panel.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "missing-file",
+      "passed": true,
+      "production_mode": true,
+      "names_available": false,
+      "name_panel": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-file/name-panel.png",
+      "editor": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/settings-missing-file/disabled-panel.png",
+      "real_editor_commit": false,
+      "native_restart_dispatched": false
+    },
+    {
+      "case": "reload-saved",
+      "passed": true,
+      "production_mode": true,
+      "endpoints": {
+        "saved_name": "CLOUD",
+        "hostapd_ssid": "CLOUD",
+        "advertised_ssid": "CLOUD",
+        "bluetooth_desired": "CLOUD",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "child_preload": "unset"
+      }
+    },
+    {
+      "case": "maximum-name",
+      "passed": true,
+      "production_mode": true,
+      "endpoints": {
+        "saved_name": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "hostapd_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "advertised_ssid": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "bluetooth_desired": "ABCDEFGHIJKLMNOPQRSTUVWX",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "child_preload": "unset"
+      }
+    },
+    {
+      "case": "invalid-saved-file",
+      "passed": true,
+      "production_mode": true,
+      "endpoints": {
+        "saved_name": "",
+        "hostapd_ssid": "CLOUD-default",
+        "advertised_ssid": "CLOUD-default",
+        "bluetooth_desired": "Car Audio",
+        "other_key": "6",
+        "unrelated_ssid": "Unrelated network",
+        "child_preload": "unset"
+      }
+    }
+  ],
+  "scope": "Exact ARM GUI with real Settings/editor pointer events, native save/atomic rename/private file permissions and forwarded vendor reboot request; fresh production-mode process naming endpoint checks. Separate test observer, synthetic private profiles, fake framebuffer, private network/PID/IPC container with no reboot capability or device access. No radio, MCU, iPhone, physical reboot, vehicle or flash success established. Historical evidence unchanged.",
+  "expected_case_count": 13,
+  "complete": true,
+  "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2",
+  "navigation": "Read-only native Settings model label/visualRect observed, then real pointer tap on CarPlay name."
+}

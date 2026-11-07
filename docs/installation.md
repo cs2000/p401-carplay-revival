@@ -4,6 +4,8 @@
 
 Check [compatibility](compatibility.md) before starting. This combined release is awaiting a vehicle test.
 
+For the Jaguar interface, use the [full Jaguar RC2 bundle](../releases/2026.11-jaguar-xfr-rc2/README.md), including when upgrading the complete Jaguar RC1 release. It uses the same three-file USB procedure below. The [small RC2 update](../upgrades/2026.11-jaguar-xfr-rc2/README.md) is only for my older field-W3 development installation and uses its separate autocopy instructions.
+
 1. [Download the firmware ZIP](../releases/2026.11-w3-rc1/README.md) and extract it on your computer.
 2. Use an empty **FAT32 USB drive under 16 GB**.
 3. Copy the three extracted files directly to the USB root:

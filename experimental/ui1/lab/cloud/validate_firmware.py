@@ -32,7 +32,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def prepare(root_tar):
+def prepare(root_tar, expected_ui=UI_SHA256, probe_library=None):
     digest = sha(root_tar)
     context = BUILD / 'firmware-runtime' / digest[:16]
     context.mkdir(parents=True, exist_ok=True)
@@ -47,10 +47,10 @@ def prepare(root_tar):
             item = members[source]
             assert item.isfile(), 'Expected regular image file: ' + source
             (context / target).write_bytes(tf.extractfile(item).read())
-    assert sha(context / 'libp401-ui.so') == UI_SHA256, 'Not the unchanged owner-tested UI binary'
+    assert sha(context / 'libp401-ui.so') == expected_ui, 'Image UI does not match the expected exact binary'
     shutil.copy2(root_tar, context / 'rootfs.tar')
     shutil.copy2(UI / 'lab/reference/libp401-pc-fb.so', context / 'libp401-pc-fb.so')
-    shutil.copy2(BUILD / 'libp401-test-probe.so', context / 'libp401-test-probe.so')
+    shutil.copy2(probe_library or BUILD / 'libp401-test-probe.so', context / 'libp401-test-probe.so')
     subprocess.run(['cc', '-static', '-O2', '-Wall', '-Wextra',
                     str(Path(__file__).with_name('firmware_dispatch.c')),
                     '-o', str(context / 'dispatch')], check=True)
@@ -83,7 +83,7 @@ ENTRYPOINT ["/qemu-arm", "/lab/busybox.arm", "sleep", "3600"]
 
 class FirmwareSession(NativeSession):
     def __init__(self, label, context, image, profile=TYPE3, saved_name=None,
-                 state=None, manifest=None, dispatch_case=None):
+                 state=None, manifest=None, dispatch_case=None, appearance=None):
         # Each run retains its private-mode synthetic files without chmod or
         # deleting another run's evidence.
         super().__init__('firmware-' + label + '-' + uuid.uuid4().hex[:8],
@@ -93,6 +93,7 @@ class FirmwareSession(NativeSession):
         self.state = state
         self.manifest = manifest
         self.dispatch_case = dispatch_case
+        self.appearance = appearance
 
     def start(self, wait_ready=True):
         r = self.directory
@@ -103,7 +104,7 @@ class FirmwareSession(NativeSession):
         profile = data / 'msncfg'
         profile.mkdir(parents=True)
         area = data / 'carplay-revival'
-        if self.saved_name is not None or self.state is not None:
+        if self.saved_name is not None or self.state is not None or self.appearance is not None:
             area.mkdir()
         if self.profile is not None:
             (profile / 'MsnProductInfo.ini').write_bytes(self.profile)
@@ -112,6 +113,8 @@ class FirmwareSession(NativeSession):
             (area / 'network-name').write_bytes(self.saved_name)
         if self.state is not None:
             (area / 'state').write_bytes(self.state)
+        if self.appearance is not None:
+            (area / 'appearance').write_bytes(self.appearance)
         if self.dispatch_case:
             (r / 'dispatch-case.txt').write_text(self.dispatch_case)
         if self.manifest is not None:
@@ -203,16 +206,36 @@ def verify_fallback(context, image, label, **kwargs):
         session.close()
 
 
-def validate(root_tar, output, only=None):
-    context, image = prepare(root_tar)
+def validate(root_tar, output, only=None, variant='rc1', ui_evidence=None, probe_library=None):
+    # Fail before launching native cases if this output location is unwritable.
+    # A failed or interrupted rerun must not leave an earlier green report.
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps({'passed': False, 'complete': False,
+                                  'state': 'preparing', 'variant': variant}) + '\n')
+    expected_ui = UI_SHA256
+    if variant == 'rc2':
+        evidence = json.loads(ui_evidence.read_text())
+        assert evidence.get('passed') is True and evidence.get('complete') is True, 'RC2 native evidence incomplete'
+        expected_ui = evidence['library_sha256']
+        assert len(expected_ui) == 64 and expected_ui != UI_SHA256, 'RC2 needs its new native-validated binary'
+        assert evidence.get('cases') and all(case.get('passed') is True for case in evidence['cases']), 'RC2 native cases incomplete'
+        from validate_rc2_regressions import rc2_name_panel
+        navigate_name_panel = rc2_name_panel
+    else:
+        navigate_name_panel = name_panel
+    context, image = prepare(root_tar, expected_ui, probe_library)
     cases = []
     report = {'passed': False, 'root_tar_sha256': sha(root_tar),
-              'library_sha256': UI_SHA256, 'runner_sha256': sha(context / 'production-run-ui.sh'),
+              'library_sha256': expected_ui, 'runner_sha256': sha(context / 'production-run-ui.sh'),
               'production_runner_bytes_unchanged': True, 'full_profile_executed': False,
               'cases': cases, 'hardware_boot_tested': False,
               'hardware_radio_tested': False, 'hardware_reboot_tested': False,
               'full_flash_recovery_proven': False,
               'scope': 'Fresh actual ARM BusyBox shell, CRC verifier and MsnCoreApp from the candidate roundtrip root tar. Exact production runner, manifest and UI library; disposable runtime replaces BusyBox/verifier entry points with static host dispatchers that invoke their preserved real ARM originals via QEMU. Verifier self-pin alone reads the preserved byte-identical /lab/verify.arm because its entry point is adapted; all other CRC targets retain production paths. MsnCoreApp PATH adapter adds only the fake framebuffer and test observer, without changing the ABI-pinned vendor GUI file. Private Docker network/PID/IPC, no capabilities/devices. Synthetic factory profiles and saved names; no kernel boot, radio, MCU, iPhone, physical reboot or flash test.'}
+    if variant == 'rc2':
+        report.update(variant=variant, ui_native_evidence_sha256=sha(ui_evidence),
+                      observer_sha256=sha(context / 'libp401-test-probe.so'),
+                      owner_tested_ui_binary_unchanged=False)
     try:
         if not only or 'healthy' in only:
             s = FirmwareSession('healthy', context, image)
@@ -244,7 +267,7 @@ def validate(root_tar, output, only=None):
                         break
                 else:
                     raise AssertionError('Native Home button did not restore launcher')
-                x, y, width, height = name_panel(s)
+                x, y, width, height = navigate_name_panel(s)
                 s.tap(x + width // 2, y + 217)
                 s.wait(lambda: 'RevivalNameEditor' in s.probe(), 8)
                 for x, y in [(321,319),(696,268),(659,217),(509,217),(246,268)]:
@@ -270,7 +293,10 @@ def validate(root_tar, output, only=None):
             finally:
                 s.close()
         if not only or 'reload' in only:
-            s = FirmwareSession('reload', context, image, saved_name=b'CLOUD\n')
+            appearance = b'P401-APPEARANCE-1\naccent=1\norder=0,1,2,3,4,5\npictures=0,1,2,3,4,5\n' if variant == 'rc2' else None
+            s = FirmwareSession('reload', context, image, saved_name=b'CLOUD\n',
+                                state=b'enabled\n' if variant == 'rc2' else None,
+                                appearance=appearance)
             try:
                 s.start()
                 s.wait(lambda: 'MSNCoreApp exec' in s.log, 15)
@@ -281,7 +307,11 @@ def validate(root_tar, output, only=None):
                 assert state['other_key'] == '6' and state['unrelated_ssid'] == 'Unrelated network'
                 assert state['child_preload'] == 'unset'
                 unchanged_profile(s, TYPE3)
+                if variant == 'rc2':
+                    assert (s.directory / 'data/carplay-revival/state').read_bytes() == b'enabled\n'
+                    assert (s.directory / 'data/carplay-revival/appearance').read_bytes() == appearance
                 cases.append({'case': 'reload', 'passed': True,
+                              'existing_userdata_ui_state_and_appearance_preserved': variant == 'rc2',
                               'endpoints': {key: state[key] for key in ('hostapd_ssid', 'advertised_ssid', 'bluetooth_desired')}})
                 print('PASS full-image runner saved-name native endpoints', flush=True)
             finally:
@@ -308,7 +338,14 @@ if __name__ == '__main__':
     p.add_argument('--root-tar', type=Path, required=True)
     p.add_argument('--output', type=Path, default=BUILD / 'FIRMWARE_NATIVE_CHECKS.json')
     p.add_argument('--only', nargs='*', help='Run selected fixtures; report remains incomplete')
+    p.add_argument('--variant', choices=('rc1', 'rc2'), default='rc1')
+    p.add_argument('--ui-evidence', type=Path, help='Required for RC2: complete passed exact-binary native report')
+    p.add_argument('--probe-library', type=Path, help='Explicit separate plain test observer')
     a = p.parse_args()
-    result = validate(a.root_tar.resolve(), a.output.resolve(), a.only)
+    if (a.variant == 'rc2') != (a.ui_evidence is not None):
+        p.error('--variant rc2 requires --ui-evidence; RC1 does not accept it')
+    result = validate(a.root_tar.resolve(), a.output.resolve(), a.only, a.variant,
+                      a.ui_evidence.resolve() if a.ui_evidence else None,
+                      a.probe_library.resolve() if a.probe_library else None)
     print(json.dumps({'passed': result['passed'], 'complete': result.get('complete', False),
                       'output': str(a.output)}, indent=2))

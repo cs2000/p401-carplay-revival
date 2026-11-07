@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "complete": true,
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "rootfs_sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043",
+  "download_sha256": "62a5cd4d49bd703a8f593c26dd70848379fd53794e62737f257f3ea3b2ca77ef",
+  "checks": {
+    "rc2_native_feature_groups": 5,
+    "naming_cases": 13,
+    "menu_startup_cases": 11,
+    "natural_clock_header_artwork": true,
+    "preference_storage": 23,
+    "current_car_delivery": 94,
+    "full_image_inventory": 58,
+    "full_image_settings_startup": 63,
+    "standalone_runner": 95,
+    "full_image_native_cases": 6
+  },
+  "reports": {
+    "BUILD_SUMMARY.json": {
+      "name": "BUILD_SUMMARY.json",
+      "bytes": 17371,
+      "sha256": "aff13faade351718db76eff702099f6ad7d1a3876153363c1c71160fe28a0c11"
+    },
+    "BUILD_COMMANDS.json": {
+      "name": "BUILD_COMMANDS.json",
+      "bytes": 2872,
+      "sha256": "ccc49f5d4217fffdcf679b8d3fc7f45507bc046fc4f4b94a6ce67e0f92628756"
+    },
+    "INVENTORY.json": {
+      "name": "INVENTORY.json",
+      "bytes": 410185,
+      "sha256": "76c5785fdf4aedb71e3b04758c72eb2c0945f6661a1e79697a59e1b1b644e39c"
+    },
+    "CHANGES.json": {
+      "name": "CHANGES.json",
+      "bytes": 1775,
+      "sha256": "5294699b9d10d2f5527ec6ae1fb52c7df439e75be2f1c44d8c8668bcca281081"
+    },
+    "UI_NATIVE_EVIDENCE.json": {
+      "name": "UI_NATIVE_EVIDENCE.json",
+      "bytes": 30357,
+      "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc"
+    },
+    "RC2_FEATURE_CHECKS.json": {
+      "name": "RC2_FEATURE_CHECKS.json",
+      "bytes": 4767,
+      "sha256": "4dd464cee7aa048278e294558a7ea82c0b1501a3e682c522e4a102fcdab5eb8a"
+    },
+    "SETTINGS_CLOUD_CHECKS.json": {
+      "name": "SETTINGS_CLOUD_CHECKS.json",
+      "bytes": 6889,
+      "sha256": "739d339492c99407c4787102c92a5877fe0f883dbc363ba90bf8744f993d0b02"
+    },
+    "MENU_CLOUD_CHECKS.json": {
+      "name": "MENU_CLOUD_CHECKS.json",
+      "bytes": 3320,
+      "sha256": "34a4d7349363a5260931644b9298542edde6a5b0c69f29422ab4b64511e37c5c"
+    },
+    "CLOCK_CLOUD_CHECKS.json": {
+      "name": "CLOCK_CLOUD_CHECKS.json",
+      "bytes": 1127,
+      "sha256": "12daaa23c2ef944d5f472b10d564c608a2fe78b615472474cbffba69cb956d42"
+    },
+    "PREFERENCES_CHECKS.json": {
+      "name": "PREFERENCES_CHECKS.json",
+      "bytes": 3742,
+      "sha256": "8cc4e2a4612013d97b3e8b4e8851fe60c3b9e2f2c9f6355273ee7868ba5914d0"
+    },
+    "PLAIN_OBSERVER_BUILD.json": {
+      "name": "PLAIN_OBSERVER_BUILD.json",
+      "bytes": 2565,
+      "sha256": "b85bb25e45492848bb4ce05d9f84500054a1c240a838fa3b4e9b98e656ac35b4"
+    },
+    "UPGRADE_MANIFEST.json": {
+      "name": "UPGRADE_MANIFEST.json",
+      "bytes": 9442,
+      "sha256": "c3dd32f6b9ddb889a0df859687d395063db1e6780ba34c1c1c03afd49a2327e6"
+    },
+    "UPGRADE_DELIVERY_CHECKS.json": {
+      "name": "UPGRADE_DELIVERY_CHECKS.json",
+      "bytes": 9869,
+      "sha256": "04f75383e4b8bdabb80001a29bd902cc635bc81ea700e83e32ea5257fd46db33"
+    },
+    "VERIFIER_BUILD.json": {
+      "name": "VERIFIER_BUILD.json",
+      "bytes": 7473,
+      "sha256": "a14e4287202e8904697491308bf97cba2ae6a56a5a61c208cb715bcd7e639316"
+    },
+    "VERIFIER_LINUX34.json": {
+      "name": "VERIFIER_LINUX34.json",
+      "bytes": 4320,
+      "sha256": "3fb926be6492c3cb2028c9c215126e43c15e04724608addec20f28da6e5ba8da"
+    },
+    "IMAGE_CHECKS.json": {
+      "name": "IMAGE_CHECKS.json",
+      "bytes": 54996,
+      "sha256": "6a16520ec0e8fa50b361e98f03df2d529f10a548a02837bd1490f5bbe28fb724"
+    },
+    "STARTUP_CHECKS.json": {
+      "name": "STARTUP_CHECKS.json",
+      "bytes": 7243,
+      "sha256": "e71a990e7c06631d8643d3341611471a03f856805cfc85a6e6c9777189f0762c"
+    },
+    "WRAPPER_CHECKS.json": {
+      "name": "WRAPPER_CHECKS.json",
+      "bytes": 11089,
+      "sha256": "27a323bfcd91c07e9d9fe572d135d6a5fd29a4e8a05faa70f91ae7b88a8767d8"
+    },
+    "NATIVE_CHECKS.json": {
+      "name": "NATIVE_CHECKS.json",
+      "bytes": 3077,
+      "sha256": "38ac08ee020e548a26bac0f7a29f2e9cdb84ebe24f92ee94170630b6a8d623a0"
+    }
+  },
+  "unchanged_verifier_evidence_reused": true,
+  "whole_image_vehicle_tested": false,
+  "physical_radio_tested": false,
+  "physical_reboot_tested": false,
+  "full_profile_or_kernel_boot_emulated": false,
+  "full_flash_recovery_proven": false,
+  "scope": "Fresh offline full-image and exact RC2 ARM native checks; controlled status/model/profile fixtures and fake framebuffer. Earlier owner success and unchanged helper evidence retain their original scope. No physical installation, radio, reboot or flash recovery claim."
+}

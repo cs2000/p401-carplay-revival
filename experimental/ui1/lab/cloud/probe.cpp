@@ -15,6 +15,8 @@
 extern "C" void *vendor_dlsym(void *,const char *) __asm__("dlsym");
 #define dlsym vendor_dlsym
 void settingsProbe(FILE *out);
+// Optional extra observations are supplied only by the separate RC2 probe.
+void rc2Probe(FILE *out,const QByteArray &action) __attribute__((weak));
 
 static QPointer<QAbstractItemModel> originalModel;
 static QPointer<QListView> originalView;
@@ -112,9 +114,22 @@ static void testProbe() {
             fprintf(out,"source_rows=%d\n",model->rowCount());
             for(int row=0;row<model->rowCount();++row){QModelIndex ix=model->index(row,0);fprintf(out,"app=%d,%s\n",model->data(ix,35).toInt(),model->data(ix).toString().toUtf8().constData());}
         }
+        // Read-only navigation geometry lets later regression wrappers click
+        // the actual native Settings row after extensions change its order.
+        // No model, selection or native page action is changed by this dump.
+        if(w->isVisible())if(QListView *view=qobject_cast<QListView*>(w)) {
+            bool settings=false;
+            for(QWidget *parent=w->parentWidget();parent;parent=parent->parentWidget())
+                if(!strcmp(parent->metaObject()->className(),"SettingWindow")){settings=true;break;}
+            if(settings&&view->model())for(int row=0;row<view->model()->rowCount();++row) {
+                QModelIndex ix=view->model()->index(row,0);QRect r=view->visualRect(ix);QPoint top=view->viewport()->mapToGlobal(r.topLeft());
+                QString label=ix.data(Qt::DisplayRole).toString();label.replace('|'," ");label.replace('\n'," ");label.replace('\r'," ");
+                fprintf(out,"settings_nav=%s|%d|%s|%d,%d,%d,%d\n",view->objectName().toUtf8().constData(),row,label.toUtf8().constData(),top.x(),top.y(),r.width(),r.height());
+            }
+        }
     }
     fprintf(out,"visible_apps=%s\n",visibleApps.toUtf8().constData());
-    if(common)dlclose(common);settingsProbe(out);fclose(out);
+    if(common)dlclose(common);settingsProbe(out);if(rc2Probe)rc2Probe(out,action);fclose(out);
 }
 class HideLauncherTimer:public QObject {
     QPointer<QWidget> target;

@@ -30,8 +30,8 @@ I've tested the fixes on my box. This combined download has passed offline check
 
 [Release details and checksums](releases/2026.11-w3-rc1/README.md) · [Installation help](docs/installation.md) · [Technical notes](docs/README.md)
 
-For Jaguar XFR owners starting from compatible stock P401 firmware: [**complete Jaguar Glass + Clock firmware RC1**](releases/2026.11-jaguar-xfr-rc1/README.md). It includes the wireless repair and UI together, preserving existing factory settings. This new full image is offline/native checked and awaits a vehicle installation test.
+For Jaguar XFR owners starting from compatible stock P401 firmware or the full Jaguar RC1 release: [**complete Jaguar firmware RC2**](releases/2026.11-jaguar-xfr-rc2/README.md). It includes the wireless repair, glass/clock/name UI, connection status, appearance options and matching Settings, preserving existing factory settings. RC2 is offline/native checked and awaits a vehicle installation test. [Previous Jaguar RC1](releases/2026.11-jaguar-xfr-rc1/README.md) remains available.
 
-The release folder contains only the installation guide, checksum file and firmware ZIP. Optional [UI rollback controls](recovery/2026.11-jaguar-xfr-rc1/README.md) are separate. Historical small-overlay artifacts remain in the development archive.
+The release folder contains only the installation guide, checksum file and firmware ZIP. Optional [full-image UI rollback controls](recovery/2026.11-jaguar-xfr-rc2/README.md) are separate. My older development installation has its own [small current-car update and exact previous-UI restore](upgrades/2026.11-jaguar-xfr-rc2/README.md); those files are only for its R1 + field-W3 launcher.
 
 [UI1 source and lab notes](experimental/ui1/README.md) · [Cloud project handover](docs/cloud-handover.md)

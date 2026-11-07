@@ -1,0 +1,134 @@
+{
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "observer_sha256": "7b651b58b64152a6dcd1c72fef799c61a9949504ab0de72dcfb333ede1818cdb",
+  "complete": true,
+  "passed": true,
+  "expected_case_count": 5,
+  "cases": [
+    {
+      "case": "connection-native-events",
+      "passed": true,
+      "native_status_handler": true,
+      "bluetooth_ready_tags_insufficient": true,
+      "steps": [
+        {
+          "type": 0,
+          "status": 1,
+          "connected": false
+        },
+        {
+          "type": 7,
+          "status": 3,
+          "connected": false
+        },
+        {
+          "type": 2,
+          "status": 4,
+          "connected": false
+        },
+        {
+          "type": 7,
+          "status": 4,
+          "connected": true
+        },
+        {
+          "type": 7,
+          "status": 6,
+          "connected": true
+        },
+        {
+          "type": 0,
+          "status": 10,
+          "connected": true
+        },
+        {
+          "type": 2,
+          "status": 5,
+          "connected": true
+        },
+        {
+          "type": 7,
+          "status": 8,
+          "connected": false
+        },
+        {
+          "type": 0,
+          "status": 4,
+          "connected": true
+        },
+        {
+          "type": 0,
+          "status": 39,
+          "connected": true
+        },
+        {
+          "type": 0,
+          "status": 5,
+          "connected": false
+        },
+        {
+          "type": 7,
+          "status": 4,
+          "connected": true
+        },
+        {
+          "type": 7,
+          "status": 2,
+          "connected": false
+        },
+        {
+          "type": 0,
+          "status": 4,
+          "connected": true
+        },
+        {
+          "type": 0,
+          "status": 3,
+          "connected": false
+        }
+      ],
+      "default_english_fixture_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/HOME-ENGLISH-FIXTURE.png",
+      "waiting_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/WAITING.png",
+      "connected_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-connection/CONNECTED.png"
+    },
+    {
+      "case": "appearance-pointer-save",
+      "passed": true,
+      "private_atomic_file": true,
+      "existing_network_name_unchanged": true,
+      "accent_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-ACCENTS.png",
+      "pictures_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-PICTURES.png",
+      "order_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/APPEARANCE-ORDER.png",
+      "home_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/HOME-PERSONALISED.png",
+      "english_fixture_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-save/HOME-ENGLISH-FIXTURE.png"
+    },
+    {
+      "case": "appearance-cancel",
+      "passed": true,
+      "persisted_file_unchanged": true
+    },
+    {
+      "case": "appearance-reload-native-routing",
+      "passed": true,
+      "bluetooth_original_row": true,
+      "name_endpoints_preserved": true,
+      "fixed_settings_footer": true,
+      "settings_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-appearance-reload/SETTINGS-PERSONALISED.png"
+    },
+    {
+      "case": "settings-native-advanced",
+      "passed": true,
+      "real_pointer_native_slot": true,
+      "advanced_tab": 2,
+      "native_mcu_version_label_preserved": true,
+      "synthetic_runtime_version_cache": true,
+      "factory_values_unchanged": true,
+      "native_optional_display_selector_hidden": true,
+      "settings_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/SETTINGS.png",
+      "display_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/DISPLAY-NATIVE-CONTROLS.png",
+      "factory_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/FACTORY.png",
+      "advanced_preview": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/runs/rc2-settings-advanced/ADVANCED-NO-PIN.png"
+    }
+  ],
+  "scope": "Actual ARM native GUI in private Docker network/PID/IPC namespaces, fake framebuffer and real Qt pointer path. Link statuses are controlled native-handler fixtures, not live phone/radio sessions. No MCU, iPhone, physical restart, vehicle install, kernel boot or full-flash recovery proven. Historical RC1 artifacts/evidence unchanged."
+}

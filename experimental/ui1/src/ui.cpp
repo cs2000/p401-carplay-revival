@@ -1,5 +1,9 @@
 // Native Qt 4.7.4 settings extension and explicitly isolated menu prototypes.
 #include "name_store.h"
+#include "preferences.h"
+#include "appearance_editor.h"
+#include "connection_status.h"
+#include "settings_style.h"
 #include <QtGui/qapplication.h>
 #include <QtGui/qwidget.h>
 #include <QtGui/qpainter.h>
@@ -24,7 +28,6 @@
 extern "C" void *vendor_dlsym(void *,const char *) __asm__("dlsym");
 #define dlsym vendor_dlsym
 #include "brand_paths.h"
-#include "glass_artwork.h"
 
 static QString tr(const char *s) { return QString::fromUtf8(s); }
 static void text(QPainter &p,QRect r,const QString &s,int size,QColor c,int align=Qt::AlignCenter,bool bold=false) {
@@ -60,7 +63,8 @@ static void icon(QPainter &p,int kind,int x,int y,int size,QColor color) {
     p.restore();
 }
 struct Hit { QRect rect; QString action; Hit(){} Hit(QRect r,QString a):rect(r),action(a){} };
-static QColor bg(14,17,18),surface(31,36,38),ink(240,241,238),muted(165,175,176),teal(95,205,199),red(208,64,51);
+static QColor bg(14,17,18),surface(31,36,38),ink(240,241,238),muted(165,175,176),red(208,64,51);
+static QColor themeAccent() { return Revival::accentColor(); }
 static void fitArtwork(QPainter &p,const QPainterPath &path,QRectF area,QColor color) {
     QRectF b=path.boundingRect();qreal s=qMin(area.width()/b.width(),area.height()/b.height());
     p.save();p.translate(area.center());p.scale(s,s);p.translate(-b.center());p.fillPath(path,color);p.restore();
@@ -87,8 +91,8 @@ static bool restartAvailable() {
 class NameEditor:public QWidget {
     QVector<Hit> hits;QString draft,error;bool caps,confirm,restarting;int pressed;
     void button(QPainter &p,QRect r,QString label,QString action,bool primary=false) {
-        bool down=pressed==hits.size();p.fillRect(r,down?QColor(63,85,85):(primary?QColor(45,92,90):surface));
-        p.setPen(primary?teal:QColor(72,79,80));p.drawRect(r.adjusted(0,0,-1,-1));text(p,r,label,22,ink);hits.append(Hit(r,action));
+        bool down=pressed==hits.size();p.fillRect(r,down?QColor(63,85,85):(primary?themeAccent().darker(220):surface));
+        p.setPen(primary?themeAccent():QColor(72,79,80));p.drawRect(r.adjusted(0,0,-1,-1));text(p,r,label,22,ink);hits.append(Hit(r,action));
     }
 public:
     NameEditor():QWidget(0,Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint),caps(true),confirm(false),restarting(false),pressed(-1) {
@@ -98,7 +102,7 @@ protected:
     void paintEvent(QPaintEvent *) {
         QPainter p(this);p.fillRect(rect(),bg);p.scale(qreal(width())/800,qreal(height())/480);p.setRenderHint(QPainter::Antialiasing);hits.clear();
         text(p,QRect(24,10,752,43),tr("CarPlay name"),26,ink,Qt::AlignLeft|Qt::AlignVCenter);
-        p.setPen(teal);p.drawLine(24,59,776,59);
+        p.setPen(themeAccent());p.drawLine(24,59,776,59);
         if(!Revival::namesAvailable()) {
             text(p,QRect(40,155,720,120),Revival::namesUnavailableReason(),23,muted,Qt::AlignCenter|Qt::TextWordWrap);
             button(p,QRect(24,414,752,52),tr("Close"),"cancel");return;
@@ -110,7 +114,7 @@ protected:
             text(p,QRect(35,235,730,65),tr("The unit will restart. You may need to pair your phone again."),19,muted,Qt::AlignCenter|Qt::TextWordWrap);
             button(p,QRect(24,392,354,64),tr("Go back"),"back");button(p,QRect(394,392,382,64),tr("Save & restart"),"commit",true);return;
         }
-        p.fillRect(QRect(24,73,752,57),QColor(8,11,12));p.setPen(teal);p.drawRect(24,73,751,56);
+        p.fillRect(QRect(24,73,752,57),QColor(8,11,12));p.setPen(themeAccent());p.drawRect(24,73,751,56);
         text(p,QRect(39,79,710,45),draft.isEmpty()?tr("Enter a name"):draft,26,draft.isEmpty()?muted:ink,Qt::AlignLeft|Qt::AlignVCenter);
         const char *rows[]={"1234567890","QWERTYUIOP","ASDFGHJKL","ZXCVBNM"};
         for(int row=0;row<4;++row) {
@@ -158,7 +162,7 @@ protected:
         QPainter p(this);p.fillRect(rect(),bg);
         text(p,QRect(20,25,width()-40,50),tr("Wi-Fi and Bluetooth name"),24,ink);
         bool available=Revival::namesAvailable();
-        QString name=Revival::savedName();text(p,QRect(20,100,width()-40,55),available?(name.isEmpty()?tr("Use the device’s default name"):name):tr("Custom naming unavailable"),24,available?teal:muted);
+        QString name=Revival::savedName();text(p,QRect(20,100,width()-40,55),available?(name.isEmpty()?tr("Use the device’s default name"):name):tr("Custom naming unavailable"),24,available?themeAccent():muted);
         p.fillRect(QRect(30,185,width()-60,65),surface);text(p,QRect(30,185,width()-60,65),available?tr("Change name"):tr("Unavailable"),23,available?ink:muted);
         text(p,QRect(20,265,width()-40,110),available?tr("Saving a new name restarts the unit. Your other settings stay as they are."):Revival::namesUnavailableReason(),18,muted,Qt::AlignCenter|Qt::TextWordWrap);
     }
@@ -169,7 +173,7 @@ static void attachSettings(void *self) {
     if(settingsInstance==self)return;
     typedef void(*Attach)(void*,QString,QString,QLayout*);
     Attach attach=(Attach)settingSymbol("_ZN13SettingWindow10attachItemE7QStringS0_P7QLayout");
-    if(attach){settingsInstance=(QWidget*)self;QVBoxLayout *layout=new QVBoxLayout;layout->setContentsMargins(0,0,0,0);layout->addWidget(new NamePanel);attach(self,"RevivalCarPlayName","CarPlay name",layout);fprintf(stderr,"REVIVAL: CarPlay name Settings page attached\n");}
+    if(attach){settingsInstance=(QWidget*)self;QVBoxLayout *layout=new QVBoxLayout;layout->setContentsMargins(0,0,0,0);layout->addWidget(new NamePanel);attach(self,"RevivalCarPlayName","CarPlay name",layout);QLayout *appearance=Revival::appearanceSettingsLayout();if(appearance)attach(self,"RevivalAppearance","Appearance",appearance);fprintf(stderr,"REVIVAL: CarPlay name Settings page attached\n");}
 }
 
 class HomeBrand:public QWidget {
@@ -250,22 +254,6 @@ class NativeMenu:public QWidget {
             ready=true;fprintf(stderr,"REVIVAL: native XFR menu attached; original application actions retained\n");
         }
     }
-    static const QPixmap &tileArtwork() {
-        // Decode once per GUI process. These are static tile pictures; there is
-        // no animated wallpaper, blur pass, network fetch or background timer.
-        static QPixmap atlas;
-        static bool loaded=false;
-        if(!loaded) {
-            loaded=true;
-            if(atlas.loadFromData(p401_glass_tile_atlas,p401_glass_tile_atlas_size,"PNG")) {
-                // Bound the retained raster to 1.5 MiB at 32 bpp, even when the
-                // source artwork was generated at a much larger resolution.
-                if(atlas.width()>768||atlas.height()>512)atlas=atlas.scaled(768,512,Qt::KeepAspectRatio,Qt::SmoothTransformation);
-                fprintf(stderr,"REVIVAL: static glass artwork loaded %dx%d\n",atlas.width(),atlas.height());
-            } else fprintf(stderr,"REVIVAL: glass artwork unavailable; using graphite tiles\n");
-        }
-        return atlas;
-    }
     void tile(QPainter &p,const AppEntry &app,QRect r,bool flat=false) {
         bool down=pressed==hits.size();
         QRectF card(r.adjusted(1,1,-1,-1));
@@ -276,12 +264,13 @@ class NativeMenu:public QWidget {
         base.setColorAt(0,QColor(58,63,66));base.setColorAt(1,QColor(20,25,28));
         p.fillPath(outline,base);
         if(!flat&&app.kind>=0&&app.kind<6) {
-            const QPixmap &atlas=tileArtwork();
+            const QPixmap &atlas=Revival::tileArtwork();
             if(!atlas.isNull()) {
                 // Crop within each atlas cell, so a different screen aspect
                 // never stretches the pictures or leaks a neighbouring tile.
                 qreal w=qreal(atlas.width())/3,h=qreal(atlas.height())/2;
-                QRectF photo((app.kind%3)*w,(app.kind/3)*h,w,h);
+                int picture=Revival::tilePictureIndex(app.kind);
+                QRectF photo((picture%3)*w,(picture/3)*h,w,h);
                 qreal ratio=card.width()/card.height();
                 if(photo.width()/photo.height()>ratio){qreal crop=photo.height()*ratio;photo.setX(photo.x()+(photo.width()-crop)/2);photo.setWidth(crop);}
                 else {qreal crop=photo.width()/ratio;photo.setY(photo.y()+(photo.height()-crop)/2);photo.setHeight(crop);}
@@ -291,14 +280,14 @@ class NativeMenu:public QWidget {
             shade.setColorAt(0,QColor(6,12,16,75));shade.setColorAt(.48f,QColor(5,10,14,95));shade.setColorAt(1,QColor(4,8,11,230));
             p.fillPath(outline,shade);
         }
-        if(down)p.fillPath(outline,QColor(53,150,146,65));
+        if(down){QColor tint=themeAccent();tint.setAlpha(65);p.fillPath(outline,tint);}
         // A quiet upper reflection gives the glass depth without rendering a
         // real-time effect. Large labels retain contrast over every picture.
         QLinearGradient sheen(card.topLeft(),QPointF(card.left(),card.top()+card.height()*.48f));
         sheen.setColorAt(0,QColor(255,255,255,30));sheen.setColorAt(1,QColor(255,255,255,0));
         p.fillPath(outline,sheen);p.restore();
         p.save();p.setBrush(Qt::NoBrush);
-        p.setPen(QPen(down?teal:(app.kind==0?QColor(87,176,173):QColor(114,125,130)),1));p.drawPath(outline);
+        p.setPen(QPen(down?themeAccent():(app.kind==0?themeAccent().darker(115):QColor(114,125,130)),1));p.drawPath(outline);
         p.setPen(QColor(255,255,255,65));p.drawLine(QPointF(card.left()+11,card.top()+1),QPointF(card.right()-11,card.top()+1));
         if(flat) {
             icon(p,app.kind,r.x()+16,r.y()+16,40,QColor(0,0,0,160));
@@ -312,9 +301,16 @@ class NativeMenu:public QWidget {
             tint.setColorAt(0,QColor(225,238,242,75));tint.setColorAt(.49f,QColor(115,139,147,40));tint.setColorAt(.51f,QColor(8,20,26,125));tint.setColorAt(1,QColor(15,29,35,155));
             p.fillPath(glass,tint);p.setPen(QColor(225,245,245,95));p.drawPath(glass);
             icon(p,app.kind,int(badge.x())+8,int(badge.y())+10,size,QColor(0,0,0,180));
-            icon(p,app.kind,int(badge.x())+8,int(badge.y())+8,size,app.kind==0?QColor(143,237,229):ink);
-            QRect label(r.x()+4,r.bottom()-38,r.width()-8,34);
-            text(p,label.translated(0,1),app.label,21,QColor(0,0,0,230));text(p,label,app.label,21,ink);
+            icon(p,app.kind,int(badge.x())+8,int(badge.y())+8,size,app.kind==0?themeAccent().lighter(120):ink);
+            if(app.kind==0) {
+                bool compact=r.height()<110;int labelHeight=compact?17:26;
+                QRect label(r.x()+4,r.bottom()-(compact?34:48),r.width()-8,labelHeight);
+                text(p,label.translated(0,1),app.label,compact?16:21,QColor(0,0,0,230));text(p,label,app.label,compact?16:21,ink);
+                text(p,QRect(r.x()+4,r.bottom()-(compact?16:23),r.width()-8,compact?15:20),Revival::carPlayStatusText(),compact?12:14,muted);
+            } else {
+                QRect label(r.x()+4,r.bottom()-38,r.width()-8,34);
+                text(p,label.translated(0,1),app.label,21,QColor(0,0,0,230));text(p,label,app.label,21,ink);
+            }
         }
         p.restore();hits.append(Hit(r,QString::number(app.row)));
     }
@@ -365,7 +361,7 @@ protected:
         // Redraw only when the source app list changes. Repainting a static
         // screen twice a second wastes the old ARM CPU and causes visible tears
         // when the simulator captures a framebuffer partway through a paint.
-        QString state;QAbstractItemModel *m=source->model();
+        QString state=QString::number(Revival::preferencesRevision())+":"+Revival::carPlayStatusText()+"\n";QAbstractItemModel *m=source->model();
         for(int i=0;i<m->rowCount();++i){QModelIndex ix=m->index(i,0);state+=QString::number(m->data(ix,35).toInt())+":"+m->data(ix).toString()+"\n";}
         if(state!=modelState||!ready){modelState=state;update();}
     }
@@ -378,9 +374,9 @@ protected:
         QAbstractItemModel *model=source->model();
         for(int row=0;row<model->rowCount();++row){AppEntry a;a.row=row;QModelIndex ix=model->index(row,0);a.label=model->data(ix,Qt::DisplayRole).toString();a.id=model->data(ix,35).toInt();a.kind=appKind(a.id,a.label);if(a.kind==6){a.label=tr("Exit");av=a;}else if(a.kind==7)settings=a;else apps.append(a);}
         // Retain every configured app. Known functions follow the selected layout.
-        for(int i=0;i<apps.size();++i)for(int j=i+1;j<apps.size();++j)if(apps[j].kind<apps[i].kind){AppEntry a=apps[i];apps[i]=apps[j];apps[j]=a;}
+        for(int i=0;i<apps.size();++i)for(int j=i+1;j<apps.size();++j){int a=apps[i].kind<6?Revival::tileOrderRank(apps[i].kind):apps[i].kind+6;int b=apps[j].kind<6?Revival::tileOrderRank(apps[j].kind):apps[j].kind+6;if(b<a){AppEntry entry=apps[i];apps[i]=apps[j];apps[j]=entry;}}
         int rows=apps.size()>8?3:2;int cols=qMax(1,(apps.size()+rows-1)/rows);int cell=762/cols;int height=278/rows;
-        p.setPen(teal);p.drawLine(24,64,776,64);
+        p.setPen(themeAccent());p.drawLine(24,64,776,64);
         for(int i=0;i<apps.size();++i)tile(p,apps[i],QRect(24+(i%cols)*cell,86+(i/cols)*height,cell-10,height-10));
         if(av.row>=0&&settings.row>=0){tile(p,av,QRect(24,373,366,71),true);tile(p,settings,QRect(406,373,370,71),true);}
         else if(settings.row>=0)tile(p,settings,QRect(24,373,752,71),true);
@@ -406,10 +402,10 @@ static const char *appNames[]={"CarPlay","Android Auto","Bluetooth","USB music",
 class DesignWindow:public QWidget {
     QVector<Hit> hits;int design,pressed,page;QString current;
     void tile(QPainter &p,int app,QRect r,bool list=false) {
-        bool down=pressed==hits.size();QColor accent=teal;
+        bool down=pressed==hits.size();QColor accent=themeAccent();
         if(design==0 || design==1) {
             p.fillRect(r,down?QColor(47,61,62):surface);p.setPen(design==0?QColor(70,78,79):QColor(48,51,52));p.drawRect(r.adjusted(0,0,-1,-1));
-            if(design==1){p.fillRect(QRect(r.x(),r.y(),3,r.height()),app==0?teal:QColor(68,69,68));}
+            if(design==1){p.fillRect(QRect(r.x(),r.y(),3,r.height()),app==0?themeAccent():QColor(68,69,68));}
         } else {p.fillRect(r,down?QColor(39,53,53):bg);p.setPen(QColor(58,64,65));p.drawLine(r.left(),r.bottom(),r.right(),r.bottom());}
         if(list) {icon(p,app,r.x()+14,r.y()+(r.height()-42)/2,42,app==0?accent:ink);text(p,QRect(r.x()+73,r.y(),r.width()-83,r.height()),tr(appNames[app]),23,ink,Qt::AlignLeft|Qt::AlignVCenter);}
         else {icon(p,app,r.x()+(r.width()-58)/2,r.y()+18,58,app==0?accent:ink);text(p,QRect(r.x()+3,r.y()+82,r.width()-6,40),tr(appNames[app]),20,ink);}
@@ -424,7 +420,7 @@ protected:
     }
     void paintEvent(QPaintEvent *) {
         QPainter p(this);p.setRenderHint(QPainter::Antialiasing);p.fillRect(rect(),bg);hits.clear();
-        QColor accent=teal;
+        QColor accent=themeAccent();
         text(p,QRect(24,12,200,44),page?tr("Settings"):tr("Home"),25,ink,Qt::AlignLeft|Qt::AlignVCenter);
         drawBrand(p,QRect(230,0,340,60));
         text(p,QRect(666,12,110,44),"09:41",23,muted,Qt::AlignRight|Qt::AlignVCenter);
@@ -467,6 +463,7 @@ protected:void timerEvent(QTimerEvent *){
         const char *name=current[i]->metaObject()->className();
         if(!strcmp(name,"LauncherWindow"))attachMenu(current[i]);
         if(!strcmp(name,"SettingWindow"))attachSettings(current[i]);
+        Revival::applySettingsStyle(current[i]);
     }
     if(!first)return;first=false;
     if(!Revival::laboratory())return;
@@ -491,5 +488,6 @@ extern "C" bool notify_hook(void *self,QObject *receiver,QEvent *event) {
         if(!strcmp(receiver->metaObject()->className(),"SettingWindow"))attachSettings(receiver);
         if(!strcmp(receiver->metaObject()->className(),"LauncherWindow"))attachMenu((QWidget*)receiver,true);
     }
+    Revival::settingsStyleEvent(receiver,event);
     return result;
 }

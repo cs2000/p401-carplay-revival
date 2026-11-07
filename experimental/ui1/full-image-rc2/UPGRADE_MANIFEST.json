@@ -1,0 +1,219 @@
+{
+  "revision": "2026.11-jaguar-xfr-rc2-field-upgrade",
+  "status": "Fresh native/offline checked UI candidate; RC2 physical vehicle testing pending",
+  "requires": "Owner's R1 + field-W3 startup layout with the owner-tested Glass + Clock UI",
+  "not_for": "Standalone full Jaguar RC1/RC2 startup layout; use the full firmware bundle there",
+  "checkout_head": "28b2741f83a33bc1c0f42090bbc6dfac3c80cb15",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "previous_installer_sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383",
+  "previous_library_sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639",
+  "extra_abi_pin": {
+    "path": "usr/lib/libLinkLibs.so",
+    "crc32": "59ed7170",
+    "bytes": 129180,
+    "sha256": "ac7d73df4bdd7dfa59e4042dbf46c19797eb3ce84cca630dff79308911e8acdc"
+  },
+  "native_evidence": {
+    "file": "NATIVE_EVIDENCE.json",
+    "bytes": 30357,
+    "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc",
+    "case_count": 5
+  },
+  "packager": {
+    "file": "tools/package_ui1_rc2_upgrade.py",
+    "bytes": 11312,
+    "sha256": "afe009a2321e68eff1b9e25c9f5224324ce92c50fd56b82744f44d1bdbc14db7"
+  },
+  "source_snapshot": {
+    "sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d",
+    "encoding": "SHA256 of canonical JSON files map (sorted keys, compact separators)",
+    "files": {
+      "experimental/ui1/src/appearance_editor.cpp": {
+        "bytes": 10100,
+        "sha256": "256064f3b207b29c313310fc909c6c415b205b6bff24ad78e5ffbbc4a74fe668"
+      },
+      "experimental/ui1/src/appearance_editor.h": {
+        "bytes": 192,
+        "sha256": "6128c5f5333c2d71b53013a006cd9ec0b1f3cc84e457f2a9125e15fd03ec14d0"
+      },
+      "experimental/ui1/src/assets/branding-source.json": {
+        "bytes": 362,
+        "sha256": "3c6a35c550bfa7b881b449127e89d7bd071947c7f6f4a0870a168d65dc37ad5c"
+      },
+      "experimental/ui1/src/assets/glass-artwork-source.json": {
+        "bytes": 282,
+        "sha256": "923532125fecdb0e7b2cf79ae62e704d733121ec2e07c17de105fbe4cfc29f11"
+      },
+      "experimental/ui1/src/assets/glass-tile-atlas.png": {
+        "bytes": 578134,
+        "sha256": "a7dff60fcdfaea8ed0b17874011dcdb833c0b235750dfec6ed6e458c8cf080f7"
+      },
+      "experimental/ui1/src/assets/jaguar-reference.png": {
+        "bytes": 228329,
+        "sha256": "0f59941f44a9426a62fb8d6e9626cbc5a533d4d496f547b1ab1fd1564a4ae8b6"
+      },
+      "experimental/ui1/src/assets/jaguar-stacked.svg": {
+        "bytes": 70381,
+        "sha256": "f719bb0728b84e8710e49f26809eae1cbf173be967f057d258dd18227d738473"
+      },
+      "experimental/ui1/src/brand_paths.h": {
+        "bytes": 331137,
+        "sha256": "578db600aba96e4386438056da1c9c049a9319e7aeb3281cab81d79aee7dfc51"
+      },
+      "experimental/ui1/src/build.py": {
+        "bytes": 4222,
+        "sha256": "33049ab533d25cca7e63aa0e9b6d65b8f6d91f8c48121d529683a3aa2029dc09"
+      },
+      "experimental/ui1/src/connection_status.cpp": {
+        "bytes": 3708,
+        "sha256": "fe3580618682225ad0566f3c5342d5d58f0e1e50b22c0a90fb79182145631cd1"
+      },
+      "experimental/ui1/src/connection_status.h": {
+        "bytes": 359,
+        "sha256": "a291838143c2ee47c51dfbd07e94e00c72528a3f3c91ac013cb7f1b703f82287"
+      },
+      "experimental/ui1/src/lab_probe.cpp": {
+        "bytes": 5045,
+        "sha256": "39ce405221b43e4bf5f5256bcd72d5488383f7a68a356018c1085c386d2d65f6"
+      },
+      "experimental/ui1/src/make_brand.py": {
+        "bytes": 2451,
+        "sha256": "a02d8e7aa9938fa02a2ad17515a01d1bfce4b95b75424ad9c86f43aaa94de2c2"
+      },
+      "experimental/ui1/src/name_hooks.cpp": {
+        "bytes": 2828,
+        "sha256": "bb8014486b1a9ee3a705114fab9c9388419733f2e3291c8b771a0fb22311c0f5"
+      },
+      "experimental/ui1/src/name_store.cpp": {
+        "bytes": 5218,
+        "sha256": "fc43ef7edd4914dfba21166c63be874fe45192229c076ebac377aa9bc46a0187"
+      },
+      "experimental/ui1/src/name_store.h": {
+        "bytes": 295,
+        "sha256": "6f94878ab21b2d3534b551d7f857e7f6fc369553e39783fed457eb058b712969"
+      },
+      "experimental/ui1/src/preferences.cpp": {
+        "bytes": 6317,
+        "sha256": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181"
+      },
+      "experimental/ui1/src/preferences.h": {
+        "bytes": 823,
+        "sha256": "cb6e53a088143fd574c47568934277758e278b6890919585d0b13106d9e2c106"
+      },
+      "experimental/ui1/src/run-ui.sh.in": {
+        "bytes": 1978,
+        "sha256": "1178d0969f83e4137c640281eb0f6aefec411fd02ad10501cc249d53caa70c4b"
+      },
+      "experimental/ui1/src/settings_style.cpp": {
+        "bytes": 14457,
+        "sha256": "1b66ff8901cdc8530cf85ac9485307d0c90f4bbe40d593c8dac6322df154896a"
+      },
+      "experimental/ui1/src/settings_style.h": {
+        "bytes": 401,
+        "sha256": "2adaf63f15fd8418c876b003d18cce48782d1681ff57e331a18233d8d8fd3781"
+      },
+      "experimental/ui1/src/trace_brand.py": {
+        "bytes": 2430,
+        "sha256": "cfc98d92883e8d1e4352f7dccd9ef0ebb0b8c1af216605a045d2593e2817b381"
+      },
+      "experimental/ui1/src/ui.cpp": {
+        "bytes": 31737,
+        "sha256": "f4de269f9d50e1a63ee36a35ab0b1e89d2197007a8e77f7c757a3334149fcd74"
+      }
+    },
+    "note": "Source snapshot at packaging; not a claim of byte-for-byte reproducibility."
+  },
+  "packages": [
+    {
+      "file": "INSTALL.zip",
+      "bytes": 702479,
+      "sha256": "793f9b3c2b799aab42a9e6fc21b1099afb7e1e47c289e8daf32b930bfbdbaaad",
+      "files": {
+        "msn_autocopy/data/carplay-revival/compatibility.txt": {
+          "bytes": 484,
+          "sha256": "7918f5a40a37bde6a1e796a82f4f9104eca30e1567009e339e77783d345eb8e3"
+        },
+        "msn_autocopy/data/carplay-revival/lib/libp401-ui.so": {
+          "bytes": 952768,
+          "sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1"
+        },
+        "msn_autocopy/data/carplay-revival/run-ui.sh": {
+          "bytes": 1974,
+          "sha256": "7b4cc0657a7e8b3ce643bb78cfd39b3d4a494d860ab88c4d771d472b6338751c"
+        },
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 8,
+          "sha256": "e056a35db086947e2f5969d747f0a7517bff00c7ffff1f9e7b47b72bfac9d948"
+        },
+        "msn_autocopy/data/p401-w3/install-checks.txt": {
+          "bytes": 753,
+          "sha256": "d2328f25eaa44a83a622be915e9a7b74f302a2fd632fb72396ada6d12954825e"
+        },
+        "msn_autocopy/usr/bin/p401-recovery-run-core.sh": {
+          "bytes": 1348,
+          "sha256": "85cffe551c0afb128398ef7951ab7528ddcc1d5aa17fe1a835f678978e2e80d1"
+        }
+      }
+    },
+    {
+      "file": "RESTORE_PREVIOUS_UI.zip",
+      "bytes": 681928,
+      "sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383",
+      "files": {
+        "msn_autocopy/data/carplay-revival/compatibility.txt": {
+          "bytes": 444,
+          "sha256": "74efc9947d0590457da50852ead61be6dcae91ecf8fe574cf78823a3bd6859a8"
+        },
+        "msn_autocopy/data/carplay-revival/lib/libp401-ui.so": {
+          "bytes": 895588,
+          "sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639"
+        },
+        "msn_autocopy/data/carplay-revival/run-ui.sh": {
+          "bytes": 1974,
+          "sha256": "6daad5c1c8f111e095636b20bf546e96767bf4dc99010e86c694b7cf867621ff"
+        },
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 8,
+          "sha256": "e056a35db086947e2f5969d747f0a7517bff00c7ffff1f9e7b47b72bfac9d948"
+        },
+        "msn_autocopy/data/p401-w3/install-checks.txt": {
+          "bytes": 753,
+          "sha256": "2d1d78f70b0419bf84f37cf76342bada02f25fae81222f906ad62706860a41f7"
+        },
+        "msn_autocopy/usr/bin/p401-recovery-run-core.sh": {
+          "bytes": 1348,
+          "sha256": "c009b97bca60a9014db9c19f2241c3bbe1d0113eed58901692dd69c28febe5f7"
+        }
+      }
+    },
+    {
+      "file": "DISABLE_UI.zip",
+      "bytes": 1535,
+      "sha256": "6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 9,
+          "sha256": "b5ea375becd3088862c16fc97fe379532c583079829fcf1fdcb549e6808262fb"
+        },
+        "msn_autocopy/data/p401-w3/install-checks.txt": {
+          "bytes": 753,
+          "sha256": "b31f349ae1b61923b122ee0b7e90a1b1b8e3a4558d53d05ab3851acef3d79786"
+        },
+        "msn_autocopy/usr/bin/p401-recovery-run-core.sh": {
+          "bytes": 1172,
+          "sha256": "61f62da7ed8909b20fa6546d46e8199b51754a05fbaed84d1cfd68fe0141c452"
+        }
+      }
+    }
+  ],
+  "rollback_note": "RESTORE_PREVIOUS_UI.zip is byte-for-byte the owner's previous successful installer: it restores the exact c62 library, ABI manifest, UI wrapper, enabled state, GUI runner and working W3 manifest. DISABLE_UI.zip is the unchanged original three-file UI-off rollback. Neither touches name, appearance, MCU, factory settings, kernel or rootfs.",
+  "hardware_radio_tested": false,
+  "physical_reboot_tested": false,
+  "kernel_rootfs_changed": false,
+  "w3_fix_bytes_changed": false,
+  "factory_mcu_changed": false,
+  "saved_name_appearance_changed": false,
+  "flash_backup": false,
+  "full_flash_restore_available": false,
+  "warning": "Does not back up firmware. Rollback requires a booting box accepting autocopy; no bricked-unit recovery is offered."
+}

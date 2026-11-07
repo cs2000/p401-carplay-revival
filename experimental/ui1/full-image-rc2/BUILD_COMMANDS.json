@@ -1,0 +1,118 @@
+[
+  {
+    "argv": [
+      "tar",
+      "--numeric-owner",
+      "--same-owner",
+      "-xpf",
+      "/repo/build/onboarding/release/rootfs_source_tree.tar",
+      "-C",
+      "/repo/build/jaguar/full-image-rc2/root"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/bin/sh",
+      "-n",
+      "/repo/build/jaguar/full-image-rc2/root/etc/profile"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/bin/sh",
+      "-n",
+      "/repo/build/jaguar/full-image-rc2/root/usr/libexec/carplay-revival/ui/run-ui.sh"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "mkfs.ubifs",
+      "-r",
+      "/repo/build/jaguar/full-image-rc2/root",
+      "-m",
+      "2048",
+      "-e",
+      "126976",
+      "-c",
+      "848",
+      "-j",
+      "8388608",
+      "-x",
+      "lzo",
+      "-f",
+      "8",
+      "-F",
+      "-k",
+      "r5",
+      "-p",
+      "1",
+      "-l",
+      "5",
+      "-o",
+      "/repo/build/jaguar/full-image-rc2/rootfs.ubifs",
+      "-v"
+    ],
+    "returncode": 0,
+    "stdout": "mkfs.ubifs\n\troot:         /repo/build/jaguar/full-image-rc2/root/\n\tmin_io_size:  2048\n\tleb_size:     126976\n\tmax_leb_cnt:  848\n\toutput:       /repo/build/jaguar/full-image-rc2/rootfs.ubifs\n\tjrn_size:     8388608\n\treserved:     0\n\tcompr:        lzo\n\tkeyhash:      r5\n\tfanout:       8\n\torph_lebs:    1\n\tspace_fixup:  1\n\tselinux file: (null)\n\tsuper lebs:   1\n\tmaster lebs:  2\n\tlog_lebs:     5\n\tlpt_lebs:     2\n\torph_lebs:    1\n\tmain_lebs:    753\n\tgc lebs:      1\n\tindex lebs:   10\n\tleb_cnt:      764\n\tUUID:         6AB2A8DA-5248-4554-859A-4DD8CB5E0DAD\nSuccess!\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ubinize",
+      "-o",
+      "/repo/build/jaguar/full-image-rc2/rootfs.img",
+      "-p",
+      "131072",
+      "-m",
+      "2048",
+      "-s",
+      "2048",
+      "-O",
+      "2048",
+      "-x",
+      "1",
+      "-Q",
+      "24958429",
+      "/repo/build/jaguar/full-image-rc2/ubinize.ini"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "mkfs.ubifs",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "mkfs.ubifs (mtd-utils) 2.3.0\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "ubinize",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "ubinize (mtd-utils) 2.3.0\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "tar",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "tar (GNU tar) 1.35\nCopyright (C) 2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by John Gilmore and Jay Fenlason.\n",
+    "stderr": ""
+  }
+]

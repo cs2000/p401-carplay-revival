@@ -1,0 +1,20 @@
+{
+  "kind": "native-preview",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "language": "English selected through the existing vendor Language page in synthetic isolated userdata",
+  "images": {
+    "SETTINGS-ENGLISH.png": "3a0f58a58f6fd382a8827e68023a99c34b290605e226d6c376326c4feb320e79",
+    "APPEARANCE-ACCENTS.png": "9393b056daab5871541db97a21f7e70fc05dcf8c1155b72adea663bb5c45ed66",
+    "APPEARANCE-PICTURES.png": "47060010d1b5c231ff7fdd908be90748e10a6a6f415dc41e7563fb6bff132e8a",
+    "APPEARANCE-ORDER.png": "a542848f3321bea354de1ff4bba5b539af1f14b086764cb6e12ce70dd5cef18a",
+    "DISPLAY-ENGLISH.png": "3974e5b5ad9b4a5c8cdd6e7c9cd9eb8902c428536947ad7845db8346e52baa21",
+    "FACTORY-ENGLISH.png": "1cb2a64fc5ceab8e329eb6462149983ae36e3d4db76c2dafd24d5370939e1033",
+    "ADVANCED-ENGLISH.png": "054fb728e2aba88b5f0cb1e12903a7d78ef20b9006018bf7810368210a298d53",
+    "HOME-WAITING-ENGLISH-NATIVE-MODEL.png": "1987467cdcaa0b28716ce8126a1764d771f341ebfe3eceef47ae9708b7fe7b9a",
+    "HOME-WAITING-ENGLISH-APP-FIXTURE.png": "bec1ec13012f45e173e8dcea38b03d174c822eb9aca2c2bee94e5344185b47ec"
+  },
+  "home_app_fixture": "Only HOME-WAITING-ENGLISH-APP-FIXTURE.png uses the explicit six-app visual model fixture; the native model is retained in the other Home image. Original model restored before cleanup.",
+  "advanced": "Actual native button pointer path reached tab2 without PIN. No MCU runtime version cache seeded for this preview; the separate passed feature suite tests nonempty native version label parity.",
+  "factory_product_profiles_unchanged": true,
+  "scope": "Actual final ARM GUI in private Docker/QEMU with fake framebuffer; no physical radios, MCU, reboot, device installation or recovery proof."
+}

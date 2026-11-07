@@ -1,0 +1,481 @@
+{
+  "release": "2026.11-jaguar-xfr-rc2",
+  "status": "New full-image candidate; exact W3 retained with new native-validated UI; requires independent image validation",
+  "base_zip_sha256": "826592230326d57be22895fc89a1228504a16d45015c5996e5d6cca4c1e02278",
+  "source_tar_sha256": "be982d06fdefbc91229cd9d72081ac47f08ac3dc9733fcfa8aac02af10ee1b56",
+  "ui_installer_sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "verifier": {
+    "bytes": 5564,
+    "sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48"
+  },
+  "verifier_build_evidence": {
+    "source": "firmware/jaguar/verify.c",
+    "source_sha256": "f8477512d1891b366f9b9c4871d21b2e6a4b848070bde82bead86969678923f5",
+    "binary": "verify",
+    "binary_sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+    "binary_bytes": 5564,
+    "compiler": "Debian clang version 19.1.7 (3+b1)",
+    "qemu": "qemu-arm version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+    "compile_command": [
+      "clang-19",
+      "--target=armv7a-linux-musleabihf",
+      "-march=armv7-a",
+      "-marm",
+      "-mfpu=vfpv3-d16",
+      "-mfloat-abi=hard",
+      "-Os",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wconversion",
+      "-Wshadow",
+      "-fno-ident",
+      "-fno-stack-protector",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-nostdinc",
+      "-isystem",
+      "/usr/include/arm-linux-musleabihf",
+      "-D_GNU_SOURCE",
+      "-nostdlib",
+      "-static",
+      "-fuse-ld=lld",
+      "-Wl,--build-id=none",
+      "-Wl,--gc-sections",
+      "-Wl,-z,noexecstack",
+      "-Wl,-s",
+      "/usr/lib/arm-linux-musleabihf/crt1.o",
+      "/usr/lib/arm-linux-musleabihf/crti.o",
+      "/repo/firmware/jaguar/verify.c",
+      "-L/usr/lib/arm-linux-musleabihf",
+      "-lc",
+      "/usr/lib/arm-linux-musleabihf/crtn.o",
+      "-o",
+      "/output/verify"
+    ],
+    "readelf_header": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              EXEC (Executable file)\n  Machine:                           ARM\n  Version:                           0x1\n  Entry point address:               0x2016d\n  Start of program headers:          52 (bytes into file)\n  Start of section headers:          5044 (bytes into file)\n  Flags:                             0x5000400, Version5 EABI, hard-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           32 (bytes)\n  Number of program headers:         8\n  Size of section headers:           40 (bytes)\n  Number of section headers:         13\n  Section header string table index: 12",
+    "readelf_program_headers": "Elf file type is EXEC (Executable file)\nEntry point 0x2016d\nThere are 8 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  PHDR           0x000034 0x00010034 0x00010034 0x00100 0x00100 R   0x4\n  LOAD           0x000000 0x00010000 0x00010000 0x0016a 0x0016a R   0x10000\n  LOAD           0x00016c 0x0002016c 0x0002016c 0x0113c 0x0113c R E 0x10000\n  LOAD           0x0012a8 0x000312a8 0x000312a8 0x00030 0x00d58 RW  0x10000\n  LOAD           0x0012d8 0x000412d8 0x000412d8 0x00004 0x00124 RW  0x10000\n  GNU_RELRO      0x0012a8 0x000312a8 0x000312a8 0x00030 0x00d58 R   0x1\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0\n  ARM_EXIDX      0x000134 0x00010134 0x00010134 0x00010 0x00010 R   0x4\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .ARM.exidx .rodata \n   02     .text .init .fini \n   03     .got .relro_padding \n   04     .data .bss \n   05     .got .relro_padding \n   06     \n   07     .ARM.exidx",
+    "readelf_dynamic": "There is no dynamic section in this file.",
+    "repeated_build_identical": true,
+    "arm_qemu_tests": [
+      {
+        "case": "empty IEEE vector",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "case": "123456789 IEEE vector",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "case": "uppercase CRC",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "case": "large binary and partial read block",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "case": "relative symlink followed",
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "case": "one-byte corruption",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "truncation",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "wrong CRC",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "short expected length",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "long expected length",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "missing file",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "dangling symlink",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "directory rejected",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "FIFO rejected without blocking",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "maximum uint64 parsed safely",
+        "passed": true,
+        "exit_code": 1
+      },
+      {
+        "case": "malformed CRC ''",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC 'cbf4392'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC 'cbf439266'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC '0xcbf43926'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC 'cbf4392g'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC ' cbf43926'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed CRC 'cbf43926 '",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length ''",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '-1'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '+9'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length ' 9'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '9 '",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '9x'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '0x9'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "malformed length '18446744073709551616'",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "bad arguments []",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "bad arguments ['verify']",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "bad arguments ['verify', '/output/test-nc6hnna3/vector', 'cbf43926']",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "bad arguments ['same', '/output/test-nc6hnna3/vector', 'cbf43926', '9']",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "bad arguments ['verify', '/output/test-nc6hnna3/vector', 'cbf43926', '9', 'extra']",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "case": "input contents unchanged",
+        "passed": true
+      }
+    ],
+    "vehicle_tested": false,
+    "interface": "verify verify FILE CRCHEX LENGTH",
+    "purpose": "Read-only CRC32 and length guard; no authentication or device services.",
+    "toolchain_image": "p401-ui-toolchain:local",
+    "toolchain_image_id": "sha256:a670f4a1c48f6ba37a98af54f2fe7d9bedbeb74eae0098ab452c4c6404917ad8",
+    "reproduce": "python tools/build_jaguar_verifier.py"
+  },
+  "source_snapshot": {
+    "firmware/jaguar/launch-ui.sh.in": {
+      "bytes": 528,
+      "sha256": "0bc3da96e48ff9600f865c200fd4f9730f91a878ea666f684ee5cdfa7e256de1"
+    },
+    "firmware/jaguar/run-ui.sh.in": {
+      "bytes": 2583,
+      "sha256": "cebdb684b5e44ff68991a495cc22ee79ad42a679c8737563d6d4023fba41497d"
+    },
+    "firmware/jaguar/verify.c": {
+      "bytes": 2912,
+      "sha256": "f8477512d1891b366f9b9c4871d21b2e6a4b848070bde82bead86969678923f5"
+    },
+    "tools/build_jaguar_image.py": {
+      "bytes": 20638,
+      "sha256": "211c4a1129e44ef2aeddf7cec80371303e4110d37b70bdb934b0ec5ab1aac652"
+    },
+    "tools/build_jaguar_verifier.py": {
+      "bytes": 9083,
+      "sha256": "0b5c8c421f7e5eb98371eae0fd4f1c3a69674a94f071118ab3368d65af62f198"
+    },
+    "tools/package_ui1_candidate.py": {
+      "bytes": 14207,
+      "sha256": "f537fbd1989ce8e9446b556d329492911a5c263d6f9e670a1c6c5def368fa5cc"
+    },
+    "experimental/ui1/src/appearance_editor.cpp": {
+      "bytes": 10100,
+      "sha256": "256064f3b207b29c313310fc909c6c415b205b6bff24ad78e5ffbbc4a74fe668"
+    },
+    "experimental/ui1/src/appearance_editor.h": {
+      "bytes": 192,
+      "sha256": "6128c5f5333c2d71b53013a006cd9ec0b1f3cc84e457f2a9125e15fd03ec14d0"
+    },
+    "experimental/ui1/src/assets/branding-source.json": {
+      "bytes": 362,
+      "sha256": "3c6a35c550bfa7b881b449127e89d7bd071947c7f6f4a0870a168d65dc37ad5c"
+    },
+    "experimental/ui1/src/assets/glass-artwork-source.json": {
+      "bytes": 282,
+      "sha256": "923532125fecdb0e7b2cf79ae62e704d733121ec2e07c17de105fbe4cfc29f11"
+    },
+    "experimental/ui1/src/assets/glass-tile-atlas.png": {
+      "bytes": 578134,
+      "sha256": "a7dff60fcdfaea8ed0b17874011dcdb833c0b235750dfec6ed6e458c8cf080f7"
+    },
+    "experimental/ui1/src/assets/jaguar-reference.png": {
+      "bytes": 228329,
+      "sha256": "0f59941f44a9426a62fb8d6e9626cbc5a533d4d496f547b1ab1fd1564a4ae8b6"
+    },
+    "experimental/ui1/src/assets/jaguar-stacked.svg": {
+      "bytes": 70381,
+      "sha256": "f719bb0728b84e8710e49f26809eae1cbf173be967f057d258dd18227d738473"
+    },
+    "experimental/ui1/src/brand_paths.h": {
+      "bytes": 331137,
+      "sha256": "578db600aba96e4386438056da1c9c049a9319e7aeb3281cab81d79aee7dfc51"
+    },
+    "experimental/ui1/src/build.py": {
+      "bytes": 4222,
+      "sha256": "33049ab533d25cca7e63aa0e9b6d65b8f6d91f8c48121d529683a3aa2029dc09"
+    },
+    "experimental/ui1/src/connection_status.cpp": {
+      "bytes": 3708,
+      "sha256": "fe3580618682225ad0566f3c5342d5d58f0e1e50b22c0a90fb79182145631cd1"
+    },
+    "experimental/ui1/src/connection_status.h": {
+      "bytes": 359,
+      "sha256": "a291838143c2ee47c51dfbd07e94e00c72528a3f3c91ac013cb7f1b703f82287"
+    },
+    "experimental/ui1/src/lab_probe.cpp": {
+      "bytes": 5045,
+      "sha256": "39ce405221b43e4bf5f5256bcd72d5488383f7a68a356018c1085c386d2d65f6"
+    },
+    "experimental/ui1/src/make_brand.py": {
+      "bytes": 2451,
+      "sha256": "a02d8e7aa9938fa02a2ad17515a01d1bfce4b95b75424ad9c86f43aaa94de2c2"
+    },
+    "experimental/ui1/src/name_hooks.cpp": {
+      "bytes": 2828,
+      "sha256": "bb8014486b1a9ee3a705114fab9c9388419733f2e3291c8b771a0fb22311c0f5"
+    },
+    "experimental/ui1/src/name_store.cpp": {
+      "bytes": 5218,
+      "sha256": "fc43ef7edd4914dfba21166c63be874fe45192229c076ebac377aa9bc46a0187"
+    },
+    "experimental/ui1/src/name_store.h": {
+      "bytes": 295,
+      "sha256": "6f94878ab21b2d3534b551d7f857e7f6fc369553e39783fed457eb058b712969"
+    },
+    "experimental/ui1/src/preferences.cpp": {
+      "bytes": 6317,
+      "sha256": "cb45f9a7733b2e6315cbba3805342b95eef5bfdd242195f6687ab0b4bbf97181"
+    },
+    "experimental/ui1/src/preferences.h": {
+      "bytes": 823,
+      "sha256": "cb6e53a088143fd574c47568934277758e278b6890919585d0b13106d9e2c106"
+    },
+    "experimental/ui1/src/run-ui.sh.in": {
+      "bytes": 1978,
+      "sha256": "1178d0969f83e4137c640281eb0f6aefec411fd02ad10501cc249d53caa70c4b"
+    },
+    "experimental/ui1/src/settings_style.cpp": {
+      "bytes": 14457,
+      "sha256": "1b66ff8901cdc8530cf85ac9485307d0c90f4bbe40d593c8dac6322df154896a"
+    },
+    "experimental/ui1/src/settings_style.h": {
+      "bytes": 401,
+      "sha256": "2adaf63f15fd8418c876b003d18cce48782d1681ff57e331a18233d8d8fd3781"
+    },
+    "experimental/ui1/src/trace_brand.py": {
+      "bytes": 2430,
+      "sha256": "cfc98d92883e8d1e4352f7dccd9ef0ebb0b8c1af216605a045d2593e2817b381"
+    },
+    "experimental/ui1/src/ui.cpp": {
+      "bytes": 31737,
+      "sha256": "f4de269f9d50e1a63ee36a35ab0b1e89d2197007a8e77f7c757a3334149fcd74"
+    }
+  },
+  "rootfs_sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043",
+  "rootfs_bytes": 100401152,
+  "ubifs_lebs": 764,
+  "usb_files": [
+    {
+      "name": "rootfs.img",
+      "bytes": 100401152,
+      "sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043"
+    },
+    {
+      "name": "update",
+      "bytes": 20,
+      "sha256": "fd4c7328b55789ea720829f7983ba47ca6342096da4bf9ce2f06136ad667679e"
+    },
+    {
+      "name": "zImage",
+      "bytes": 3255848,
+      "sha256": "04dc369f6fa30443a5c4353467cb5f8994af3a95798824e3f2815d360a46f9fc"
+    }
+  ],
+  "download": {
+    "name": "P401_2026.11_JAGUAR_XFR_RC2.zip",
+    "bytes": 80598800,
+    "sha256": "62a5cd4d49bd703a8f593c26dd70848379fd53794e62737f257f3ea3b2ca77ef"
+  },
+  "changed_paths": [
+    "etc/profile",
+    "usr/libexec/carplay-revival/ui",
+    "usr/libexec/carplay-revival/ui/compatibility.txt",
+    "usr/libexec/carplay-revival/ui/libp401-ui.so",
+    "usr/libexec/carplay-revival/ui/run-ui.sh",
+    "usr/libexec/carplay-revival/verify"
+  ],
+  "kernel_and_update_unchanged": true,
+  "w3_components_unchanged": true,
+  "owner_tested_ui_binary_unchanged": false,
+  "requires_field_w3_layout": false,
+  "settings_migration": false,
+  "mcu_type_forced": false,
+  "device_writes": false,
+  "complete_image_vehicle_tested": false,
+  "full_flash_recovery_proven": false,
+  "reproducibility": "Repeatable content/metadata assembly; UBIFS timestamps/UUID can change whole-image hashes",
+  "versions": {
+    "mkfs.ubifs": "mkfs.ubifs (mtd-utils) 2.3.0",
+    "ubinize": "ubinize (mtd-utils) 2.3.0",
+    "tar": "tar (GNU tar) 1.35"
+  },
+  "variant": "rc2",
+  "input_files": {
+    "base_zip": {
+      "file": "releases/2026.11-w3-rc1/P401_2026.11_W3_RC1.zip",
+      "bytes": 80047345,
+      "sha256": "826592230326d57be22895fc89a1228504a16d45015c5996e5d6cca4c1e02278"
+    },
+    "source_tar": {
+      "file": "build/onboarding/release/rootfs_source_tree.tar",
+      "bytes": 164096000,
+      "sha256": "be982d06fdefbc91229cd9d72081ac47f08ac3dc9733fcfa8aac02af10ee1b56"
+    },
+    "ui_abi_baseline_zip": {
+      "file": "experimental/ui1/candidates/glass-clock-2026-11-06/INSTALL.zip",
+      "bytes": 681928,
+      "sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383"
+    },
+    "ui_library": {
+      "file": "experimental/ui1/build/libp401-ui.so",
+      "bytes": 952768,
+      "sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1"
+    },
+    "ui_evidence": {
+      "file": "experimental/ui1/build/cloud/rc2/NATIVE_EVIDENCE.json",
+      "bytes": 30357,
+      "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc"
+    },
+    "verifier": {
+      "file": "build/jaguar/verifier/verify",
+      "bytes": 5564,
+      "sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48"
+    },
+    "verifier_evidence": {
+      "file": "build/jaguar/verifier/BUILD.json",
+      "bytes": 7473,
+      "sha256": "a14e4287202e8904697491308bf97cba2ae6a56a5a61c208cb715bcd7e639316"
+    }
+  },
+  "extra_abi_pins": {
+    "usr/lib/libLinkLibs.so": {
+      "bytes": 129180,
+      "crc32": "59ed7170",
+      "sha256": "ac7d73df4bdd7dfa59e4042dbf46c19797eb3ce84cca630dff79308911e8acdc"
+    }
+  },
+  "ui_source_snapshot_sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d",
+  "ui_native_evidence": {
+    "file": "experimental/ui1/build/cloud/rc2/NATIVE_EVIDENCE.json",
+    "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+    "passed": true,
+    "complete": true,
+    "case_count": 5,
+    "source_snapshot_sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d",
+    "bytes": 30357,
+    "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc"
+  },
+  "ui_library_origin": {
+    "kind": "fresh-native-validated-rc2-candidate",
+    "file": "experimental/ui1/build/libp401-ui.so",
+    "sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+    "owner_tested": false,
+    "vendor_abi_baseline_installer_sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383"
+  }
+}

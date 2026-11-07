@@ -1,0 +1,267 @@
+{
+  "release": "2026.11-jaguar-xfr-rc2",
+  "date": "2026-11-07",
+  "status": "RC2_NATIVE_OFFLINE_VERIFIED_VEHICLE_TEST_PENDING",
+  "usb_files": [
+    {
+      "name": "rootfs.img",
+      "bytes": 100401152,
+      "sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043"
+    },
+    {
+      "name": "update",
+      "bytes": 20,
+      "sha256": "fd4c7328b55789ea720829f7983ba47ca6342096da4bf9ce2f06136ad667679e"
+    },
+    {
+      "name": "zImage",
+      "bytes": 3255848,
+      "sha256": "04dc369f6fa30443a5c4353467cb5f8994af3a95798824e3f2815d360a46f9fc"
+    }
+  ],
+  "download": {
+    "name": "P401_2026.11_JAGUAR_XFR_RC2.zip",
+    "bytes": 80598800,
+    "sha256": "62a5cd4d49bd703a8f593c26dd70848379fd53794e62737f257f3ea3b2ca77ef"
+  },
+  "rootfs_sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "ubifs_lebs": 764,
+  "requires_prior_r1_install": false,
+  "requires_field_w3_layout": false,
+  "compatible_upgrade_from_full_jaguar_rc1": true,
+  "installation_writes": [
+    "kernel",
+    "rootfs"
+  ],
+  "settings_migration": false,
+  "mcu_type_forced": false,
+  "kernel_and_update_unchanged": true,
+  "w3_components_unchanged": true,
+  "verifier_sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+  "ui_source_snapshot_sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d",
+  "native_evidence": {
+    "name": "UI_NATIVE_EVIDENCE.json",
+    "bytes": 30357,
+    "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc"
+  },
+  "source_archive": {
+    "name": "SOURCE.zip",
+    "bytes": 3917275,
+    "sha256": "dc66fefa610852927afd0403cdbb935307e51b2a0d19a12ca1c908629ce28c0b"
+  },
+  "validation": {
+    "name": "VALIDATION.json",
+    "bytes": 4620,
+    "sha256": "991c2a2a26db4d5062abda01ed665ad8969a9d1d4211b90889c3ffd14716592e"
+  },
+  "current_car_upgrade": {
+    "path": "upgrades/2026.11-jaguar-xfr-rc2",
+    "packages": [
+      {
+        "name": "INSTALL.zip",
+        "bytes": 702479,
+        "sha256": "793f9b3c2b799aab42a9e6fc21b1099afb7e1e47c289e8daf32b930bfbdbaaad"
+      },
+      {
+        "name": "RESTORE_PREVIOUS_UI.zip",
+        "bytes": 681928,
+        "sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383"
+      },
+      {
+        "name": "DISABLE_UI.zip",
+        "bytes": 1535,
+        "sha256": "6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03"
+      }
+    ],
+    "startup_layout": "Development R1 + field-W3 only"
+  },
+  "ui_controls": {
+    "path": "recovery/2026.11-jaguar-xfr-rc2",
+    "packages": [
+      {
+        "name": "UI_ROLLBACK.zip",
+        "bytes": 187,
+        "sha256": "f239b36edc0015d8b33c17ce58dd0814bfd95131e41e59497f3d93f873085b7e"
+      },
+      {
+        "name": "ENABLE_JAGUAR_UI.zip",
+        "bytes": 186,
+        "sha256": "cb36a8739fc28b793e5ac1ce7470bdfcab3ad5beba9cf6a92628e23dce84bdb3"
+      }
+    ],
+    "operation": "State only; standalone full RC1/RC2"
+  },
+  "owner_tested_ui_binary_unchanged": false,
+  "complete_image_vehicle_tested": false,
+  "firmware_backup_provided": false,
+  "full_flash_recovery_proven": false,
+  "warning": "Full firmware flash risk remains. UI controls and previous-UI restore require a booting unit accepting autocopy and do not recover an unbootable device.",
+  "files": {
+    "BUILD_COMMANDS.json": {
+      "name": "BUILD_COMMANDS.json",
+      "bytes": 2872,
+      "sha256": "ccc49f5d4217fffdcf679b8d3fc7f45507bc046fc4f4b94a6ce67e0f92628756"
+    },
+    "BUILD_SUMMARY.json": {
+      "name": "BUILD_SUMMARY.json",
+      "bytes": 17371,
+      "sha256": "aff13faade351718db76eff702099f6ad7d1a3876153363c1c71160fe28a0c11"
+    },
+    "CHANGES.json": {
+      "name": "CHANGES.json",
+      "bytes": 1775,
+      "sha256": "5294699b9d10d2f5527ec6ae1fb52c7df439e75be2f1c44d8c8668bcca281081"
+    },
+    "CLOCK_CLOUD_CHECKS.json": {
+      "name": "CLOCK_CLOUD_CHECKS.json",
+      "bytes": 1127,
+      "sha256": "12daaa23c2ef944d5f472b10d564c608a2fe78b615472474cbffba69cb956d42"
+    },
+    "IMAGE_CHECKS.json": {
+      "name": "IMAGE_CHECKS.json",
+      "bytes": 54996,
+      "sha256": "6a16520ec0e8fa50b361e98f03df2d529f10a548a02837bd1490f5bbe28fb724"
+    },
+    "INVENTORY.json": {
+      "name": "INVENTORY.json",
+      "bytes": 410185,
+      "sha256": "76c5785fdf4aedb71e3b04758c72eb2c0945f6661a1e79697a59e1b1b644e39c"
+    },
+    "MENU_CLOUD_CHECKS.json": {
+      "name": "MENU_CLOUD_CHECKS.json",
+      "bytes": 3320,
+      "sha256": "34a4d7349363a5260931644b9298542edde6a5b0c69f29422ab4b64511e37c5c"
+    },
+    "MUSL_COPYRIGHT.txt": {
+      "name": "MUSL_COPYRIGHT.txt",
+      "bytes": 10801,
+      "sha256": "8d51fb83b8860aca6362ccf2b4eaa71362e7c2ca54c09cdaa5da18e419ef4a91"
+    },
+    "NATIVE_CHECKS.json": {
+      "name": "NATIVE_CHECKS.json",
+      "bytes": 3077,
+      "sha256": "38ac08ee020e548a26bac0f7a29f2e9cdb84ebe24f92ee94170630b6a8d623a0"
+    },
+    "PLAIN_OBSERVER_BUILD.json": {
+      "name": "PLAIN_OBSERVER_BUILD.json",
+      "bytes": 2565,
+      "sha256": "b85bb25e45492848bb4ce05d9f84500054a1c240a838fa3b4e9b98e656ac35b4"
+    },
+    "PREFERENCES_CHECKS.json": {
+      "name": "PREFERENCES_CHECKS.json",
+      "bytes": 3742,
+      "sha256": "8cc4e2a4612013d97b3e8b4e8851fe60c3b9e2f2c9f6355273ee7868ba5914d0"
+    },
+    "PREVIEWS/ADVANCED-ENGLISH.png": {
+      "name": "ADVANCED-ENGLISH.png",
+      "bytes": 41353,
+      "sha256": "054fb728e2aba88b5f0cb1e12903a7d78ef20b9006018bf7810368210a298d53"
+    },
+    "PREVIEWS/APPEARANCE-ACCENTS.png": {
+      "name": "APPEARANCE-ACCENTS.png",
+      "bytes": 40667,
+      "sha256": "9393b056daab5871541db97a21f7e70fc05dcf8c1155b72adea663bb5c45ed66"
+    },
+    "PREVIEWS/APPEARANCE-ORDER.png": {
+      "name": "APPEARANCE-ORDER.png",
+      "bytes": 47063,
+      "sha256": "a542848f3321bea354de1ff4bba5b539af1f14b086764cb6e12ce70dd5cef18a"
+    },
+    "PREVIEWS/APPEARANCE-PICTURES.png": {
+      "name": "APPEARANCE-PICTURES.png",
+      "bytes": 202362,
+      "sha256": "47060010d1b5c231ff7fdd908be90748e10a6a6f415dc41e7563fb6bff132e8a"
+    },
+    "PREVIEWS/DISPLAY-ENGLISH.png": {
+      "name": "DISPLAY-ENGLISH.png",
+      "bytes": 49117,
+      "sha256": "3974e5b5ad9b4a5c8cdd6e7c9cd9eb8902c428536947ad7845db8346e52baa21"
+    },
+    "PREVIEWS/FACTORY-ENGLISH.png": {
+      "name": "FACTORY-ENGLISH.png",
+      "bytes": 41491,
+      "sha256": "1cb2a64fc5ceab8e329eb6462149983ae36e3d4db76c2dafd24d5370939e1033"
+    },
+    "PREVIEWS/HOME-WAITING-ENGLISH-APP-FIXTURE.png": {
+      "name": "HOME-WAITING-ENGLISH-APP-FIXTURE.png",
+      "bytes": 326980,
+      "sha256": "bec1ec13012f45e173e8dcea38b03d174c822eb9aca2c2bee94e5344185b47ec"
+    },
+    "PREVIEWS/HOME-WAITING-ENGLISH-NATIVE-MODEL.png": {
+      "name": "HOME-WAITING-ENGLISH-NATIVE-MODEL.png",
+      "bytes": 283073,
+      "sha256": "1987467cdcaa0b28716ce8126a1764d771f341ebfe3eceef47ae9708b7fe7b9a"
+    },
+    "PREVIEWS/PROVENANCE.json": {
+      "name": "PROVENANCE.json",
+      "bytes": 1761,
+      "sha256": "f21d9344bc94535c9b0e5f0aee8acc2d0dfaa7bdd69b0954b6559741f913c793"
+    },
+    "PREVIEWS/SETTINGS-ENGLISH.png": {
+      "name": "SETTINGS-ENGLISH.png",
+      "bytes": 50515,
+      "sha256": "3a0f58a58f6fd382a8827e68023a99c34b290605e226d6c376326c4feb320e79"
+    },
+    "RC2_FEATURE_CHECKS.json": {
+      "name": "RC2_FEATURE_CHECKS.json",
+      "bytes": 4767,
+      "sha256": "4dd464cee7aa048278e294558a7ea82c0b1501a3e682c522e4a102fcdab5eb8a"
+    },
+    "README.md": {
+      "name": "README.md",
+      "bytes": 2471,
+      "sha256": "6a7adf2d3f913686fe7244d5c0e948d2ce93257ceffb81319e2b4e2cc87e025d"
+    },
+    "SETTINGS_CLOUD_CHECKS.json": {
+      "name": "SETTINGS_CLOUD_CHECKS.json",
+      "bytes": 6889,
+      "sha256": "739d339492c99407c4787102c92a5877fe0f883dbc363ba90bf8744f993d0b02"
+    },
+    "SOURCE.zip": {
+      "name": "SOURCE.zip",
+      "bytes": 3917275,
+      "sha256": "dc66fefa610852927afd0403cdbb935307e51b2a0d19a12ca1c908629ce28c0b"
+    },
+    "STARTUP_CHECKS.json": {
+      "name": "STARTUP_CHECKS.json",
+      "bytes": 7243,
+      "sha256": "e71a990e7c06631d8643d3341611471a03f856805cfc85a6e6c9777189f0762c"
+    },
+    "UI_NATIVE_EVIDENCE.json": {
+      "name": "UI_NATIVE_EVIDENCE.json",
+      "bytes": 30357,
+      "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc"
+    },
+    "UPGRADE_DELIVERY_CHECKS.json": {
+      "name": "UPGRADE_DELIVERY_CHECKS.json",
+      "bytes": 9869,
+      "sha256": "04f75383e4b8bdabb80001a29bd902cc635bc81ea700e83e32ea5257fd46db33"
+    },
+    "UPGRADE_MANIFEST.json": {
+      "name": "UPGRADE_MANIFEST.json",
+      "bytes": 9442,
+      "sha256": "c3dd32f6b9ddb889a0df859687d395063db1e6780ba34c1c1c03afd49a2327e6"
+    },
+    "VALIDATION.json": {
+      "name": "VALIDATION.json",
+      "bytes": 4620,
+      "sha256": "991c2a2a26db4d5062abda01ed665ad8969a9d1d4211b90889c3ffd14716592e"
+    },
+    "VERIFIER_BUILD.json": {
+      "name": "VERIFIER_BUILD.json",
+      "bytes": 7473,
+      "sha256": "a14e4287202e8904697491308bf97cba2ae6a56a5a61c208cb715bcd7e639316"
+    },
+    "VERIFIER_LINUX34.json": {
+      "name": "VERIFIER_LINUX34.json",
+      "bytes": 4320,
+      "sha256": "3fb926be6492c3cb2028c9c215126e43c15e04724608addec20f28da6e5ba8da"
+    },
+    "WRAPPER_CHECKS.json": {
+      "name": "WRAPPER_CHECKS.json",
+      "bytes": 11089,
+      "sha256": "27a323bfcd91c07e9d9fe572d135d6a5fd29a4e8a05faa70f91ae7b88a8767d8"
+    }
+  }
+}

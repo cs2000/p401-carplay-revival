@@ -1,5 +1,15 @@
 # Build and native lab
 
+## RC2 continuation
+
+The current RC2 library is `dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1`. It adds native session observation, appearance preferences/editor and scoped Settings styling to the existing four source units. Earlier c62 owner success remains separate from this new build's evidence.
+
+Run `lab/cloud/validate_rc2.py`, `lab/cloud/validate_rc2_regressions.py` and the preferences storage checks, then `lab/cloud/aggregate_rc2.py`. The aggregate binds the exact library, separate observers and current production source/assets. Package the current development car with `tools/package_ui1_rc2_upgrade.py` and validate it with `tools/test_ui1_rc2_upgrade.py`. Its exact previous-UI restore is the unchanged owner-tested installer; the separate UI-off archive is also unchanged.
+
+The standalone full-image builder uses `--variant rc2 --ui-library PATH --ui-evidence PATH`. It retains the pinned W3 base and kernel, adds the exact `libLinkLibs.so` compatibility pin required by session observation, and needs its own image roundtrip/startup/native integration checks. The full-image and field-overlay launchers and recovery payloads are distinct. See [full RC2 technical records](full-image-rc2/README.md) and [assembly commands](../../docs/building.md).
+
+## Previous Glass + Clock build
+
 The original installer and historical evidence refer to UI1 source at commit `84e454fa06b633cf732b988ee58379e18fe0d06f` and remain unchanged. Glass + Clock added the approved photographic theme, clock replacing Main, native name eligibility, Exit classification and early startup cover. Its packaged library is `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`. Native evidence and source hashes remain with the [packaging snapshot](candidates/glass-clock-2026-11-06/MANIFEST.json); the [owner's later successful report](../../docs/evidence/ui1-owner-report-2026-11-07.json) is separate. The obsolete public overlay folder was removed. Full-flash recovery remains unproven.
 
 ## Build inputs

@@ -89,8 +89,38 @@ This lab does not build or publish an install ZIP. Packaging and delivery checks
 are separate, and the stable release and original install/rollback archives remain
 preserved.
 
+## RC2 feature checks
+
+After building the RC2 production library, build its separate observer with
+`native.py --build-rc2-probe` in the pinned ARM toolchain, then run
+`python experimental/ui1/lab/cloud/validate_rc2.py --library PATH`.
+The report is `build/cloud/rc2/RC2_FEATURE_CHECKS.json`; every expected case must
+pass for `complete` and `passed` to be true. Native link-status events and
+Bluetooth-ready tags are explicit synthetic input fixtures. They verify the
+actual vendor event path and UI response, not a physical radio session.
+
+The suite drives appearance Save/Cancel, reordered native app routing and
+Factory → Advanced through actual Qt pointer events. It checks private persisted
+preferences and unchanged synthetic factory profiles. Screenshots remain in
+separate `runs/rc2-*` folders. English model replacements are labelled as visual
+fixtures and restored before native route checks. No historical evidence is
+overwritten, and physical installation/recovery remains outside this lab.
+
+`validate_rc2_regressions.py` runs the original 13 naming, 11 menu/startup and
+clock checks using a separate freshly compiled plain observer and isolated report
+directory. The native CarPlay-name navigation row is located from its visible
+model geometry. `test_preferences.py` records the 23 actual-ARM storage checks.
+`aggregate_rc2.py` requires the complete matrices, exact binary/observer identities
+and current production source snapshot before either RC2 packager may proceed.
+
 ## Standalone full-image integration
 
 `validate_firmware.py --root-tar PATH --output REPORT` tests the separate stock-to-Jaguar candidate after its filesystem roundtrip. It executes the unchanged production runner and exact UI/CRC-helper ARM bytes. `firmware_dispatch.c` supplies test-only executable adapters because the Cloud host has no target binfmt registration; adapted verification paths refer to the original, independently verified ARM files. The runner, compatibility manifest and UI library are not patched or bypassed. Framebuffer and observation shims are lab-only.
 
 Cases cover fresh userdata without field-W3 files, actual native Exit/Settings and pointer name save/restart request, saved-name endpoints after reload, disabled UI, corrupt manifest, crash and a real watchdog timeout, using the actual native interface for fallback. The separate image verifier checks the unadapted full filesystem before these lab copies are made. This does not execute the hardware-specific full `/etc/profile`, boot a kernel, emulate radios or prove physical recovery. See the [full-image build notes](../../../../docs/building.md).
+
+For RC2 use `--variant rc2 --ui-evidence PATH --probe-library PATH`, supplying the
+complete exact-UI aggregate and fresh plain regression observer. The extracted
+image UI must match that hash. Existing-userdata reload also verifies retained
+enabled state, appearance bytes and saved-name endpoints. Default RC1 checks keep
+their historical pinned UI and navigation behavior.

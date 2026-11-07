@@ -14,7 +14,7 @@ My original firmware was from the V3.9.5 era. This project uses V3.22.1 from Nov
 
 ## Requirements and limits
 
-The [complete Jaguar firmware](../releases/2026.11-jaguar-xfr-rc1/README.md) supports the matching stock P401/configuration layout without a previous R1 or field-W3 install. It includes the firmware, wireless repair and UI launcher. The historical UI-only overlay is archived for development, not the normal installation route. The car model alone does not establish hardware/configuration compatibility. [UI rollback](../recovery/2026.11-jaguar-xfr-rc1/README.md) requires a booting box and is not full-flash recovery.
+The [complete Jaguar RC2 firmware](../releases/2026.11-jaguar-xfr-rc2/README.md) supports the matching stock P401/configuration layout without a previous R1 or field-W3 install. The same full bundle upgrades the complete Jaguar RC1 release. It includes the firmware, wireless repair and UI launcher; saved userdata settings remain authoritative. A previously disabled Jaguar UI stays disabled until explicitly re-enabled. The car model alone does not establish hardware/configuration compatibility. [UI rollback](../recovery/2026.11-jaguar-xfr-rc2/README.md) requires a booting box and is not full-flash recovery. The separate [current-car UI update](../upgrades/2026.11-jaguar-xfr-rc2/README.md) is only for the older R1 + field-W3 development layout.
 
 - ARM/Arkmicro firmware family and a bootloader that accepts the kernel/filesystem UBI update format used here.
 - Compatible NAND layout, kernel/driver hardware support and existing persistent configuration.

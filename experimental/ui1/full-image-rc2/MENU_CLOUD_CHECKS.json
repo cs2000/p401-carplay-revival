@@ -1,0 +1,75 @@
+{
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "passed": true,
+  "cases": [
+    {
+      "case": "unknown-exit-classification-and-original-native-footer-actions",
+      "passed": true,
+      "sampled_boot_frames": 2,
+      "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-footer/unknown-exit-footer.png",
+      "exit_native_app": 9,
+      "settings_native_app": 8
+    },
+    {
+      "case": "static-menu-does-not-repaint",
+      "passed": true,
+      "sampled_boot_frames": 2,
+      "menu_paints": 3
+    },
+    {
+      "case": "model-empty-restores-stock-without-flicker",
+      "passed": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "model-missing-restores-stock-without-flicker",
+      "passed": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "model-unknown-only-restores-stock-without-flicker",
+      "passed": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "model-exit-only-restores-stock-without-flicker",
+      "passed": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "model-main-only-restores-stock-without-flicker",
+      "passed": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "initial-empty-waits-for-model",
+      "passed": true,
+      "sampled_boot_frames": 2,
+      "loading_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-empty/loading.png",
+      "home_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-empty/recovered-home.png"
+    },
+    {
+      "case": "initial-missing-waits-for-model",
+      "passed": true,
+      "sampled_boot_frames": 2,
+      "loading_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-missing/loading.png",
+      "home_screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-initial-missing/recovered-home.png"
+    },
+    {
+      "case": "hidden-launcher-ready-without-forcing-home-visible",
+      "passed": true,
+      "sampled_boot_frames": 3,
+      "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-hidden-before-paint/returned-home.png"
+    },
+    {
+      "case": "invalid-model-timeout-fails-open",
+      "passed": true,
+      "sampled_boot_frames": 3,
+      "seconds_waited": 59.45,
+      "screenshot": "/workspace/p401-carplay-revival/experimental/ui1/build/cloud/rc2/regression/runs/menu-invalid-timeout/stock-fallback.png"
+    }
+  ],
+  "scope": "Actual ARM Qt GUI in private Docker namespaces and fake framebuffer, production P401_UI_LAB unset. Separate test-only model fixtures cover delayed/empty/missing/unrecognized/lost models, original native Exit row lookup, stable repaint behavior and hidden-before-first-paint readiness. The hidden fixture represents an off-screen launcher; it does not activate or emulate real automatic CarPlay. Boot frames are sampled, not proof of physical boot display timing or sub-frame tearing. Shell watchdog/package delivery checks are separate.",
+  "historical_evidence_modified": false,
+  "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2"
+}

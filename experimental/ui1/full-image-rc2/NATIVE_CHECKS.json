@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "root_tar_sha256": "0625081b849d0cb39e114c9b8fe3749f611fdfe4a75caa5c7af3770208fa826c",
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "runner_sha256": "582cda464c25eb4f8439a631a08cc7626fa98b3ac78f7bf12905fde99fd9b43f",
+  "production_runner_bytes_unchanged": true,
+  "full_profile_executed": false,
+  "cases": [
+    {
+      "case": "healthy",
+      "passed": true,
+      "no_field_w3_required": true,
+      "native_exit_action": 9,
+      "native_settings_action": 8,
+      "real_pointer_name_save": "CLOUD",
+      "name_file_mode": "0600",
+      "native_restart_dispatched": true,
+      "factory_profile_unchanged": true,
+      "sampled_boot_frames": 2
+    },
+    {
+      "case": "reload",
+      "passed": true,
+      "existing_userdata_ui_state_and_appearance_preserved": true,
+      "endpoints": {
+        "hostapd_ssid": "CLOUD",
+        "advertised_ssid": "CLOUD",
+        "bluetooth_desired": "CLOUD"
+      }
+    },
+    {
+      "case": "disabled",
+      "passed": true,
+      "stock_gui_executed": true,
+      "actual_gui_crash_injected": false,
+      "adapter_process_failure_fixture": null,
+      "seconds_until_stock": 1.903
+    },
+    {
+      "case": "corrupt-manifest",
+      "passed": true,
+      "stock_gui_executed": true,
+      "actual_gui_crash_injected": false,
+      "adapter_process_failure_fixture": null,
+      "seconds_until_stock": 1.824
+    },
+    {
+      "case": "crash",
+      "passed": true,
+      "stock_gui_executed": true,
+      "actual_gui_crash_injected": false,
+      "adapter_process_failure_fixture": "crash",
+      "seconds_until_stock": 3.626
+    },
+    {
+      "case": "timeout",
+      "passed": true,
+      "stock_gui_executed": true,
+      "actual_gui_crash_injected": false,
+      "adapter_process_failure_fixture": "timeout",
+      "seconds_until_stock": 66.292
+    }
+  ],
+  "hardware_boot_tested": false,
+  "hardware_radio_tested": false,
+  "hardware_reboot_tested": false,
+  "full_flash_recovery_proven": false,
+  "scope": "Fresh actual ARM BusyBox shell, CRC verifier and MsnCoreApp from the candidate roundtrip root tar. Exact production runner, manifest and UI library; disposable runtime replaces BusyBox/verifier entry points with static host dispatchers that invoke their preserved real ARM originals via QEMU. Verifier self-pin alone reads the preserved byte-identical /lab/verify.arm because its entry point is adapted; all other CRC targets retain production paths. MsnCoreApp PATH adapter adds only the fake framebuffer and test observer, without changing the ABI-pinned vendor GUI file. Private Docker network/PID/IPC, no capabilities/devices. Synthetic factory profiles and saved names; no kernel boot, radio, MCU, iPhone, physical reboot or flash test.",
+  "variant": "rc2",
+  "ui_native_evidence_sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc",
+  "observer_sha256": "14aefb72db3797f747e6adffd0ed4a29d7fdd46f0ff531dc91220b03d6d338f2",
+  "owner_tested_ui_binary_unchanged": false,
+  "expected_case_count": 6,
+  "complete": true
+}

@@ -32,17 +32,17 @@ def prepare_image(archive):
     docker('build','--network=none','-t','p401-native-runtime:local',context)
 
 
-def build_probe():
+def build_probe(extra_sources=(),destination=None):
     # Reuse the exact ARM/Qt flags and linked vendor files from the candidate build.
     command=json.loads((UI/'build/BUILD.json').read_text())['command']
-    command=[x.replace('-soname,libp401-ui.so','-soname,libp401-test-probe.so') for x in command if not x.endswith(('/ui.cpp','/name_store.cpp','/name_hooks.cpp','/lab_probe.cpp'))]
-    command[-1]=str(UI/'build/cloud/libp401-test-probe.so')
-    command[1:1]=['-I'+str(UI/'src'),str(Path(__file__).with_name('probe.cpp')),str(Path(__file__).with_name('settings_probe.cpp'))]
+    command=[x.replace('-soname,libp401-ui.so','-soname,libp401-test-probe.so') for x in command if not x.endswith('.cpp')]
+    command[-1]=str(destination or UI/'build/cloud/libp401-test-probe.so')
+    command[1:1]=['-I'+str(UI/'src'),str(Path(__file__).with_name('probe.cpp')),str(Path(__file__).with_name('settings_probe.cpp'))]+list(map(str,extra_sources))
     subprocess.run(command,check=True)
 
 
 class NativeSession:
-    def __init__(self,label,profile,library,probe=True,lab=False,menu_case=None,saved_name=None):
+    def __init__(self,label,profile,library,probe=True,lab=False,menu_case=None,saved_name=None,probe_library=None,saved_appearance=None,probe_timeout=5,probe_complete_marker=None):
         self.directory=BUILD/'runs'/label
         if self.directory.exists():shutil.rmtree(self.directory)
         self.directory.mkdir(parents=True)
@@ -52,6 +52,10 @@ class NativeSession:
         self.lab=lab
         self.menu_case=menu_case
         self.saved_name=saved_name
+        self.saved_appearance=saved_appearance
+        self.probe_timeout=probe_timeout
+        self.probe_complete_marker=probe_complete_marker
+        self.probe_library=Path(probe_library).resolve() if probe_library else BUILD/'libp401-test-probe.so'
         self.name='p401-native-'+uuid.uuid4().hex[:10]
         self.processes=[]
         self.handles=[]
@@ -65,13 +69,14 @@ class NativeSession:
         data=r/'data';profile=data/'msncfg';profile.mkdir(parents=True)
         (data/'carplay-revival').mkdir()
         if self.saved_name is not None:(data/'carplay-revival/network-name').write_bytes(self.saved_name)
+        if self.saved_appearance is not None:(data/'carplay-revival/appearance').write_bytes(self.saved_appearance)
         if self.profile is not None:(profile/'MsnProductInfo.ini').write_bytes(self.profile)
         (profile/'FactoryConfig.ini').write_text('[General]\n')
         for p in [r,*r.rglob('*')]:p.chmod(0o777 if p.is_dir() else 0o666)
         if self.library.stat().st_mode & 0o444 != 0o444:self.library.chmod(0o644)
         mounts=[f'type=bind,src={r},dst=/lab/control',f'type=bind,src={data},dst=/data',f'type=bind,src={r}/frame.bgra,dst=/dev/fb0',f'type=bind,src={self.library},dst=/lab/libp401-ui.so,readonly']
         if self.probe_enabled:
-            probe=BUILD/'libp401-test-probe.so'
+            probe=self.probe_library
             if probe.stat().st_mode & 0o444 != 0o444:probe.chmod(0o644)
             mounts.append(f'type=bind,src={probe},dst=/lab/libp401-test-probe.so,readonly')
         args=['run','-d','--name',self.name,'--network=none','--ipc=private','--cap-drop=ALL','--security-opt=no-new-privileges','--tmpfs','/tmp:rw,nosuid,nodev']
@@ -120,7 +125,7 @@ class NativeSession:
     def probe(self,action=''):
         result=self.directory/'cloud-probe-results.txt';result.unlink(missing_ok=True)
         request=self.directory/'cloud-probe.request';request.write_text(action);request.chmod(0o666)
-        self.wait(result.exists)
+        self.wait(lambda:result.exists() and (not self.probe_complete_marker or self.probe_complete_marker in result.read_text()),self.probe_timeout)
         # close/final write can follow creation by a fraction of a frame.
         time.sleep(.05)
         return result.read_text()
@@ -142,6 +147,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare-image',type=Path)
     parser.add_argument('--build-probe',action='store_true')
+    parser.add_argument('--build-rc2-probe',action='store_true')
     args=parser.parse_args()
     if args.prepare_image:prepare_image(args.prepare_image.resolve())
     if args.build_probe:build_probe()
+    if args.build_rc2_probe:build_probe([Path(__file__).with_name('rc2_probe.cpp')],BUILD/'libp401-rc2-test-probe.so')

@@ -1,6 +1,20 @@
 # Current download layout
 
-The user requested removing releases/2026.11-ui1-jaguar-xfr and simplifying the full Jaguar RC1 folder to README.md, SHA256SUMS.txt and the exact firmware ZIP. Technical records now live at experimental/ui1/full-image-rc1; UI rollback/re-enable downloads are in recovery/2026.11-jaguar-xfr-rc1. The old overlay artifacts remain only in the development packaging snapshot and Git history. Firmware/rollback bytes were not rebuilt or changed by this cleanup.
+Current full Jaguar release is [RC2](../releases/2026.11-jaguar-xfr-rc2/README.md); compatible stock and full RC1 users use the same full bundle. The public folder contains only README.md, SHA256SUMS.txt and the firmware ZIP. [Current-car upgrade](../upgrades/2026.11-jaguar-xfr-rc2/README.md) is a separate small overlay exclusively for the owner's R1 + field-W3 development installation. It includes the exact previous owner-tested UI restore and unchanged historical UI-off rollback. Never apply its field runner/manifest to the standalone full firmware.
+
+[RC2 technical records](../experimental/ui1/full-image-rc2/README.md) hold source and fresh evidence; [full-image UI controls](../recovery/2026.11-jaguar-xfr-rc2/README.md) write only enable/disable state. Generic W3 RC1 and the full Jaguar RC1 remain unchanged. The obsolete public `2026.11-ui1-jaguar-xfr` folder remains deleted, as requested; its exact previous overlay artifacts remain in the development snapshot and Git history.
+
+## 7 November RC2 continuation
+
+The owner approved the native English preview screens, then requested both a small update for the current car and a full stock-to-RC2 GitHub bundle. RC2 adds CarPlay waiting/connected indication from the native success signal (Bluetooth/Wi-Fi readiness alone is insufficient), six accents, per-tile picture selection/order with Exit/Settings fixed, graphite native Settings and Advanced-page access without the PIN prompt. The original native controls and read-only MCU-version display are retained. The styling preserves the vendor's hidden internal tab headers; only the new Appearance tabs are intentionally visible.
+
+Final ARM UI SHA256 is `dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1`, 952,768 bytes. Fresh exact-binary evidence covers all five RC2 feature groups, 13 naming cases, 11 menu/startup cases including the real watchdog timeout, clock/header/artwork and 23 checks of the unchanged preference-storage sources. Native status fixtures are controlled inputs, not a live phone session. Advanced entry is driven by actual Qt pointer input and checks the unchanged factory/product profiles and version label parity with the native read-only getter.
+
+The small update ZIP SHA256 is `793f9b3c2b799aab42a9e6fc21b1099afb7e1e47c289e8daf32b930bfbdbaaad`; its independent ARM delivery checks cover the CRC chain, sole field-W3 GUI runner row change, fail-open paths and exact restoration of the previous six working files. `RESTORE_PREVIOUS_UI.zip` is byte-for-byte the old successful `3fffedb7…` installer, including its c62 library; `DISABLE_UI.zip` is byte-for-byte the original `6e157204…` rollback. Neither changes factory values, saved name or appearance.
+
+Full RC2 rootfs SHA256 is `e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043`; firmware ZIP SHA256 is `62a5cd4d49bd703a8f593c26dd70848379fd53794e62737f257f3ea3b2ca77ef`. It retains the same pinned kernel/update selector, W3 and verifier. The selector requests only kernel/filesystem; no userdata payload, formatting or defaults migration is added. A full RC1 upgrade retains factory/MCU settings, name, appearance and UI enable/disable state. Previously disabled UI remains disabled until re-enabled. Matching hardware and valid existing configuration are still required.
+
+The current-car overlay and full bundle use the exact same new UI binary and W3 fixes, with different startup/integrity integration. Source snapshots bind both packages to the frozen UI source/assets. The original c62 owner success applies only to the earlier exact package; RC2 physical installation, radios, hardware reboot and complete flash recovery have not been proven. Never turn these fresh native checks into a vehicle-test claim.
 
 # Cloud continuation — 6 November 2026
 

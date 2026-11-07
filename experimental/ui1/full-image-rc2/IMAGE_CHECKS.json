@@ -1,0 +1,1321 @@
+{
+  "variant": "rc2",
+  "ui_native_evidence": {
+    "bytes": 30357,
+    "sha256": "49034c6d06d127ad73967612852e2d6b604df4cd521b95b46138f754ce064bdc",
+    "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+    "source_snapshot_sha256": "53181bc1afd2cbfb7dff3e87fcfcdd97da8cb5f9091773483af7edead548db7d"
+  },
+  "owner_tested_ui_binary_unchanged": false,
+  "media": {
+    "bytes": 100401152,
+    "sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043",
+    "ubi_header_crcs": 1532,
+    "volume_table_crcs": 256,
+    "ubifs_common_node_crcs": 51603,
+    "node_types": {
+      "6": 1,
+      "0": 2315,
+      "5": 747,
+      "7": 2,
+      "10": 1,
+      "1": 39865,
+      "2": 2313,
+      "9": 6359
+    },
+    "superblock": {
+      "flags": 4,
+      "fmt_version": 4,
+      "ro_compat_version": 0,
+      "min_io_size": 2048,
+      "leb_size": 126976,
+      "leb_cnt": 764,
+      "max_leb_cnt": 848,
+      "log_lebs": 5,
+      "lpt_lebs": 2,
+      "orph_lebs": 1,
+      "jhead_cnt": 1,
+      "fanout": 8,
+      "default_compr": 1,
+      "max_bud_bytes": 8388608,
+      "rp_size": 0
+    },
+    "ubi_volume_name": "rootfs",
+    "ubi_volume_id": 0,
+    "autoresize": true,
+    "volume_reserved_pebs": 764
+  },
+  "dependencies": {
+    "seeds": [
+      "usr/bin/MsnFirstInit",
+      "usr/bin/MsnCoreApp",
+      "usr/bin/gocsdk",
+      "usr/bin/carplay",
+      "usr/bin/hostapd",
+      "usr/lib/libMcuCenter.so",
+      "usr/lib/libBlueTooth.so",
+      "usr/lib/libMsnCarPlay.so",
+      "usr/lib/libLauncher-Box.so",
+      "usr/lib/libSetting.so",
+      "usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "usr/libexec/carplay-revival/verify",
+      "usr/lib/libLinkLibs.so"
+    ],
+    "elf_count": 75,
+    "missing": [],
+    "files": {
+      "usr/lib/libLinkLibs.so": {
+        "sha256": "ac7d73df4bdd7dfa59e4042dbf46c19797eb3ce84cca630dff79308911e8acdc",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtDBus.so.4": "usr/local/Qt4.7.4/lib/libQtDBus.so.4.7.4",
+          "libQtXml.so.4": "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libc-2.27.so": {
+        "sha256": "1ce8c137d5820efe88f0a5a3401a0ddd651348fba4791207cc4d03bae7b1bda9",
+        "dependencies": {
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": [
+          "/lib/ld-linux-armhf.so.3"
+        ]
+      },
+      "lib/ld-2.27.so": {
+        "sha256": "0941cb84be7002605142af2221efb5a559ddc1fe14a8066ff7ee6ae239338345",
+        "dependencies": {},
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libgcc_s.so.1": {
+        "sha256": "a330bb60c171d8b2369734cab514963dd0ad028877e4202d4bfe77ead95d3c69",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libm-2.27.so": {
+        "sha256": "f1ae1d6a30946d508ef4afe3016dd27dea4f795683c2900a5df0038d1226df99",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libstdc++.so.6.0.20": {
+        "sha256": "e7416b6a3328c8667dc6829c8c39c81328c654ee3cab47152880af3530f32ec2",
+        "dependencies": {
+          "libm.so.6": "lib/libm-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libpthread-2.27.so": {
+        "sha256": "7854ba17cdbccc3f547aac4f22116b2e7d15a2d17208e33d47da3442600ac0a5",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": [
+          "/lib/ld-linux-armhf.so.3"
+        ]
+      },
+      "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4": {
+        "sha256": "b8edb8fef44ccadfb6da70a989c173bc9a055509e1282bc80252b3c172604354",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": [
+          "/lib64/ld-linux-x86-64.so.2"
+        ]
+      },
+      "lib/librt-2.27.so": {
+        "sha256": "8ea48d3aa0c1c252f10ce7083fa431b3554ae3f4b1b7e5d82672cd77425b5e50",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "lib/libdl-2.27.so": {
+        "sha256": "649e92d2408e9d3dc50475118893945b1db5e3683fb021b7e25de3f5ef1bf865",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libts-0.0.so.0.1.1": {
+        "sha256": "61ee6f3a4f6da2822e491cf7f733af8a91c6ed6dfeb25d93a565852c20b2ad62",
+        "dependencies": {
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libz.so.1.2.8": {
+        "sha256": "5f4a26cdc0c4778bd9421ce852bdcadc9e75f2506c8f525f30696e6b26de527b",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libjpeg.so.9.2.0": {
+        "sha256": "c2c46f4fd279e8572b124bcc3173e386515db5f1caa63e3103f818c74cb9a9a9",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libpng15.so.15.30.0": {
+        "sha256": "04ea749cff291947fbe670f6fdbdf0117fae86f5f3249de5e693bb09bce60a21",
+        "dependencies": {
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4": {
+        "sha256": "6f3f6293f324f8bfdd9f4ce1d2adea909403e9c6e7b3fd45cfa3a5bf57fc944c",
+        "dependencies": {
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4": {
+        "sha256": "73bab8f16fd7855288247fd66928e86684e6b5c7f5d46b5a49b571a11bcf44cb",
+        "dependencies": {
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4": {
+        "sha256": "d2516fdf7d2658cd6d8bfe67c12c622559f13f05ea98d30b3ccb04bfae3be609",
+        "dependencies": {
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/local/Qt4.7.4/lib/libQtDBus.so.4.7.4": {
+        "sha256": "ea8411df1260264d9a910db50886e8de16a9a89f141eb0e2360ff98281677354",
+        "dependencies": {
+          "libQtXml.so.4": "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/libexec/carplay-revival/verify": {
+        "sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+        "dependencies": {},
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/libexec/carplay-revival/ui/libp401-ui.so": {
+        "sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+        "dependencies": {
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libm.so.6": "lib/libm-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libSetting.so": {
+        "sha256": "1d137b85d6f47aacaf13fdcf9ffcb32ab276c503b651e7cc777d007aaa6516be",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libBTSender.so": "usr/lib/libBTSender.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libBTSender.so": {
+        "sha256": "9bd2a650f89846b9623a592db5627fc0dbc2c8386ebff105b6077b7b7c6f974a",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libMsnCommons.so": {
+        "sha256": "1ae6210f6bc73b1ca1866e464d465604adfb71acf8b1d60de0bebd7865754b9a",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libasound.so.2.0.0": {
+        "sha256": "e8a5d6edbe843f293a62acecd700ebcb4370d9e8e80b437667f6223aa9a78cb4",
+        "dependencies": {
+          "libm.so.6": "lib/libm-2.27.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libarkcmn.so": {
+        "sha256": "94f5db83616bbe5cb71cb39b138a516287b6166934bc702f600bf79fe005a397",
+        "dependencies": {
+          "libGAL.so": "usr/lib/libGAL.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libGAL.so": {
+        "sha256": "9c20173be9f10ca7034754a63eeb375370bfc4717b7fa3bb395152082ada9ada",
+        "dependencies": {
+          "libm.so.6": "lib/libm-2.27.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libLauncher-Box.so": {
+        "sha256": "47b8a72496b3266bf3d73e2e3f6b087f8acb54a5d64005332632d4bebaf6b3b7",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libMsnCarPlay.so": {
+        "sha256": "7cf3c44ba00fb920d9b5726bdaf823a15dbd3f3362fa9e0d3bf8038f1a83da25",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libLinkLibs.so": "usr/lib/libLinkLibs.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtDBus.so.4": "usr/local/Qt4.7.4/lib/libQtDBus.so.4.7.4",
+          "libQtXml.so.4": "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libBlueTooth.so": {
+        "sha256": "dc99374d1aa4bb60ac6bb838f1b498a7907a5aaeed378b1fc2533b2a415dbc82",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libMcuCenter.so": {
+        "sha256": "3aaf5ca9337bdb160234e4fb690dbc34027115d96b4d15fe58b5735ede692767",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/bin/hostapd": {
+        "sha256": "325c1174827fd5385e45af2589a8f62ea64c75e879a5d16bee51eaf8e35efd17",
+        "dependencies": {
+          "librt.so.1": "lib/librt-2.27.so",
+          "libnl-3.so.200": "usr/lib/libnl-3.so.200.26.0",
+          "libnl-genl-3.so.200": "usr/lib/libnl-genl-3.so.200.26.0",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "PT_INTERP": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libnl-genl-3.so.200.26.0": {
+        "sha256": "595de8655eac2923a9e4f78b3199a9eae6dafd7a989beec29b076d7b6f7a7aab",
+        "dependencies": {
+          "libnl-3.so.200": "usr/lib/libnl-3.so.200.26.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libnl-3.so.200.26.0": {
+        "sha256": "d433600f53a7b99db6f90fbbec2af95604d9424cc22d1eb1d6b318a8ca0ed90b",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/bin/carplay": {
+        "sha256": "47fb06966a15e0122a5d3ef3581ea10b447a009891d796ccb04aa1dade635c80",
+        "dependencies": {
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libAudioStream.so": "usr/lib/libAudioStream.so",
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libcarplay.so": "usr/lib/libcarplay.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libAirPlay.so": "usr/lib/libAirPlay.so",
+          "libiap2link.so": "usr/lib/libiap2link.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libCoreUtils.so": "usr/lib/libCoreUtils.so",
+          "libAudioConverter.so": "usr/lib/libAudioConverter.so",
+          "libScreenStream.so": "usr/lib/libScreenStream.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libQtDBus.so.4": "usr/local/Qt4.7.4/lib/libQtDBus.so.4.7.4",
+          "libQtXml.so.4": "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "PT_INTERP": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libScreenStream.so": {
+        "sha256": "42ba51db96d47c67a31933d8ae175bfcab5911a49a956f8b38be628206fa9e4a",
+        "dependencies": {
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libmfc.so": {
+        "sha256": "2e9bb291d64ca94dc419bbf799f03744d0c195390d3775f2f83811228f80c2d0",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdns_sd.so": {
+        "sha256": "2d46342fd70229bdf838895e4646814dd97be46d4d5c1aeaf07269a6047d1d83",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libAirPlaySupport.so": {
+        "sha256": "8e9fbe13d951ce0f0da8fd429f8318e494b566ae89901e670b51f9ddf69944c6",
+        "dependencies": {
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libarkcommon.so": {
+        "sha256": "4b55ba6b394c36ed5fc02cef6a7152811adb8026f926740c6663017bebc7af6b",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libAudioConverter.so": {
+        "sha256": "83b4bc769b148f77c4a6a398e9fc5877078d2b146f12cfb23c22e6b3accfd048",
+        "dependencies": {
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libCoreUtils.so": {
+        "sha256": "9f97acc96816e3e2b623e26a3e10f6abaf67a317c7e62aff2b24427ce9f5d072",
+        "dependencies": {
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libiap2link.so": {
+        "sha256": "0fc1a560d58155efee553a4f149885039337e3844579bc41300df21a4e01f4b4",
+        "dependencies": {
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libAirPlay.so": {
+        "sha256": "551112f2b5e525a0ff4994357ee1563c5d1e1dad56f59df6724962a0be8e34db",
+        "dependencies": {
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libcarplay.so": {
+        "sha256": "eed9867414770e4f79c3136870706576122a41dfc50d4ddb417069f4753785d0",
+        "dependencies": {
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libAirPlay.so": "usr/lib/libAirPlay.so",
+          "libiap2link.so": "usr/lib/libiap2link.so",
+          "libarkcommon.so": "usr/lib/libarkcommon.so",
+          "libCoreUtils.so": "usr/lib/libCoreUtils.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libAudioStream.so": {
+        "sha256": "abf32dcd276e1c3f8ced61d0360e7cf98dc7d16761c8c093d7b070febdf7ec98",
+        "dependencies": {
+          "libAirPlaySupport.so": "usr/lib/libAirPlaySupport.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libdns_sd.so": "usr/lib/libdns_sd.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/bin/gocsdk": {
+        "sha256": "99e2c641af1406ae495296877a52915ba002b829ce914eaf70141e60a7c0c562",
+        "dependencies": {
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libbt_stack.so": "usr/lib/libbt_stack.so",
+          "libwapm.so": "usr/lib/libwapm.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "PT_INTERP": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libwapm.so": {
+        "sha256": "1f2d1b7d88f45252eb2450269dc202fbe2a19e21614c96fe727736d71eb401ec",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libbt_stack.so": {
+        "sha256": "05d6db9fe21d9021bc70998ba600e4e2ccaf4575c1cc58c5c10e2ae5910d3b19",
+        "dependencies": {
+          "libm.so.6": "lib/libm-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/bin/MsnCoreApp": {
+        "sha256": "5740815779c6091b6a9f4e78d45c515424e8b39b017fda00cdc943f7491eb720",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libDetach.so": "usr/local/Qt4.7.4/lib/libDetach.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so",
+          "libusb-1.0.so.0": "usr/lib/libusb-1.0.so.0.1.0",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libcrypto.so.1.1": "usr/lib/libcrypto.so.1.1",
+          "libssl.so.1.1": "usr/lib/libssl.so.1.1",
+          "libarkadapt.so": "usr/lib/libarkadapt.so",
+          "libdmsdpaudiohandler.so": "usr/lib/libdmsdpaudiohandler.so",
+          "libnearby.so": "usr/lib/libnearby.so",
+          "libHwKeystoreSDK.so": "usr/lib/libHwKeystoreSDK.so",
+          "libhicar.so": "usr/lib/libhicar.so",
+          "libHisightSink.so": "usr/lib/libHisightSink.so",
+          "libauthagent.so": "usr/lib/libauthagent.so",
+          "libdmsdp.so": "usr/lib/libdmsdp.so",
+          "libmanagement.so": "usr/lib/libmanagement.so",
+          "libsecurec.so": "usr/lib/libsecurec.so",
+          "libHwDeviceAuthSDK.so": "usr/lib/libHwDeviceAuthSDK.so",
+          "libdmsdpcrypto.so": "usr/lib/libdmsdpcrypto.so",
+          "libdmsdpplatform.so": "usr/lib/libdmsdpplatform.so",
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libdmsdpdvaudio.so": "usr/lib/libdmsdpdvaudio.so",
+          "libdmsdpdvinterface.so": "usr/lib/libdmsdpdvinterface.so",
+          "libdmsdphisight.so": "usr/lib/libdmsdphisight.so",
+          "libdmsdpdvcamera.so": "usr/lib/libdmsdpdvcamera.so",
+          "libdmsdpdvdevice.so": "usr/lib/libdmsdpdvdevice.so",
+          "libdmsdpdvgps.so": "usr/lib/libdmsdpdvgps.so",
+          "libMsnCommons.so": "usr/lib/libMsnCommons.so",
+          "libLinkLibs.so": "usr/lib/libLinkLibs.so",
+          "libwifimanager.so": "usr/lib/libwifimanager.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libQtDBus.so.4": "usr/local/Qt4.7.4/lib/libQtDBus.so.4.7.4",
+          "libQtXml.so.4": "usr/local/Qt4.7.4/lib/libQtXml.so.4.7.4",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "PT_INTERP": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libwifimanager.so": {
+        "sha256": "8761be9ba1cb26475de86af79a2917e9f97b37e3c80def169bb469d0a0353fb2",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpdvgps.so": {
+        "sha256": "e1fe6457b2348e3ce47dfcf96369f4b591b59a9d30990b17f5676382e0dfb16d",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpdvdevice.so": {
+        "sha256": "5ae741750a0103450811c166800b622728f2601c7c9f78ca90805b8113fc7d37",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpdvcamera.so": {
+        "sha256": "89c5912977961cee016363172911098003d54df6b3d9d534240c897a34bc24ed",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdphisight.so": {
+        "sha256": "4872211965ffb6a545419144293ffadefd141ba8742219a9e264849db71b688c",
+        "dependencies": {
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libHisightSink.so": "usr/lib/libHisightSink.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libHisightSink.so": {
+        "sha256": "523e0db2db34b91ffe0f87161b3ecceee0fd42254f3e61a8fb949052b65335ec",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libdmsdpcrypto.so": "usr/lib/libdmsdpcrypto.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpcrypto.so": {
+        "sha256": "71877a66b2879462b2dde4f9b0d0f8afe016d8b8781640887e692ef207f50b85",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpsec.so": {
+        "sha256": "a443c44f0215e7546571198423766ec485546fad3eb55dd59312c667d854c0b4",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpdvinterface.so": {
+        "sha256": "e7641f184d4718790b1423d244c85d2b5c07b2d1424a7748f1946dd2780f36e1",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpdvaudio.so": {
+        "sha256": "bd4987c4a62b4c2ae07bcda5a2268f581133f4e1cc2f30ded6634348ac5ae8bf",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpplatform.so": {
+        "sha256": "a4f3e0bd998fc00e88da86c06494022645724b68f13141c103d05ca377f97801",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libHwDeviceAuthSDK.so": {
+        "sha256": "61c486f402ee19ce195c3cc6ea16cce0a053bae0d1602ac7b7812eafcca9c124",
+        "dependencies": {
+          "libHwKeystoreSDK.so": "usr/lib/libHwKeystoreSDK.so",
+          "libsecurec.so": "usr/lib/libsecurec.so",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libsecurec.so": {
+        "sha256": "a443c44f0215e7546571198423766ec485546fad3eb55dd59312c667d854c0b4",
+        "dependencies": {
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libHwKeystoreSDK.so": {
+        "sha256": "1a9a353dfd129da6f0ae9fa49e06c7d05b2d34a316348470ec2a94e394bef446",
+        "dependencies": {
+          "libsecurec.so": "usr/lib/libsecurec.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libmanagement.so": {
+        "sha256": "5d7848eb36a546add1a94d452e583022e2843b0611256848e3d5a024a1552da0",
+        "dependencies": {
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libdmsdpcrypto.so": "usr/lib/libdmsdpcrypto.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdp.so": {
+        "sha256": "ebab2ee2633bc92502df858feaaca87533f16c692ed73e432db6475074f18a11",
+        "dependencies": {
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libdmsdpplatform.so": "usr/lib/libdmsdpplatform.so",
+          "libdmsdpdvinterface.so": "usr/lib/libdmsdpdvinterface.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libauthagent.so": {
+        "sha256": "048b55615545035e54cf1f6d912329bb429d9bf5bbb62608dfdedbbbbf49cabe",
+        "dependencies": {
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libHwDeviceAuthSDK.so": "usr/lib/libHwDeviceAuthSDK.so",
+          "libnearby.so": "usr/lib/libnearby.so",
+          "libHwKeystoreSDK.so": "usr/lib/libHwKeystoreSDK.so",
+          "libdmsdpcrypto.so": "usr/lib/libdmsdpcrypto.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libnearby.so": {
+        "sha256": "7f844310ca127e456b40fedce79ca4f49e5372bf8fb4d672e0f577d479f3da57",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libcrypto.so.1.1": "usr/lib/libcrypto.so.1.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libcrypto.so.1.1": {
+        "sha256": "4b6ed710fed21cf5ca94d73c2b98b9f440bb3c4fc98bd4cfb8daa3751d68d8f2",
+        "dependencies": {
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libhicar.so": {
+        "sha256": "ebb36b2744e59f424b9754498b3bf1cb67b6d5739373f8547be6179b67c18605",
+        "dependencies": {
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libdmsdp.so": "usr/lib/libdmsdp.so",
+          "libauthagent.so": "usr/lib/libauthagent.so",
+          "libmanagement.so": "usr/lib/libmanagement.so",
+          "libnearby.so": "usr/lib/libnearby.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so",
+          "ld-linux-armhf.so.3": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libdmsdpaudiohandler.so": {
+        "sha256": "f63e4f659d7196cae978cc5b766d6ee3f5ee376e198a349203e0033e9536342c",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libasound.so.2": "usr/lib/libasound.so.2.0.0",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libarkadapt.so": {
+        "sha256": "4cc654e012490ade9964ba0ade1229e947ff92a473baac685edec72f8982f6b6",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so",
+          "librt.so.1": "lib/librt-2.27.so",
+          "libssl.so.1.1": "usr/lib/libssl.so.1.1",
+          "libcrypto.so.1.1": "usr/lib/libcrypto.so.1.1",
+          "libusb-1.0.so.0": "usr/lib/libusb-1.0.so.0.1.0",
+          "libmfc.so": "usr/lib/libmfc.so",
+          "libhicar.so": "usr/lib/libhicar.so",
+          "libdmsdp.so": "usr/lib/libdmsdp.so",
+          "libdmsdpcrypto.so": "usr/lib/libdmsdpcrypto.so",
+          "libdmsdpdvdevice.so": "usr/lib/libdmsdpdvdevice.so",
+          "libdmsdpdvgps.so": "usr/lib/libdmsdpdvgps.so",
+          "libdmsdpdvinterface.so": "usr/lib/libdmsdpdvinterface.so",
+          "libdmsdphisight.so": "usr/lib/libdmsdphisight.so",
+          "libdmsdpplatform.so": "usr/lib/libdmsdpplatform.so",
+          "libdmsdpsec.so": "usr/lib/libdmsdpsec.so",
+          "libmanagement.so": "usr/lib/libmanagement.so",
+          "libauthagent.so": "usr/lib/libauthagent.so",
+          "libHisightSink.so": "usr/lib/libHisightSink.so",
+          "libsecurec.so": "usr/lib/libsecurec.so",
+          "libHwDeviceAuthSDK.so": "usr/lib/libHwDeviceAuthSDK.so",
+          "libHwKeystoreSDK.so": "usr/lib/libHwKeystoreSDK.so",
+          "libnearby.so": "usr/lib/libnearby.so",
+          "libarkadapt.so": "usr/lib/libarkadapt.so",
+          "libdmsdpdvaudio.so": "usr/lib/libdmsdpdvaudio.so",
+          "libdmsdpdvcamera.so": "usr/lib/libdmsdpdvcamera.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libusb-1.0.so.0.1.0": {
+        "sha256": "1de44a8662e005d30c48b03e62abe25bce22e005366a71071994446201b4ab98",
+        "dependencies": {
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/lib/libssl.so.1.1": {
+        "sha256": "9c54e97fffc90bddc8238ec278d6e8c3510e70e84413a1d3375bb8985dfae996",
+        "dependencies": {
+          "libcrypto.so.1.1": "usr/lib/libcrypto.so.1.1",
+          "libdl.so.2": "lib/libdl-2.27.so",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/local/Qt4.7.4/lib/libDetach.so": {
+        "sha256": "20aa7c9c406343644b1ac37f8fd31b3549a6270811496faa1c4b191433ef9c12",
+        "dependencies": {
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      },
+      "usr/bin/MsnFirstInit": {
+        "sha256": "d4a5bf6cd7bfe3f9c8cae9651eb00f10473b72c763a4a8b80bd970b29beafa3b",
+        "dependencies": {
+          "libpng15.so.15": "usr/lib/libpng15.so.15.30.0",
+          "libjpeg.so.9": "usr/lib/libjpeg.so.9.2.0",
+          "libz.so.1": "usr/lib/libz.so.1.2.8",
+          "libts-0.0.so.0": "usr/lib/libts-0.0.so.0.1.1",
+          "libarkcmn.so": "usr/lib/libarkcmn.so",
+          "libGAL.so": "usr/lib/libGAL.so",
+          "libQtGui.so.4": "usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+          "libQtNetwork.so.4": "usr/local/Qt4.7.4/lib/libQtNetwork.so.4.7.4",
+          "libQtCore.so.4": "usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+          "libpthread.so.0": "lib/libpthread-2.27.so",
+          "libstdc++.so.6": "lib/libstdc++.so.6.0.20",
+          "libm.so.6": "lib/libm-2.27.so",
+          "libgcc_s.so.1": "lib/libgcc_s.so.1",
+          "libc.so.6": "lib/libc-2.27.so",
+          "PT_INTERP": "lib/ld-2.27.so"
+        },
+        "unused_PT_INTERP_in_shared_library": []
+      }
+    },
+    "limit": "DT_NEEDED/interpreter existence and ARM machine type only; runtime imports, ioctl compatibility and hardware untested."
+  },
+  "library_sha256": "dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1",
+  "rootfs_sha256": "e2ef432145652dff8cf077825245a915bff276e7e930c7f4986f39a68156b043",
+  "base_image_sha256": "f0a56487359a94c556fc4bd38026b648b98d6ee55a94ccef8d3512a299537e4d",
+  "changed_paths": [
+    "etc/profile",
+    "usr/libexec/carplay-revival/ui",
+    "usr/libexec/carplay-revival/ui/compatibility.txt",
+    "usr/libexec/carplay-revival/ui/libp401-ui.so",
+    "usr/libexec/carplay-revival/ui/run-ui.sh",
+    "usr/libexec/carplay-revival/verify"
+  ],
+  "complete_inventory_matches": true,
+  "usb_payload_verified": true,
+  "passed": true,
+  "checks": [
+    {
+      "check": "base tar is the pinned metadata-preserving public RC1 extraction",
+      "passed": true
+    },
+    {
+      "check": "RC2 summary identifies the explicit new image revision",
+      "passed": true
+    },
+    {
+      "check": "RC2 summary pins the exact complete native evidence file and UI library",
+      "passed": true
+    },
+    {
+      "check": "RC2 does not inherit the owner-tested RC1 UI claim",
+      "passed": true
+    },
+    {
+      "check": "RC2 summary pins the exact native connection provider",
+      "passed": true
+    },
+    {
+      "check": "builder summary pins the image being checked",
+      "passed": true
+    },
+    {
+      "check": "builder used the pinned RC1 base and exact newly native-validated RC2 UI",
+      "passed": true
+    },
+    {
+      "check": "roundtrip belongs to the exact new image",
+      "passed": true
+    },
+    {
+      "check": "root directory metadata is unchanged from public RC1 and agrees with roundtrip tar",
+      "passed": true
+    },
+    {
+      "check": "complete roundtrip tar matches extracted UBI metadata",
+      "passed": true
+    },
+    {
+      "check": "complete image inventory matches builder (paths/type/mode/uid/gid/content/links)",
+      "passed": true
+    },
+    {
+      "check": "only the exact six reviewed Jaguar paths differ from public RC1",
+      "passed": true
+    },
+    {
+      "check": "builder delta agrees with independently compared filesystem",
+      "passed": true
+    },
+    {
+      "check": "no baseline file or directory was deleted",
+      "passed": true
+    },
+    {
+      "check": "persistent userdata and all other factory paths remain unchanged",
+      "passed": true
+    },
+    {
+      "check": "profile retains vendor type/mode/owner/group",
+      "passed": true
+    },
+    {
+      "check": "new rootfs permissions and numeric owner: usr/libexec/carplay-revival/ui",
+      "passed": true
+    },
+    {
+      "check": "new rootfs permissions and numeric owner: usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "new rootfs permissions and numeric owner: usr/libexec/carplay-revival/ui/compatibility.txt",
+      "passed": true
+    },
+    {
+      "check": "new rootfs permissions and numeric owner: usr/libexec/carplay-revival/ui/run-ui.sh",
+      "passed": true
+    },
+    {
+      "check": "new rootfs permissions and numeric owner: usr/libexec/carplay-revival/verify",
+      "passed": true
+    },
+    {
+      "check": "existing persistent settings alias retained: MsnProductInfo.ini",
+      "passed": true
+    },
+    {
+      "check": "existing persistent settings alias retained: FactoryConfig.ini",
+      "passed": true
+    },
+    {
+      "check": "exact native-validated RC2 component: usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "exact unchanged component: usr/lib/libAirPlay.so",
+      "passed": true
+    },
+    {
+      "check": "exact unchanged component: usr/libexec/carplay-revival/udhcpd",
+      "passed": true
+    },
+    {
+      "check": "RC2 retains the exact verified static ARM integrity helper",
+      "passed": true
+    },
+    {
+      "check": "RC2 retains exact native connection provider: usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "exact wrapper is CRC-pinned at the original profile launch point",
+      "passed": true
+    },
+    {
+      "check": "compatibility manifest is CRC-pinned by the exact wrapper",
+      "passed": true
+    },
+    {
+      "check": "RC2 compatibility manifest pins UI, ten vendor ABI files and static verifier",
+      "passed": true
+    },
+    {
+      "check": "RC2 connection provider compatibility row pins exact CRC and length",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/lib/libLinkLibs.so",
+      "passed": true
+    },
+    {
+      "check": "manifest matches actual installed bytes: /usr/libexec/carplay-revival/verify",
+      "passed": true
+    },
+    {
+      "check": "production startup is independent of field-W3/logging paths",
+      "passed": true
+    },
+    {
+      "check": "image CRCs and conservative UBI/UBIFS geometry pass",
+      "passed": true
+    },
+    {
+      "check": "RC2 ARM dependency closure includes installed UI preload, verifier and connection provider",
+      "passed": true
+    },
+    {
+      "check": "RC2 delivery manifest names the correct revision and exact native-validated UI",
+      "passed": true
+    },
+    {
+      "check": "RC2 delivery manifest has no inherited owner/full-image/recovery test claim",
+      "passed": true
+    },
+    {
+      "check": "USB verifier accepts the exact three image files",
+      "passed": true
+    },
+    {
+      "check": "USB has only the kernel/filesystem update files",
+      "passed": true
+    },
+    {
+      "check": "unchanged public RC1 boot payload: update",
+      "passed": true
+    },
+    {
+      "check": "unchanged public RC1 boot payload: zImage",
+      "passed": true
+    },
+    {
+      "check": "USB rootfs is the exact fully checked new image",
+      "passed": true
+    },
+    {
+      "check": "download archive size/SHA match manifest",
+      "passed": true
+    },
+    {
+      "check": "ZIP CRCs and exact three-file safe content",
+      "passed": true
+    },
+    {
+      "check": "ZIP contents are the exact verified USB payload",
+      "passed": true
+    },
+    {
+      "check": "new full image is not labelled vehicle/recovery proven",
+      "passed": true
+    }
+  ],
+  "count": 58,
+  "scope": "Fresh offline UBI/UBIFS checks, complete numeric filesystem inventory comparison, ARM ELF closure and exact ZIP/USB verification. No target kernel boot, radio/MCU operation, physical reboot, flash installation or unbootable-unit recovery test.",
+  "complete_image_vehicle_tested": false,
+  "full_flash_recovery_proven": false
+}
