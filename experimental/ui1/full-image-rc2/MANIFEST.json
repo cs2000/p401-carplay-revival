@@ -47,8 +47,8 @@
   },
   "source_archive": {
     "name": "SOURCE.zip",
-    "bytes": 3917275,
-    "sha256": "dc66fefa610852927afd0403cdbb935307e51b2a0d19a12ca1c908629ce28c0b"
+    "bytes": 3915613,
+    "sha256": "92fa713f7ac6294bc5062e2de583d81564ee396120d41de03fe145b942ffb6bc"
   },
   "validation": {
     "name": "VALIDATION.json",
@@ -56,7 +56,8 @@
     "sha256": "991c2a2a26db4d5062abda01ed665ad8969a9d1d4211b90889c3ffd14716592e"
   },
   "current_car_upgrade": {
-    "path": "upgrades/2026.11-jaguar-xfr-rc2",
+    "published": false,
+    "delivery": "Local artifact for the owner; not a public download",
     "packages": [
       {
         "name": "INSTALL.zip",
@@ -210,8 +211,8 @@
     },
     "README.md": {
       "name": "README.md",
-      "bytes": 2471,
-      "sha256": "6a7adf2d3f913686fe7244d5c0e948d2ce93257ceffb81319e2b4e2cc87e025d"
+      "bytes": 2463,
+      "sha256": "b6485cae160f71a230b6cd41680df7cd1beca4e777afea9b88495267be2b7c42"
     },
     "SETTINGS_CLOUD_CHECKS.json": {
       "name": "SETTINGS_CLOUD_CHECKS.json",
@@ -220,8 +221,8 @@
     },
     "SOURCE.zip": {
       "name": "SOURCE.zip",
-      "bytes": 3917275,
-      "sha256": "dc66fefa610852927afd0403cdbb935307e51b2a0d19a12ca1c908629ce28c0b"
+      "bytes": 3915613,
+      "sha256": "92fa713f7ac6294bc5062e2de583d81564ee396120d41de03fe145b942ffb6bc"
     },
     "STARTUP_CHECKS.json": {
       "name": "STARTUP_CHECKS.json",

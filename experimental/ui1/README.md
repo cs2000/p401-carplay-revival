@@ -6,7 +6,7 @@ RC2 retains the six photographic/glass tiles, centred Jaguar leaper/wordmark, li
 
 The RC2 library is `dbc68cef18e146e8f67700698445b17af29793e6ec702f9317db69d7a4d26eb1`. Its [technical records](full-image-rc2/README.md) bind fresh native evidence to this exact binary and source. Physical RC2 vehicle/radio/reboot testing is pending.
 
-My older R1 + field-W3 development installation uses the distinct [small current-car update and exact previous-UI restore](../../upgrades/2026.11-jaguar-xfr-rc2/README.md). Stock and full RC1 users use the full bundle. Never apply the field runner/manifest to the standalone firmware. Full-image [UI disable/re-enable controls](../../recovery/2026.11-jaguar-xfr-rc2/README.md) are separate.
+My older R1 + field-W3 development installation has a distinct small update and exact previous-UI restore, prepared locally for the owner. The public download is the full bundle for compatible stock and full RC1 users. Never apply a field runner/manifest to the standalone firmware. Full-image [UI disable/re-enable controls](../../recovery/2026.11-jaguar-xfr-rc2/README.md) are separate.
 
 ## Preserved previous Glass + Clock version
 

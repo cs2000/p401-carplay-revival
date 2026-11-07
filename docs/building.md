@@ -73,7 +73,7 @@ Use the documented offline build container and a new destination. Roundtrip the 
 
 The update selector still requests only kernel/filesystem. No userdata payload, formatting or defaults migration is added; full RC1 users retain existing factory values, name, appearance and UI enable/disable state. Compatible hardware and valid existing configuration remain required. Native fixtures verify preserved userdata but do not perform an actual vehicle flash.
 
-`package_ui1_rc2_upgrade.py` creates the separate six-file field-layout overlay for the current car; `test_ui1_rc2_upgrade.py` checks ARM CRC chains, fail-open behavior and the exact previous-UI restore. These field files are never used by the full-image builder. Public [RC2 downloads](../releases/2026.11-jaguar-xfr-rc2/README.md) retain the simple README/checksums/firmware ZIP layout; [technical records](../experimental/ui1/full-image-rc2/README.md), [current-car update](../upgrades/2026.11-jaguar-xfr-rc2/README.md) and [full-image UI controls](../recovery/2026.11-jaguar-xfr-rc2/README.md) are separate.
+`package_ui1_rc2_upgrade.py` creates the separate local six-file field-layout overlay for the current car; `test_ui1_rc2_upgrade.py` checks ARM CRC chains, fail-open behavior and the exact previous-UI restore. These field files are never used by the full-image builder and are not published as downloads. Public [RC2 downloads](../releases/2026.11-jaguar-xfr-rc2/README.md) retain the simple README/checksums/firmware ZIP layout; [technical records](../experimental/ui1/full-image-rc2/README.md) and [full-image UI controls](../recovery/2026.11-jaguar-xfr-rc2/README.md) are separate.
 
 ### Generic W3 RC1
 

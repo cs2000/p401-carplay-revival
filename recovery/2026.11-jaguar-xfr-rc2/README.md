@@ -8,7 +8,7 @@ Extract the chosen ZIP's **msn_autocopy** folder to the root of an otherwise cle
 
 Each ZIP writes only the UI enable/disable state. The wireless repair, factory/MCU settings, saved name and appearance preferences are retained. These are the same exact state payloads used for the full RC1 release.
 
-For the older development field-W3 installation, use its distinct [previous-UI restore / UI-disable files](../../upgrades/2026.11-jaguar-xfr-rc2/README.md). Never copy its old field runner or manifest into the standalone full firmware.
+These are the standalone full-firmware controls. Never copy an old development field-W3 runner or manifest into the standalone firmware.
 
 **These controls require a box that still boots and accepts autocopy. They do not restore previous firmware, back up the device or recover an unbootable unit.** To return to an older full firmware image, use that exact full firmware download; reflashing remains subject to the normal flash risk.
 

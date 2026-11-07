@@ -25,7 +25,7 @@ Existing factory/MCU settings, saved custom name and appearance preferences are 
 
 Use **Settings → Appearance → Personalise appearance** for colours, pictures and tile order. Use **Settings → CarPlay name → Change name → Save & restart** for the shared radio/CarPlay name; re-pair the phone if needed.
 
-Do not mix other updater, factory-config or `msn_autocopy` files onto the firmware USB. The small [current-car update](../../upgrades/2026.11-jaguar-xfr-rc2/README.md) is only for the older development installation; a full Jaguar RC1 installation uses this full bundle.
+Do not mix other updater, factory-config or `msn_autocopy` files onto the firmware USB. A full Jaguar RC1 installation uses this same full bundle.
 
 **This is a full firmware update. It does not back up your firmware. A failed flash can brick the unit; I offer no recovery image or method for an unbootable box. Use at your own risk.**
 

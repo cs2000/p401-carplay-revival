@@ -1,6 +1,6 @@
 # Jaguar RC2 source and validation archive
 
-For installation, use the [full firmware download](../../../releases/2026.11-jaguar-xfr-rc2/README.md), or the [small update for the development car](../../../upgrades/2026.11-jaguar-xfr-rc2/README.md). This directory holds technical records, not a second firmware download.
+For installation, use the [full firmware download](../../../releases/2026.11-jaguar-xfr-rc2/README.md). This directory holds technical records, not a second firmware download. The owner's small development-car update is retained locally and is not a public download.
 
 RC2 uses the approved graphite/glass theme, session indication, accent/picture/order preferences and matching native Settings. Advanced access bypasses only its PIN navigation, preserving the existing native controls and MCU-version display. Factory/MCU configuration and the W3 repair remain unchanged.
 
