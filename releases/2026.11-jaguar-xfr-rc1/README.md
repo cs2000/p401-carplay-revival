@@ -1,4 +1,4 @@
-# Jaguar XFR — stock-to-Jaguar firmware RC1
+# Complete firmware — stock-to-Jaguar RC1
 
 7 November 2026. A complete update for compatible **stock Limcet/Arkmicro P401 units with an 800×480 display**. It includes the newer vendor firmware/kernel, W3 native wireless CarPlay repair, Jaguar glass/photo menu, live clock, fixed Exit/Settings footer and custom Bluetooth/Wi-Fi/CarPlay name.
 

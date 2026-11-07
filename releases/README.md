@@ -1,5 +1,13 @@
 # Downloads
 
+| Package | What it installs | Starting point |
+| --- | --- | --- |
+| [Jaguar full firmware RC1](2026.11-jaguar-xfr-rc1/README.md) | Firmware/kernel + W3 repair + Jaguar UI | Compatible stock P401; no prior development install |
+| [Legacy Jaguar UI-only overlay](2026.11-ui1-jaguar-xfr/README.md) | UI only | Existing R1 + field-W3 development layout |
+| [Generic W3 firmware RC1](2026.11-w3-rc1/README.md) | Firmware/kernel + W3 repair, native vendor UI | Compatible P401; no Jaguar theme |
+
+For a stock-to-Jaguar installation, use the **Jaguar full firmware RC1** entry. Both complete images remain release candidates pending exact-image vehicle installation tests.
+
 ## Jaguar XFR menu and custom CarPlay name
 
 [**2026.11-jaguar-xfr-rc1 — complete stock-to-Jaguar firmware**](2026.11-jaguar-xfr-rc1/README.md)

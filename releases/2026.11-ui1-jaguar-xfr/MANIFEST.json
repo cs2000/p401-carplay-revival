@@ -158,8 +158,8 @@
   },
   "instructions": {
     "file": "README.md",
-    "bytes": 3599,
-    "sha256": "d63059e53fd4ed747bc333deae275c32242e50087abfbb0e194098cdeecfe591"
+    "bytes": 3622,
+    "sha256": "05a000414f6452083dd0fa35d1aa4f625dc7d144356665f9a6ed2ebf03a42207"
   },
   "published_on": "2026-11-07",
   "validation_at_packaging": {

@@ -1,4 +1,4 @@
-# Jaguar XFR UI1 — Glass + Clock
+# Legacy UI-only overlay — existing R1 + field-W3 units
 
 **Starting from stock? Use the [complete Jaguar firmware bundle](../2026.11-jaguar-xfr-rc1/README.md).** It installs the firmware, wireless repair and Jaguar UI together. This folder preserves the smaller, owner-tested overlay for the older development startup layout.
 
