@@ -1,5 +1,7 @@
 # Jaguar XFR UI1 — Glass + Clock
 
+**Starting from stock? Use the [complete Jaguar firmware bundle](../2026.11-jaguar-xfr-rc1/README.md).** It installs the firmware, wireless repair and Jaguar UI together. This folder preserves the smaller, owner-tested overlay for the older development startup layout.
+
 7 November 2026. Six large photographic/glass tiles, turquoise accents, the centred Jaguar leaper/wordmark, a live clock, fixed Exit/Settings footer and a custom Bluetooth/Wi-Fi/CarPlay name with **Save & restart**.
 
 I've tested this exact package on my P401 in my Jaguar XFR. On 7 November I reported that all the previously reported bugs were fixed. This is one owner's result, not a compatibility claim for every Jaguar or P401.

@@ -1,5 +1,15 @@
 # Cloud continuation — 6 November 2026
 
+## 7 November stock-to-Jaguar full image
+
+The user requested removing the R1 + field-W3 prerequisite for other stock users. The new [complete Jaguar firmware RC1](../releases/2026.11-jaguar-xfr-rc1/README.md) packages the clean public RC1 kernel/rootfs and W3 repair with the exact tested UI1 library. It needs no field marker, runner, manifest or prior userdata UI directory. It preserves the documented existing native `/data/msncfg` configuration; it does not migrate unsupported stock layouts or substitute the development car's defaults.
+
+New sources are `firmware/jaguar/{launch-ui.sh.in,run-ui.sh.in,verify.c}` and `tools/build_jaguar_image.py`. The profile embeds a CRC-guarded standalone runner, and the UI library/ABI manifest live in rootfs. Userdata contains only the existing UI state/name when needed. Missing UI state enables the theme; disabled/malformed state or integrity failure uses the included native interface. Crashes/timeouts disable the UI and fall back independently of W3, including when the disable flag cannot be saved.
+
+The full image is SHA256 `8e3047b995f4644b59c91764ce57848bc36cd034e8ac42f26157e5f0579eb72f`; download ZIP `9b32ecc205b608cc38f21352cb917164f73698cbc547f19e7cd465c91f025860`. It retains UI library `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`, original kernel/update and W3 bytes. Fresh checks cover 48 image/inventory checks, 53 settings/startup checks, 94 standalone runner checks, six native integrated-runner cases, 36 static-helper cases and forced `statx` ENOSYS → legacy `fstat64` verification. The original 32-case RC1 startup suite also still passes.
+
+This is a **new combined-image candidate**, not the owner-tested overlay artifact. No full-image vehicle installation, kernel boot, physical radio session or full-flash recovery has been proven for it. Its `UI_ROLLBACK.zip` and `ENABLE_JAGUAR_UI.zip` change only state, returning to the included native interface or re-enabling Jaguar. Never restore the old field runner/manifest into this image. Keep the exact old overlay/public RC1 downloads and their evidence unchanged.
+
 The working wireless repair is W3. Current UI1 source is in `experimental/ui1`; the unchanged tested Glass + Clock package is published at [releases/2026.11-ui1-jaguar-xfr](../releases/2026.11-ui1-jaguar-xfr/README.md). The [6 November packaging snapshot](../experimental/ui1/candidates/glass-clock-2026-11-06/README.md) retains its original metadata. `python tools/check_cloud_handover.py` still verifies the immutable original handover artifacts; current release hashes/evidence are separate.
 
 ## 7 November owner report and publication
@@ -70,11 +80,11 @@ Important hook boundaries:
 
 ## Startup and rollback contract
 
-UI1 is currently tied to the **development R1 + field W3 startup layout**, not the public RC1 clean layout. The W3 manifest pins the GUI runner. UI1 changes that runner and updates only its row in the W3 manifest; failing to do both deactivates W3. The UI wrapper and all ABI-sensitive vendor files are CRC/length checked before loading.
+The legacy UI1-only overlay is tied to the **development R1 + field W3 startup layout**. Its W3 manifest pins the GUI runner; that overlay updates only the runner row, and failing to update both deactivates field W3. The complete stock-to-Jaguar image described above has its own independent rootfs launcher and no field-layout dependency. Both paths check UI/vendor integrity before loading.
 
 The extension covers the launcher before first exposure, checks readiness and disables itself after a crash or a 60-second startup timeout, then attempts to start the stock interface. A hidden launcher with a validated model can become ready without forcing Home visible or waiting for its first paint. UI failure must not become a prerequisite for the underlying wireless repair. Exact prior runner and manifest files are retained in `experimental/ui1/baseline` and the rollback ZIP.
 
-The installer has six files; rollback has three. Neither writes a kernel, rootfs, MCU profile or other factory settings. The new installer SHA256 is `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`. The original installer remains `2d43baa7ce7f244e48fcb14cde7d9a853be6e599f3b3fa47d8ab83391b06c53f` with library `aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35`. The unchanged rollback archive has SHA256 `6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03`; its canonical active `msn_autocopy` root contains the exact tested prior payload.
+The legacy overlay installer has six files; its rollback has three. Neither overlay writes a kernel, rootfs, MCU profile or other factory settings. The owner-tested overlay installer SHA256 is `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`. The original installer remains `2d43baa7ce7f244e48fcb14cde7d9a853be6e599f3b3fa47d8ab83391b06c53f` with library `aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35`. The unchanged legacy rollback archive has SHA256 `6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03`. The new full image does write kernel/rootfs and has separate one-file UI state controls, never the old field runner/manifest rollback.
 
 I explicitly agreed to continue device feature work using the saved files as fallback. This does not establish brick recovery. Retain the warning that installation does not back up existing firmware and no recovery image or method is offered for an unbootable unit.
 

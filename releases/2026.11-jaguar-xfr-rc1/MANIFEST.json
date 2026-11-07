@@ -1,0 +1,185 @@
+{
+  "release": "2026.11-jaguar-xfr-rc1",
+  "date": "2026-11-07",
+  "status": "FULL_IMAGE_OFFLINE_NATIVE_VERIFIED_VEHICLE_TEST_PENDING",
+  "requires_prior_r1_install": false,
+  "requires_field_w3_layout": false,
+  "stock_configuration_layout": "Existing readable nonempty [General] /data/msncfg/MsnProductInfo.ini and FactoryConfig.ini on compatible P401 hardware",
+  "usb_files": [
+    {
+      "name": "rootfs.img",
+      "bytes": 100401152,
+      "sha256": "8e3047b995f4644b59c91764ce57848bc36cd034e8ac42f26157e5f0579eb72f"
+    },
+    {
+      "name": "update",
+      "bytes": 20,
+      "sha256": "fd4c7328b55789ea720829f7983ba47ca6342096da4bf9ce2f06136ad667679e"
+    },
+    {
+      "name": "zImage",
+      "bytes": 3255848,
+      "sha256": "04dc369f6fa30443a5c4353467cb5f8994af3a95798824e3f2815d360a46f9fc"
+    }
+  ],
+  "download": {
+    "name": "P401_2026.11_JAGUAR_XFR_RC1.zip",
+    "bytes": 80584211,
+    "sha256": "9b32ecc205b608cc38f21352cb917164f73698cbc547f19e7cd465c91f025860"
+  },
+  "installation_writes": [
+    "kernel",
+    "rootfs"
+  ],
+  "settings_migration": false,
+  "mcu_type_forced": false,
+  "kernel_and_update_unchanged": true,
+  "w3_components_unchanged": true,
+  "library_sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639",
+  "verifier_sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+  "base_release_zip_sha256": "826592230326d57be22895fc89a1228504a16d45015c5996e5d6cca4c1e02278",
+  "source_tar_sha256": "be982d06fdefbc91229cd9d72081ac47f08ac3dc9733fcfa8aac02af10ee1b56",
+  "rootfs_sha256": "8e3047b995f4644b59c91764ce57848bc36cd034e8ac42f26157e5f0579eb72f",
+  "ubifs_lebs": 764,
+  "complete_image_vehicle_tested": false,
+  "firmware_backup_provided": false,
+  "full_flash_recovery_proven": false,
+  "warning": "Full firmware update; failed flash can brick the unit. No firmware backup or unbootable-unit recovery method is provided. UI rollback needs a booting unit accepting autocopy.",
+  "ui_control_bundles": [
+    {
+      "file": "UI_ROLLBACK.zip",
+      "bytes": 187,
+      "sha256": "f239b36edc0015d8b33c17ce58dd0814bfd95131e41e59497f3d93f873085b7e",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 9,
+          "sha256": "b5ea375becd3088862c16fc97fe379532c583079829fcf1fdcb549e6808262fb"
+        }
+      }
+    },
+    {
+      "file": "ENABLE_JAGUAR_UI.zip",
+      "bytes": 186,
+      "sha256": "cb36a8739fc28b793e5ac1ce7470bdfcab3ad5beba9cf6a92628e23dce84bdb3",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 8,
+          "sha256": "e056a35db086947e2f5969d747f0a7517bff00c7ffff1f9e7b47b72bfac9d948"
+        }
+      }
+    }
+  ],
+  "validation": {
+    "name": "VALIDATION.json",
+    "bytes": 2112,
+    "sha256": "750624dd18e0f0b5533d3e6056d667a542ead938b4a5aa52f23eed115a6d5c1f"
+  },
+  "preview_scope": "Earlier actual native ARM capture of the exact unchanged UI library, using a synthetic English model; not a physical boot of this new full image.",
+  "source_archive": {
+    "name": "SOURCE.zip",
+    "bytes": 3863124,
+    "sha256": "98a99f67ae353e0c7349c7a0eed22652768cf83da182275add394e309dca6aa4"
+  },
+  "files": {
+    "BUILD_COMMANDS.json": {
+      "name": "BUILD_COMMANDS.json",
+      "bytes": 2836,
+      "sha256": "c5f42e1f456ab632ddbbfdb8c45fb98b20747062b5284b771cd5fefaa3b5ebc4"
+    },
+    "BUILD_SUMMARY.json": {
+      "name": "BUILD_SUMMARY.json",
+      "bytes": 11018,
+      "sha256": "a80b17956a0d06726eb6778f899c4a3ce782cfb1088860d525718cc8b27c70a3"
+    },
+    "CHANGES.json": {
+      "name": "CHANGES.json",
+      "bytes": 1775,
+      "sha256": "37f21a47aadaf2fb99bdd2be6702a9050b81bd190207c58dd7ed4dafcd015399"
+    },
+    "ENABLE_JAGUAR_UI.zip": {
+      "name": "ENABLE_JAGUAR_UI.zip",
+      "bytes": 186,
+      "sha256": "cb36a8739fc28b793e5ac1ce7470bdfcab3ad5beba9cf6a92628e23dce84bdb3"
+    },
+    "HOME.png": {
+      "name": "HOME.png",
+      "bytes": 326071,
+      "sha256": "0a5bc54c5278cb76e943b46d5aa8c36cc1a929a9ba7644e20b79ebb965c083e3"
+    },
+    "IMAGE_CHECKS.json": {
+      "name": "IMAGE_CHECKS.json",
+      "bytes": 53358,
+      "sha256": "8decf9ec04291e7ff6036fd809cb761ebf6541dd09d52df9f53f22f61eecaeef"
+    },
+    "INVENTORY.json": {
+      "name": "INVENTORY.json",
+      "bytes": 410185,
+      "sha256": "42fc97c260797ad045613cf3b8f37d07464a46c478a92af34620389d347c5484"
+    },
+    "NATIVE_CHECKS.json": {
+      "name": "NATIVE_CHECKS.json",
+      "bytes": 2757,
+      "sha256": "ede298f1a613e2d6cd9073fb181566c803d0e0cf304cea9647d06f6fd6a71c12"
+    },
+    "P401_2026.11_JAGUAR_XFR_RC1.zip": {
+      "name": "P401_2026.11_JAGUAR_XFR_RC1.zip",
+      "bytes": 80584211,
+      "sha256": "9b32ecc205b608cc38f21352cb917164f73698cbc547f19e7cd465c91f025860"
+    },
+    "RC1_REGRESSION.json": {
+      "name": "RC1_REGRESSION.json",
+      "bytes": 3286,
+      "sha256": "ea9abf28ae499800a8f1b48254b7328483301cb2ce231bdb2bd799fefd70d862"
+    },
+    "README.md": {
+      "name": "README.md",
+      "bytes": 4793,
+      "sha256": "8a2186dc10a68ebff801d5e6b35f3292442b0df9b390dcf523838c55ce42e105"
+    },
+    "SOURCE.zip": {
+      "name": "SOURCE.zip",
+      "bytes": 3863124,
+      "sha256": "98a99f67ae353e0c7349c7a0eed22652768cf83da182275add394e309dca6aa4"
+    },
+    "STARTUP_CHECKS.json": {
+      "name": "STARTUP_CHECKS.json",
+      "bytes": 5546,
+      "sha256": "2cc1457d2e97c787ad9f3a048d743889bc7a0eaa32b6be851eef630a59c9aa91"
+    },
+    "UI_CONTROLS.json": {
+      "name": "UI_CONTROLS.json",
+      "bytes": 1032,
+      "sha256": "d311bc746961f6550f9d2d631e475a12feb81a23f62b208fc799f5595d843ed1"
+    },
+    "UI_ROLLBACK.zip": {
+      "name": "UI_ROLLBACK.zip",
+      "bytes": 187,
+      "sha256": "f239b36edc0015d8b33c17ce58dd0814bfd95131e41e59497f3d93f873085b7e"
+    },
+    "VALIDATION.json": {
+      "name": "VALIDATION.json",
+      "bytes": 2112,
+      "sha256": "750624dd18e0f0b5533d3e6056d667a542ead938b4a5aa52f23eed115a6d5c1f"
+    },
+    "VERIFIER_BUILD.json": {
+      "name": "VERIFIER_BUILD.json",
+      "bytes": 7473,
+      "sha256": "a14e4287202e8904697491308bf97cba2ae6a56a5a61c208cb715bcd7e639316"
+    },
+    "VERIFIER_LINUX34.json": {
+      "name": "VERIFIER_LINUX34.json",
+      "bytes": 4320,
+      "sha256": "3fb926be6492c3cb2028c9c215126e43c15e04724608addec20f28da6e5ba8da"
+    },
+    "WRAPPER_CHECKS.json": {
+      "name": "WRAPPER_CHECKS.json",
+      "bytes": 10999,
+      "sha256": "45bae3c3237ec9342afa98e881a7c8d471852a3885e21257406fe528d4012751"
+    },
+    "MUSL_COPYRIGHT.txt": {
+      "name": "MUSL_COPYRIGHT.txt",
+      "bytes": 10801,
+      "sha256": "8d51fb83b8860aca6362ccf2b4eaa71362e7c2ca54c09cdaa5da18e419ef4a91"
+    }
+  }
+}

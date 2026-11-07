@@ -1,0 +1,10 @@
+# The profile launches this subshell after the unchanged vendor setup.
+# Verify the rootfs runner before interpreting it; neither path needs field W3.
+(
+    unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES P401_UI_NAMES_REASON P401_UI_LAB
+    if /usr/libexec/carplay-revival/verify verify /usr/libexec/carplay-revival/ui/run-ui.sh @RUNNER_CHECK@; then
+        exec /bin/sh /usr/libexec/carplay-revival/ui/run-ui.sh
+    fi
+    echo 'CarPlay Revival: UI runner unavailable; starting original interface.'
+    exec MsnCoreApp -qws
+) &

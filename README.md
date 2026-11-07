@@ -30,6 +30,8 @@ I've tested the fixes on my box. This combined download has passed offline check
 
 [Release details and checksums](releases/2026.11-w3-rc1/README.md) · [Installation help](docs/installation.md) · [Technical notes](docs/README.md)
 
-Optional Jaguar XFR menu: [**Glass + Clock installer and rollback**](releases/2026.11-ui1-jaguar-xfr/README.md). I've tested this exact overlay on my P401. It requires the matching R1 + field-W3 startup layout and is not directly compatible with the clean RC1 image above.
+For Jaguar XFR owners starting from compatible stock P401 firmware: [**complete Jaguar Glass + Clock firmware RC1**](releases/2026.11-jaguar-xfr-rc1/README.md). It includes the wireless repair and UI together, preserving existing factory settings. This new full image is offline/native checked and awaits a vehicle installation test.
+
+The [earlier small UI overlay and exact rollback](releases/2026.11-ui1-jaguar-xfr/README.md) remain available for the older R1 + field-W3 development layout; that exact overlay has worked on my P401.
 
 [UI1 source and lab notes](experimental/ui1/README.md) · [Cloud project handover](docs/cloud-handover.md)

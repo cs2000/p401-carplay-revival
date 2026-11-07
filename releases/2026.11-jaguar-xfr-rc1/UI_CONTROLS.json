@@ -1,0 +1,32 @@
+{
+  "target": "2026.11-jaguar-xfr-rc1 standalone UI launcher",
+  "packages": [
+    {
+      "file": "UI_ROLLBACK.zip",
+      "bytes": 187,
+      "sha256": "f239b36edc0015d8b33c17ce58dd0814bfd95131e41e59497f3d93f873085b7e",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 9,
+          "sha256": "b5ea375becd3088862c16fc97fe379532c583079829fcf1fdcb549e6808262fb"
+        }
+      }
+    },
+    {
+      "file": "ENABLE_JAGUAR_UI.zip",
+      "bytes": 186,
+      "sha256": "cb36a8739fc28b793e5ac1ce7470bdfcab3ad5beba9cf6a92628e23dce84bdb3",
+      "files": {
+        "msn_autocopy/data/carplay-revival/state": {
+          "bytes": 8,
+          "sha256": "e056a35db086947e2f5969d747f0a7517bff00c7ffff1f9e7b47b72bfac9d948"
+        }
+      }
+    }
+  ],
+  "operation": "Only write the Jaguar UI enable/disable state; retain W3 and saved network name.",
+  "requires_booting_unit_and_autocopy": true,
+  "firmware_backup": false,
+  "full_flash_recovery": false,
+  "factory_or_mcu_settings_written": false
+}

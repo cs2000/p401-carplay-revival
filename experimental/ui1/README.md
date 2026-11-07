@@ -1,5 +1,7 @@
 # Jaguar UI1 — experimental
 
+Starting from compatible stock P401 firmware: use the [complete Jaguar firmware RC1](../../releases/2026.11-jaguar-xfr-rc1/README.md). It includes the firmware, W3 repair and this exact UI library with a standalone launcher. The small overlay below remains for the older field installation; its prerequisite does not apply to the complete image.
+
 The current development package is **Glass + Clock, 6 November 2026**. Fresh tests of its exact ARM binary cover the native Settings/save/restart-request flow, name reload, footer actions, clock and startup fallback. [Native evidence](candidates/glass-clock-2026-11-06/NATIVE_EVIDENCE.json) records the fixtures and limits.
 
 The unchanged tested package is now published as [**2026.11-ui1-jaguar-xfr**](../../releases/2026.11-ui1-jaguar-xfr/README.md), with its exact rollback bundle. On 7 November I reported that all the previously reported bugs were fixed on my P401 in my Jaguar XFR. That owner report is separate from the earlier PC evidence and does not establish compatibility with other units or full-flash recovery.

@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "count": 32,
+  "checks": [
+    {
+      "check": "ARM shell syntax: etc/profile",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: etc/rc.d/rcS",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: etc/hostapd.sh",
+      "passed": true
+    },
+    {
+      "check": "ARM shell syntax: usr/bin/carplay-revival-check-settings.sh",
+      "passed": true
+    },
+    {
+      "check": "MCU 7: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 7: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 6: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 6: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 0: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 0: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "MCU 12: existing settings accepted without selecting a type",
+      "passed": true
+    },
+    {
+      "check": "MCU 12: all configuration bytes unchanged (USB-only included)",
+      "passed": true
+    },
+    {
+      "check": "RAM fallback rejected",
+      "passed": true
+    },
+    {
+      "check": "missing factory file rejected",
+      "passed": true
+    },
+    {
+      "check": "missing factory file not created",
+      "passed": true
+    },
+    {
+      "check": "empty factory file rejected",
+      "passed": true
+    },
+    {
+      "check": "invalid configuration section rejected",
+      "passed": true
+    },
+    {
+      "check": "case-insensitive CRLF configuration accepted",
+      "passed": true
+    },
+    {
+      "check": "rootfs profile aliases existing userdata: MsnProductInfo.ini",
+      "passed": true
+    },
+    {
+      "check": "rootfs profile aliases existing userdata: FactoryConfig.ini",
+      "passed": true
+    },
+    {
+      "check": "no configuration migration or recovery call",
+      "passed": true
+    },
+    {
+      "check": "no automatic erase/format/environment write in startup",
+      "passed": true
+    },
+    {
+      "check": "no diagnostic helpers installed",
+      "passed": true
+    },
+    {
+      "check": "direct native CarPlay D-Bus activation",
+      "passed": true
+    },
+    {
+      "check": "direct vendor GUI launch",
+      "passed": true
+    },
+    {
+      "check": "field-tested DHCP executable runs help under ARM emulation",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves MsnFirstInit",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves carplay",
+      "passed": true
+    },
+    {
+      "check": "native CarPlay selects the installed patched library",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves gocsdk",
+      "passed": true
+    },
+    {
+      "check": "native ARM loader resolves hostapd",
+      "passed": true
+    }
+  ],
+  "variant": "rc1",
+  "scope": "Actual ARM BusyBox/loader in fixtures; no kernel boot, MCU, radio or full CarPlay session."
+}

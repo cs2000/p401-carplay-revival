@@ -1,0 +1,72 @@
+#!/bin/sh
+# Standalone Jaguar UI for the clean combined image. Wireless repair is separate.
+area=/data/carplay-revival
+ui=/usr/libexec/carplay-revival/ui
+helper=/usr/libexec/carplay-revival/verify
+unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES P401_UI_NAMES_REASON P401_UI_LAB
+stock() {
+    unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES P401_UI_NAMES_REASON P401_UI_LAB
+    MsnCoreApp -qws
+}
+
+# First boot needs no userdata overlay. Only the exact enabled state is accepted
+# when a state file exists; disabled, unreadable and malformed states use stock.
+if { [ -e "$area/state" ] || [ -L "$area/state" ]; } &&
+   ! "$helper" verify "$area/state" d852b811 8; then
+    echo 'CarPlay Revival: Jaguar UI disabled; starting original interface.'
+    stock
+    exit $?
+fi
+if ! "$helper" verify "$ui/compatibility.txt" @MANIFEST_CHECK@; then
+    echo 'CarPlay Revival: UI manifest unavailable; starting original interface.'
+    stock
+    exit $?
+fi
+compatible=yes
+while read -r crc size path; do
+    if ! "$helper" verify "$path" "$crc" "$size"; then
+        echo "CarPlay Revival: UI compatibility check failed: $path"
+        compatible=no
+    fi
+done < "$ui/compatibility.txt"
+if [ "$compatible" != yes ]; then
+    stock
+    exit $?
+fi
+
+rm -f /tmp/p401-ui-ready /tmp/p401-ui-timeout
+LD_PRELOAD="$ui/libp401-ui.so" P401_UI_LAYOUT=xfr MsnCoreApp -qws &
+core_pid=$!
+(
+    ticks=0
+    while [ "$ticks" -lt 60 ] && kill -0 "$core_pid" 2>/dev/null && [ ! -f /tmp/p401-ui-ready ]; do
+        sleep 1
+        ticks=$((ticks + 1))
+    done
+    if kill -0 "$core_pid" 2>/dev/null && [ ! -f /tmp/p401-ui-ready ]; then
+        echo timeout > /tmp/p401-ui-timeout
+        kill "$core_pid" 2>/dev/null
+        sleep 2
+        kill -9 "$core_pid" 2>/dev/null
+    fi
+) &
+watch_pid=$!
+wait "$core_pid"
+result=$?
+# Reap the watchdog before any fallback or persistence work so its delayed
+# signal cannot affect another application after the original child exits.
+kill "$watch_pid" 2>/dev/null
+wait "$watch_pid" 2>/dev/null
+if [ "$result" -ne 0 ] || [ ! -f /tmp/p401-ui-ready ] || [ -f /tmp/p401-ui-timeout ]; then
+    # Failure to persist the disable flag must never prevent the stock fallback.
+    # Restrict the state file permissions without changing the native app umask.
+    if (umask 077; mkdir -p "$area" && printf 'disabled\n' > "$area/state.new" && mv "$area/state.new" "$area/state"); then
+        sync
+    else
+        echo 'CarPlay Revival: could not persist the UI disable flag.'
+    fi
+    echo 'CarPlay Revival: UI failed; restarting the original interface.'
+    stock
+    exit $?
+fi
+exit 0

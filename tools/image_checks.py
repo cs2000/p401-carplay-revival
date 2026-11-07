@@ -65,7 +65,7 @@ def medium(path):
         'ubifs_common_node_crcs':nodes,'node_types':dict(node_types),'superblock':sb,
         'ubi_volume_name':'rootfs','ubi_volume_id':0,'autoresize':True,'volume_reserved_pebs':v.vol_rec.reserved_pebs}
 
-def dependencies(tarpath):
+def dependencies(tarpath, extra_seeds=()):
     with tarfile.open(tarpath) as tf:
         members={x.name:x for x in tf.getmembers()}
         def resolve(p):
@@ -80,6 +80,9 @@ def dependencies(tarpath):
         seeds=['usr/bin/MsnFirstInit','usr/bin/MsnCoreApp','usr/bin/gocsdk','usr/bin/carplay',
             'usr/bin/hostapd','usr/lib/libMcuCenter.so','usr/lib/libBlueTooth.so',
             'usr/lib/libMsnCarPlay.so','usr/lib/libLauncher-Box.so','usr/lib/libSetting.so']
+        # Preloaded extensions do not appear in the vendor executables' normal
+        # DT_NEEDED closure. Keep the RC1 defaults and explicitly seed additions.
+        seeds=list(dict.fromkeys(seeds+list(extra_seeds)))
         todo=seeds[:];done={}
         while todo:
             p=resolve(todo.pop())

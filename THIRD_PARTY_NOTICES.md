@@ -6,6 +6,10 @@ The root [LICENSE](LICENSE) applies to original project tooling and documentatio
 
 The added DHCP binary is built from unmodified BusyBox 1.38.0 source with only the udhcpd applet enabled. BusyBox is distributed under GPL-2.0; its license, complete upstream source archive, build configuration and build instructions are included under `third_party/busybox` and `tools/build_dhcp.sh`.
 
+## Standalone integrity verifier runtime
+
+The Jaguar full-image verifier statically links the ARM musl C runtime supplied by the documented build toolchain. The installed musl copyright and license notice is retained at `third_party/musl/COPYRIGHT`, in the full-image source archive and beside its download as `MUSL_COPYRIGHT.txt`. This runtime attribution is separate from the original verifier source's MIT license.
+
 ## Vendor firmware
 
 The reference contains Linux, BusyBox, Qt and other third-party and proprietary components, with their respective licenses and rights. This repository does not contain the complete vendor BSP/kernel/application source corresponding to the November 2025 firmware. The separate public Arkmicro kernel projects are not asserted to match this binary. The two-byte patch does not transfer ownership or relicense the original library.

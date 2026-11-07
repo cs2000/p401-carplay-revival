@@ -18,6 +18,8 @@ Output goes to ignored `experimental/ui1/build`. The original tested library has
 
 ## Cloud and reference labs
 
+The [stock-to-Jaguar full image](../../releases/2026.11-jaguar-xfr-rc1/README.md) reuses this exact UI library, with separate `firmware/jaguar` launcher/verifier and `tools/build_jaguar_image.py`. It requires no field-W3 startup tree. See [full-image build notes](../../docs/building.md) for its independent validation and state-only UI rollback; the exact combined image remains untested in a vehicle.
+
 [lab/cloud](lab/cloud/README.md) now runs the actual ARM GUI in an isolated Docker filesystem, private network/PID/IPC namespaces and a fake framebuffer. The candidate passed 13 production-mode naming cases, 11 menu/startup cases, and the live-clock/header checks. Test-only observers do not enable the laboratory naming bypass. There is no interactive Cloud viewer.
 
 `lab/reference` preserves the original native ARM simulator, framebuffer/pointer shim, validators, package builder and CRC helper from the Windows + Alpine WSL lab. Those reference launcher paths and Windows viewer commands remain historical; use the separate Cloud harness rather than running them blindly. The device code and ready install/rollback packages do not depend on the workstation layout.

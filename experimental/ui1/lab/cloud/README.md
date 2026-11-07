@@ -88,3 +88,9 @@ python experimental/ui1/lab/cloud/validate.py
 This lab does not build or publish an install ZIP. Packaging and delivery checks
 are separate, and the stable release and original install/rollback archives remain
 preserved.
+
+## Standalone full-image integration
+
+`validate_firmware.py --root-tar PATH --output REPORT` tests the separate stock-to-Jaguar candidate after its filesystem roundtrip. It executes the unchanged production runner and exact UI/CRC-helper ARM bytes. `firmware_dispatch.c` supplies test-only executable adapters because the Cloud host has no target binfmt registration; adapted verification paths refer to the original, independently verified ARM files. The runner, compatibility manifest and UI library are not patched or bypassed. Framebuffer and observation shims are lab-only.
+
+Cases cover fresh userdata without field-W3 files, actual native Exit/Settings and pointer name save/restart request, saved-name endpoints after reload, disabled UI, corrupt manifest, crash and a real watchdog timeout, using the actual native interface for fallback. The separate image verifier checks the unadapted full filesystem before these lab copies are made. This does not execute the hardware-specific full `/etc/profile`, boot a kernel, emulate radios or prove physical recovery. See the [full-image build notes](../../../../docs/building.md).

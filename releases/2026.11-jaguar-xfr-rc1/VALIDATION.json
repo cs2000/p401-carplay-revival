@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "rootfs_sha256": "8e3047b995f4644b59c91764ce57848bc36cd034e8ac42f26157e5f0579eb72f",
+  "download_sha256": "9b32ecc205b608cc38f21352cb917164f73698cbc547f19e7cd465c91f025860",
+  "library_sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639",
+  "checks": {
+    "image_and_metadata": 48,
+    "settings_startup": 53,
+    "standalone_runner": 94,
+    "native_integration_cases": 6,
+    "verifier_arm_cases": 36,
+    "verifier_legacy_fstat_cases": 2,
+    "unchanged_rc1_regression": 32
+  },
+  "reports": {
+    "IMAGE_CHECKS.json": {
+      "name": "IMAGE_CHECKS.json",
+      "bytes": 53358,
+      "sha256": "8decf9ec04291e7ff6036fd809cb761ebf6541dd09d52df9f53f22f61eecaeef"
+    },
+    "STARTUP_CHECKS.json": {
+      "name": "STARTUP_CHECKS.json",
+      "bytes": 5546,
+      "sha256": "2cc1457d2e97c787ad9f3a048d743889bc7a0eaa32b6be851eef630a59c9aa91"
+    },
+    "WRAPPER_CHECKS.json": {
+      "name": "WRAPPER_CHECKS.json",
+      "bytes": 10999,
+      "sha256": "45bae3c3237ec9342afa98e881a7c8d471852a3885e21257406fe528d4012751"
+    },
+    "NATIVE_CHECKS.json": {
+      "name": "NATIVE_CHECKS.json",
+      "bytes": 2757,
+      "sha256": "ede298f1a613e2d6cd9073fb181566c803d0e0cf304cea9647d06f6fd6a71c12"
+    },
+    "VERIFIER_BUILD.json": {
+      "name": "VERIFIER_BUILD.json",
+      "bytes": 7473,
+      "sha256": "a14e4287202e8904697491308bf97cba2ae6a56a5a61c208cb715bcd7e639316"
+    },
+    "VERIFIER_LINUX34.json": {
+      "name": "VERIFIER_LINUX34.json",
+      "bytes": 4320,
+      "sha256": "3fb926be6492c3cb2028c9c215126e43c15e04724608addec20f28da6e5ba8da"
+    },
+    "RC1_REGRESSION.json": {
+      "name": "RC1_REGRESSION.json",
+      "bytes": 3286,
+      "sha256": "ea9abf28ae499800a8f1b48254b7328483301cb2ce231bdb2bd799fefd70d862"
+    }
+  },
+  "whole_image_vehicle_tested": false,
+  "full_profile_or_kernel_boot_emulated": false,
+  "full_flash_recovery_proven": false,
+  "scope": "Fresh offline image/metadata and isolated native ARM checks. The unchanged owner-tested UI is a component; owner success does not establish this full image was installed in a vehicle."
+}

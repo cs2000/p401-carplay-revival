@@ -1,0 +1,102 @@
+{
+  "binary_sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+  "source_sha256": "f8477512d1891b366f9b9c4871d21b2e6a4b848070bde82bead86969678923f5",
+  "test_script": "tools/test_jaguar_verifier_linux34.py",
+  "test_script_sha256": "0a6daed8cc3581ac3d4c88cca55ca85e497f09c1de902d6b9573352304f2c502",
+  "method": "Private offline QEMU GDB breakpoints stop immediately before Thumb SVC. For target ARM statx (397), skip the SVC and set r0 to -ENOSYS (-38). The unchanged musl wrapper then executes legacy fstat64 (197) successfully. No host or container-wide syscall policy change.",
+  "checks": [
+    {
+      "path": "libc.so.6",
+      "bytes": 1576184,
+      "crc32": "ca1e4e32",
+      "symlink": "libc-2.27.so",
+      "injected_syscalls": [
+        {
+          "instruction_address": "0x20ad4",
+          "syscall": 397,
+          "result_r0": "daffffff",
+          "next_pc": "d60a0200",
+          "fallback_entry": "T05thread:07;syscall_entry:c5;",
+          "fallback_return": "T05thread:07;syscall_return:c5;"
+        }
+      ],
+      "observed_syscall_numbers": [
+        5,
+        197,
+        221,
+        256,
+        397,
+        983045
+      ],
+      "syscall_trace_without_reads": [
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021226} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x0002122a} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000206b8} ---",
+        "7 set_tid_address(0x413a8) = 7",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000206bc} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021212} ---",
+        "7 open(\"/vendor-root/lib/libc.so.6\",O_RDONLY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 5",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021216} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000209d4} ---",
+        "7 fcntl64(5,F_SETFD,1) = 0",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000209d8} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00020ad4} ---",
+        "7 fstat64(5,0x407fe9c8) = 0",
+        "7 close(5) = 0",
+        "7 exit_group(0)"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "path": "libstdc++.so.6",
+      "bytes": 1044248,
+      "crc32": "6f28d9e0",
+      "symlink": "libstdc++.so.6.0.20",
+      "injected_syscalls": [
+        {
+          "instruction_address": "0x20ad4",
+          "syscall": 397,
+          "result_r0": "daffffff",
+          "next_pc": "d60a0200",
+          "fallback_entry": "T05thread:09;syscall_entry:c5;",
+          "fallback_return": "T05thread:09;syscall_return:c5;"
+        }
+      ],
+      "observed_syscall_numbers": [
+        5,
+        197,
+        221,
+        256,
+        397,
+        983045
+      ],
+      "syscall_trace_without_reads": [
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021226} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x0002122a} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000206b8} ---",
+        "9 set_tid_address(0x413a8) = 9",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000206bc} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021212} ---",
+        "9 open(\"/vendor-root/lib/libstdc++.so.6\",O_RDONLY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 5",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00021216} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000209d4} ---",
+        "9 fcntl64(5,F_SETFD,1) = 0",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x000209d8} ---",
+        "--- (null) {si_signo=SIGTRAP, si_code=1, si_addr=0x00020ad4} ---",
+        "9 fstat64(5,0x407fe9c8) = 0",
+        "9 close(5) = 0",
+        "9 exit_group(0)"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "vehicle_tested": false,
+  "qemu": "qemu-arm version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "limitation": "Proves the statx ENOSYS fallback; does not emulate the complete Linux 3.4 kernel or a physical device boot.",
+  "toolchain_image": "p401-ui-toolchain:local",
+  "toolchain_image_id": "sha256:a670f4a1c48f6ba37a98af54f2fe7d9bedbeb74eae0098ab452c4c6404917ad8",
+  "reproduce": "python tools/test_jaguar_verifier_linux34.py"
+}

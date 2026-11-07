@@ -1,0 +1,79 @@
+[
+  {
+    "path": "etc/profile",
+    "before": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 3577,
+      "sha256": "c98b9fa8a030566076828d75c5f42634ab7a7b50950ab86f2b261bc63518aeff"
+    },
+    "after": {
+      "mode": 33279,
+      "uid": 1000,
+      "gid": 1000,
+      "type": "file",
+      "bytes": 4087,
+      "sha256": "67d9a3e7e6fdd27b29405b28781196e4b8ee92504ecfda7785f9819502e1e40b"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/ui",
+    "before": null,
+    "after": {
+      "mode": 16877,
+      "uid": 0,
+      "gid": 0,
+      "type": "directory"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/ui/compatibility.txt",
+    "before": null,
+    "after": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 500,
+      "sha256": "2adb1bcf50d9cab47260f5c7af2e303a91dbfc6deb17bfddb85759b7259c5fef"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/ui/libp401-ui.so",
+    "before": null,
+    "after": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 895588,
+      "sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/ui/run-ui.sh",
+    "before": null,
+    "after": {
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 2579,
+      "sha256": "7feac118682e1da7d6dcdff5df714b36111b79e8ee27b6c488a6fa6017b0c39e"
+    }
+  },
+  {
+    "path": "usr/libexec/carplay-revival/verify",
+    "before": null,
+    "after": {
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "type": "file",
+      "bytes": 5564,
+      "sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48"
+    }
+  }
+]

@@ -1,0 +1,484 @@
+{
+  "passed": true,
+  "count": 94,
+  "checks": [
+    {
+      "check": "profile directly guards runner before background launch",
+      "passed": true
+    },
+    {
+      "check": "wrapper pins exact compatibility bytes",
+      "passed": true
+    },
+    {
+      "check": "startup has no field W3 marker/helper dependency",
+      "passed": true
+    },
+    {
+      "check": "rootfs runner syntax under native ARM shell",
+      "passed": true
+    },
+    {
+      "check": "profile syntax under native ARM shell",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/libexec/carplay-revival/ui/libp401-ui.so",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/bin/MsnCoreApp",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/lib/libBlueTooth.so",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/lib/libLauncher-Box.so",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/lib/libSetting.so",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/lib/libMsnCommons.so",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/local/Qt4.7.4/lib/libQtCore.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/local/Qt4.7.4/lib/libQtGui.so.4.7.4",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /lib/libstdc++.so.6",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /lib/libc.so.6",
+      "passed": true
+    },
+    {
+      "check": "ARM verifier pins /usr/libexec/carplay-revival/verify",
+      "passed": true
+    },
+    {
+      "check": "absent-state launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "absent-state preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "absent-state preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "enabled launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "enabled preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "enabled preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "disabled launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "disabled preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "disabled preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "malformed-state launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "malformed-state preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "malformed-state preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "empty-state launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "empty-state preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "empty-state preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "enabled-no-newline launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "enabled-no-newline preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "enabled-no-newline preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "enabled-extra-newline launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "enabled-extra-newline preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "enabled-extra-newline preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "broken-state-link launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "broken-state-link preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "broken-state-link preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "corrupt-manifest preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "corrupt-library preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "incompatible-vendor launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "incompatible-vendor preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "incompatible-vendor preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "helper-missing launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "helper-missing preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "helper-missing preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "crash launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "crash preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "crash preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "crash disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "notready launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "notready preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "notready preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "notready disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "ready-then-crash launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "ready-then-crash preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "ready-then-crash preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "ready-then-crash disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "timeout launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "timeout preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "timeout preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "timeout disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "ignore-term launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "ignore-term preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "ignore-term preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "ignore-term disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "disable-write-fails launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "disable-write-fails preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "disable-write-fails preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "missing-data-crash launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "missing-data-crash preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "missing-data-crash disable state permissions private",
+      "passed": true
+    },
+    {
+      "check": "healthy-long launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "healthy-long preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "healthy-long preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "outer-healthy launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "outer-healthy preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "outer-healthy preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "outer-corrupt-runner launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "outer-corrupt-runner preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "outer-corrupt-runner preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "outer-helper-missing launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "outer-helper-missing preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "outer-helper-missing preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "real-timeout launch/fallback",
+      "passed": true
+    },
+    {
+      "check": "real-timeout preserves factory and MCU bytes",
+      "passed": true
+    },
+    {
+      "check": "real-timeout preserves custom name",
+      "passed": true
+    },
+    {
+      "check": "real-timeout disable state permissions private",
+      "passed": true
+    }
+  ],
+  "runner_sha256": "7feac118682e1da7d6dcdff5df714b36111b79e8ee27b6c488a6fa6017b0c39e",
+  "helper_sha256": "033ccce487a5f2631ccf4ffde32b77e565c6452e4a730ac9873cead6bf728a48",
+  "real_60_second_watchdog_exercised": true,
+  "process_fixture_timings": [
+    {
+      "case": "absent-state",
+      "elapsed_seconds": 1.523
+    },
+    {
+      "case": "enabled",
+      "elapsed_seconds": 1.382
+    },
+    {
+      "case": "disabled",
+      "elapsed_seconds": 0.056
+    },
+    {
+      "case": "malformed-state",
+      "elapsed_seconds": 0.058
+    },
+    {
+      "case": "empty-state",
+      "elapsed_seconds": 0.056
+    },
+    {
+      "case": "enabled-no-newline",
+      "elapsed_seconds": 0.057
+    },
+    {
+      "case": "enabled-extra-newline",
+      "elapsed_seconds": 0.066
+    },
+    {
+      "case": "broken-state-link",
+      "elapsed_seconds": 0.059
+    },
+    {
+      "case": "corrupt-manifest",
+      "elapsed_seconds": 0.077
+    },
+    {
+      "case": "corrupt-library",
+      "elapsed_seconds": 1.308
+    },
+    {
+      "case": "incompatible-vendor",
+      "elapsed_seconds": 1.368
+    },
+    {
+      "case": "helper-missing",
+      "elapsed_seconds": 0.047
+    },
+    {
+      "case": "crash",
+      "elapsed_seconds": 3.244
+    },
+    {
+      "case": "notready",
+      "elapsed_seconds": 2.269
+    },
+    {
+      "case": "ready-then-crash",
+      "elapsed_seconds": 1.906
+    },
+    {
+      "case": "timeout",
+      "elapsed_seconds": 5.664
+    },
+    {
+      "case": "ignore-term",
+      "elapsed_seconds": 6.126
+    },
+    {
+      "case": "disable-write-fails",
+      "elapsed_seconds": 1.945
+    },
+    {
+      "case": "missing-data-crash",
+      "elapsed_seconds": 1.866
+    },
+    {
+      "case": "healthy-long",
+      "elapsed_seconds": 4.62
+    },
+    {
+      "case": "outer-healthy",
+      "elapsed_seconds": 2.472
+    },
+    {
+      "case": "outer-corrupt-runner",
+      "elapsed_seconds": 0.073
+    },
+    {
+      "case": "outer-helper-missing",
+      "elapsed_seconds": 0.057
+    },
+    {
+      "case": "real-timeout",
+      "elapsed_seconds": 65.922
+    }
+  ],
+  "scope": "Fresh actual ARM BusyBox shell/applets and standalone ARM CRC verifier, redirected GUI process fixtures. No vendor GUI execution, MCU, radio, physical reboot, kernel boot or flash test."
+}
