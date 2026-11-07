@@ -1,8 +1,12 @@
 # Cloud continuation — 6 November 2026
 
-The next task continues the existing P401 project. The working wireless repair is W3. The current development work is the Jaguar UI1 extension and editable CarPlay network name. Start with `python tools/check_cloud_handover.py` and [UI1](../experimental/ui1/README.md).
+The working wireless repair is W3. Current UI1 source is in `experimental/ui1`; the unchanged tested Glass + Clock package is published at [releases/2026.11-ui1-jaguar-xfr](../releases/2026.11-ui1-jaguar-xfr/README.md). The [6 November packaging snapshot](../experimental/ui1/candidates/glass-clock-2026-11-06/README.md) retains its original metadata. `python tools/check_cloud_handover.py` still verifies the immutable original handover artifacts; current release hashes/evidence are separate.
 
-## State at handover
+## 7 November owner report and publication
+
+After receiving the exact installer SHA256 `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`, the owner reported: **"Flawless execution, all bugs fixed."** Record this as the owner's successful result on the development P401/Jaguar XFR, not independent field telemetry, a fleet/endurance test or proof of full-flash recovery. The user then explicitly requested publication under `releases` with the recovery bundle. The public folder includes the exact installer, unchanged UI rollback ZIP, source, native/delivery evidence, checksums and a separate field-report record. No device binary was rebuilt for publication. The rollback still requires a booting unit that accepts autocopy; no other proven recovery image exists here.
+
+## State at original local handover
 
 | Item | Status |
 | --- | --- |
@@ -14,6 +18,14 @@ The next task continues the existing P401 project. The working wireless repair i
 | Full flash backup / recovery | No verified complete restore route; no full-backup button was implemented |
 
 The USB and physical device remain local. A Cloud task cannot inspect or flash them directly. Existing local captures and the old WSL lab remain on the original PC; the public repo contains redacted findings, exact current packages, source and test evidence.
+
+## Subsequent Cloud continuation
+
+The user supplied a real-device photo showing the original UI1 theme running, but Exit appeared in the grid with a gear and the CarPlay-name option was absent. The matching vendor BusyBox has no `awk`, which the original naming gate required; the simulator bypassed that gate. Naming eligibility now uses the native Qt parser read-only. Unknown native IDs with the exact Exit label are classified into the footer while retaining their original row action.
+
+The user approved Modern Graphite with photographic/glass tiles and requested a live clock replacing Main beside Home. The new exact ARM library is `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`. It passed fresh Cloud native checks: 13 production-mode naming cases, 11 menu/startup cases, and clock/header/artwork checks. These include actual mouse Save & restart through the native reboot request, name reload at all three endpoints, busy-lock protection, native footer actions and a real 60-second fail-open case. Physical radio renaming, hardware reboot and cold-boot appearance had not been confirmed when that packaging evidence was written; the later owner report is recorded above.
+
+The Cloud native harness now works through isolated Docker/QEMU and a fake framebuffer. There is no interactive Cloud viewer. Original native four-case/52-check evidence, original install/rollback ZIPs and public RC1 remain unchanged. See [release manifest](../releases/2026.11-ui1-jaguar-xfr/MANIFEST.json), [fresh evidence](../releases/2026.11-ui1-jaguar-xfr/NATIVE_EVIDENCE.json) and [Cloud lab](../experimental/ui1/lab/cloud/README.md).
 
 ## Device and compatibility
 
@@ -36,11 +48,11 @@ I reported that the problem began with iOS 17 after working on iOS 16. That timi
 
 ## Accepted UI design
 
-Use the XFR layout with the Classic Jaguar turquoise lighting: six large tiles in a 3×2 grid, with permanent Exit and Settings footer buttons. No horizontal launcher scrolling is required. Main tiles are CarPlay, Android Auto, Bluetooth, Music, Video and Mirroring.
+Use the approved Modern Graphite photographic/glass theme with restrained turquoise accents: six large tiles in a 3×2 grid, with permanent Exit and Settings footer buttons on Home. A live clock replaces Main beside the Home icon. No horizontal launcher scrolling is required. Main tiles are CarPlay, Android Auto, Bluetooth, Music, Video and Mirroring.
 
 Use the supplied stacked Jaguar leaper above the classic JAGUAR wordmark and underline, centred over the middle column at screen x=400. The final choice has **no XF text and no R badge**. Exit replaces the AV In label and uses a door-and-arrow icon, while forwarding to the original native AV In action (application ID 9). Do not restore a car icon or reintroduce abandoned badge designs.
 
-`experimental/ui1/evidence/XFR-menu.png` is the final native ARM screenshot, not a browser mock-up. The source uses Qt painting and the matching vendor Qt 4.7.4 ABI; it does not replace the vendor application implementations.
+`experimental/ui1/evidence/XFR-menu.png` preserves the local handover's native ARM screenshot. The current [HOME.png](../experimental/ui1/candidates/glass-clock-2026-11-06/HOME.png) is also an actual ARM framebuffer capture, with an explicit synthetic English model. The source uses Qt painting and the matching vendor Qt 4.7.4 ABI; it does not replace vendor application implementations.
 
 ## Custom name implementation
 
@@ -60,16 +72,16 @@ Important hook boundaries:
 
 UI1 is currently tied to the **development R1 + field W3 startup layout**, not the public RC1 clean layout. The W3 manifest pins the GUI runner. UI1 changes that runner and updates only its row in the W3 manifest; failing to do both deactivates W3. The UI wrapper and all ABI-sensitive vendor files are CRC/length checked before loading.
 
-The extension checks readiness and disables itself after a crash or a 60-second startup timeout, then attempts to start the stock interface. UI failure must not become a prerequisite for the underlying wireless repair. Exact prior runner and manifest files are retained in `experimental/ui1/baseline` and the rollback ZIP.
+The extension covers the launcher before first exposure, checks readiness and disables itself after a crash or a 60-second startup timeout, then attempts to start the stock interface. A hidden launcher with a validated model can become ready without forcing Home visible or waiting for its first paint. UI failure must not become a prerequisite for the underlying wireless repair. Exact prior runner and manifest files are retained in `experimental/ui1/baseline` and the rollback ZIP.
 
-The installer has six files; rollback has three. Neither writes a kernel, rootfs, MCU profile or other factory settings. The current installer SHA256 is `2d43baa7ce7f244e48fcb14cde7d9a853be6e599f3b3fa47d8ab83391b06c53f`; the contained UI library is `aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35`. The rollback archive was normalized during migration to contain an active `msn_autocopy` root; its payload bytes match the tested rollback. Its current hash is in the package manifest.
+The installer has six files; rollback has three. Neither writes a kernel, rootfs, MCU profile or other factory settings. The new installer SHA256 is `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`. The original installer remains `2d43baa7ce7f244e48fcb14cde7d9a853be6e599f3b3fa47d8ab83391b06c53f` with library `aac2e11c9255b82c6fc76e7e824585773019e762d2c9dfaef52cbd7299c3ac35`. The unchanged rollback archive has SHA256 `6e1572046f5cc2d8d386509a19a60a67de9154bdc89ce23057b5426fcf966a03`; its canonical active `msn_autocopy` root contains the exact tested prior payload.
 
 I explicitly agreed to continue device feature work using the saved files as fallback. This does not establish brick recovery. Retain the warning that installation does not back up existing firmware and no recovery image or method is offered for an unbootable unit.
 
 ## Next Cloud work
 
-First verify the handover and report readiness. Do not silently change device code or rebuild/relabel a tested package merely because the task moved to Cloud. No UI1 vehicle test result had been supplied at handover.
+The initial readiness-only turn is complete. The user subsequently authorized the listed fixes and the new package after approving its visual preview, then reported all bugs fixed and authorized publication. Preserve exact artifact/evidence distinctions when continuing; future builds still require their own validation, and this report does not establish unbootable-unit recovery.
 
-For later development, see [build and lab notes](../experimental/ui1/BUILDING.md). Device C++ and exact packages are available here. Native simulation still needs its Linux environment recreated and the preserved WSL launcher paths ported. The original four native cases and 52 delivery checks are historical evidence for the packaged hash, not a new Cloud run.
+For later development, see [build and lab notes](../experimental/ui1/BUILDING.md). Device C++, exact packages and fresh Cloud validation tools are available here. Recreate the documented Cloud inputs when moving environments; the original WSL viewer/launch paths remain historical. The original four native cases and 52 delivery checks are historical evidence for the old packaged hash, not the new Cloud run.
 
 Keep public installation instructions short, use first-person wording for my experience, and keep technical detail in linked documents. Do not add a public feature claim about the absence of a logger. Do not require repeated car trips for weak candidates: exhaust relevant offline checks and state what physical testing alone can establish. Keep personal captures, phone identifiers and raw field logs out of GitHub.

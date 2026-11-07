@@ -1,0 +1,10 @@
+{
+  "reported_on": "2026-11-07",
+  "basis": "Owner report in the project chat after installing the supplied package",
+  "reported_result": "Flawless execution, all bugs fixed.",
+  "device": "Development Limcet/Arkmicro P401 in Jaguar XFR, 800x480, matching R1 + field W3 installation",
+  "installer_sha256": "3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383",
+  "library_sha256": "c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639",
+  "scope": "Owner-reported resolution of the previously reported bugs. No independent field telemetry, endurance test or claim for other units.",
+  "full_flash_recovery_proven": false
+}

@@ -30,4 +30,6 @@ I've tested the fixes on my box. This combined download has passed offline check
 
 [Release details and checksums](releases/2026.11-w3-rc1/README.md) · [Installation help](docs/installation.md) · [Technical notes](docs/README.md)
 
-Experimental work: [Jaguar menu and custom CarPlay name](experimental/ui1/README.md) · [Cloud project handover](docs/cloud-handover.md)
+Optional Jaguar XFR menu: [**Glass + Clock installer and rollback**](releases/2026.11-ui1-jaguar-xfr/README.md). I've tested this exact overlay on my P401. It requires the matching R1 + field-W3 startup layout and is not directly compatible with the clean RC1 image above.
+
+[UI1 source and lab notes](experimental/ui1/README.md) · [Cloud project handover](docs/cloud-handover.md)

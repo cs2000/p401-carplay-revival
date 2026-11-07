@@ -1,0 +1,6 @@
+FROM carplay-dev:local
+RUN dpkg --add-architecture armhf
+RUN --mount=type=secret,id=proxy_ca,required=true \
+    apt-get -o Acquire::https::CaInfo=/run/secrets/proxy_ca update && \
+    apt-get -o Acquire::https::CaInfo=/run/secrets/proxy_ca install -y --no-install-recommends clang lld musl-dev:armhf binutils iproute2 && \
+    rm -rf /var/lib/apt/lists/*

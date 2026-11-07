@@ -1,0 +1,7 @@
+# Build context is prepared in ignored build storage by native.py.
+FROM scratch
+ADD rootfs.tar /
+COPY qemu-arm /qemu-arm
+COPY libp401-pc-fb.so /lab/libp401-pc-fb.so
+COPY libp401-ui.so /lab/libp401-ui.so
+ENTRYPOINT ["/qemu-arm", "/bin/busybox", "sleep", "3600"]

@@ -14,6 +14,13 @@ for required in [QT/'src/corelib', VENDOR/'usr/bin/MsnCoreApp', ARM_HEADERS/'fea
     if not required.exists():
         raise SystemExit('Missing build input: '+str(required)+'; see experimental/ui1/BUILDING.md')
 OUT.mkdir(exist_ok=True)
+SDK.mkdir(parents=True, exist_ok=True)
+# Embed the prepared static artwork; installation keeps the six-file contract.
+artwork=(SRC/'assets/glass-tile-atlas.png').read_bytes()
+rows=[','.join('0x%02x'%b for b in artwork[i:i+16]) for i in range(0,len(artwork),16)]
+(SDK/'glass_artwork.h').write_text('// Generated from assets/glass-tile-atlas.png.\n'
+    'static const unsigned char p401_glass_tile_atlas[]={\n'+',\n'.join(rows)+'\n};\n'
+    'static const unsigned int p401_glass_tile_atlas_size=sizeof(p401_glass_tile_atlas);\n')
 for module, sub in [('QtCore','corelib'), ('QtGui','gui'), ('QtNetwork','network')]:
     dest = SDK/module
     dest.mkdir(parents=True, exist_ok=True)

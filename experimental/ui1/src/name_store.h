@@ -4,6 +4,7 @@
 namespace Revival {
 bool laboratory();
 bool namesAvailable();
+QString namesUnavailableReason();
 bool validName(const QString &name);
 QString savedName();
 bool saveName(const QString &name, QString &error);

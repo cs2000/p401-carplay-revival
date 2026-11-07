@@ -13,9 +13,9 @@ static const QString &activeName() {
     // A save takes effect on the next process startup, not midway through pairing.
     static __thread bool loading=false;
     static const QString empty;
-    if(!Revival::namesAvailable())return empty;
     if(loading)return empty;
     loading=true;
+    if(!Revival::namesAvailable()){loading=false;return empty;}
     static const QString name=Revival::savedName();
     loading=false;return name;
 }

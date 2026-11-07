@@ -3,7 +3,7 @@
 area=/data/carplay-revival
 helper=/usr/lib/p401-r4/p401-diag
 stock() {
-    unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES
+    unset LD_PRELOAD P401_UI_LAYOUT P401_UI_NAMES P401_UI_NAMES_REASON
     MsnCoreApp -qws
 }
 if [ ! -f /tmp/p401-w3-install-ok ] ||
@@ -25,14 +25,10 @@ if [ "$compatible" != yes ]; then
     exit $?
 fi
 
-# Name handling is validated for the SD-RDA module's native adapter (type 3).
-# MCU choice and every existing factory setting are read-only.
-P401_UI_NAMES=0
-bt_type=$(awk -F= '/^\[/ { group=$0; sub(/\r$/, "", group) }
-    group=="[General]" && $1=="BlueToothType" { value=$2; sub(/\r$/, "", value) }
-    END { print value }' /msnprofile/MsnProductInfo.ini)
-[ "$bt_type" != 3 ] || P401_UI_NAMES=1
-export P401_UI_NAMES
+# The native Qt extension reads the existing Bluetooth profile without changing
+# it. Do not parse it with awk: the matching vendor BusyBox has no awk applet.
+# Clear obsolete flags so child processes do not inherit stale eligibility.
+unset P401_UI_NAMES P401_UI_NAMES_REASON
 rm -f /tmp/p401-ui-ready /tmp/p401-ui-timeout
 LD_PRELOAD="$area/lib/libp401-ui.so" P401_UI_LAYOUT=xfr MsnCoreApp -qws &
 core_pid=$!
