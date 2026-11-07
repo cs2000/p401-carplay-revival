@@ -6,7 +6,7 @@ Starting from compatible stock P401 firmware: use the [complete Jaguar firmware 
 
 The current development package is **Glass + Clock, 6 November 2026**. Fresh tests of its exact ARM binary cover the native Settings/save/restart-request flow, name reload, footer actions, clock and startup fallback. [Native evidence](candidates/glass-clock-2026-11-06/NATIVE_EVIDENCE.json) records the fixtures and limits.
 
-The unchanged tested package is now published as [**2026.11-ui1-jaguar-xfr**](../../releases/2026.11-ui1-jaguar-xfr/README.md), with its exact rollback bundle. On 7 November I reported that all the previously reported bugs were fixed on my P401 in my Jaguar XFR. That owner report is separate from the earlier PC evidence and does not establish compatibility with other units or full-flash recovery.
+The old public UI-only release folder was removed to avoid confusing it with the complete firmware. The exact historical [packaging snapshot](candidates/glass-clock-2026-11-06/MANIFEST.json) is retained for development. On 7 November I reported that its bugs were fixed on my P401 in my Jaguar XFR; [that report](../../docs/evidence/ui1-owner-report-2026-11-07.json) remains separate from the earlier PC checks and the new full-image candidate.
 
 Six large photographic/glass tiles, permanent **Exit** and **Settings** footer buttons, turquoise accents and a centred Jaguar leaper/wordmark. A live clock replaces the Main label beside Home. Settings adds a custom CarPlay name and **Save & restart**; the saved name feeds Bluetooth, Wi-Fi and CarPlay's advertised SSID.
 

@@ -119,7 +119,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--source-tar", type=Path, required=True)
     ap.add_argument("--base-zip", type=Path, default=REPO / "releases/2026.11-w3-rc1/P401_2026.11_W3_RC1.zip")
-    ap.add_argument("--ui-install", type=Path, default=REPO / "releases/2026.11-ui1-jaguar-xfr/INSTALL.zip")
+    ap.add_argument("--ui-install", type=Path, default=REPO / "experimental/ui1/candidates/glass-clock-2026-11-06/INSTALL.zip")
     ap.add_argument("--verifier", type=Path, required=True)
     ap.add_argument("--verifier-evidence", type=Path)
     ap.add_argument("--build-dir", type=Path, required=True)

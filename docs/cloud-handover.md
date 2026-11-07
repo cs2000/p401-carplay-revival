@@ -1,3 +1,7 @@
+# Current download layout
+
+The user requested removing releases/2026.11-ui1-jaguar-xfr and simplifying the full Jaguar RC1 folder to README.md, SHA256SUMS.txt and the exact firmware ZIP. Technical records now live at experimental/ui1/full-image-rc1; UI rollback/re-enable downloads are in recovery/2026.11-jaguar-xfr-rc1. The old overlay artifacts remain only in the development packaging snapshot and Git history. Firmware/rollback bytes were not rebuilt or changed by this cleanup.
+
 # Cloud continuation — 6 November 2026
 
 ## 7 November stock-to-Jaguar full image
@@ -8,13 +12,13 @@ New sources are `firmware/jaguar/{launch-ui.sh.in,run-ui.sh.in,verify.c}` and `t
 
 The full image is SHA256 `8e3047b995f4644b59c91764ce57848bc36cd034e8ac42f26157e5f0579eb72f`; download ZIP `9b32ecc205b608cc38f21352cb917164f73698cbc547f19e7cd465c91f025860`. It retains UI library `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`, original kernel/update and W3 bytes. Fresh checks cover 48 image/inventory checks, 53 settings/startup checks, 94 standalone runner checks, six native integrated-runner cases, 36 static-helper cases and forced `statx` ENOSYS → legacy `fstat64` verification. The original 32-case RC1 startup suite also still passes.
 
-This is a **new combined-image candidate**, not the owner-tested overlay artifact. No full-image vehicle installation, kernel boot, physical radio session or full-flash recovery has been proven for it. Its `UI_ROLLBACK.zip` and `ENABLE_JAGUAR_UI.zip` change only state, returning to the included native interface or re-enabling Jaguar. Never restore the old field runner/manifest into this image. Keep the exact old overlay/public RC1 downloads and their evidence unchanged.
+This is a **new combined-image candidate**, not the owner-tested overlay artifact. No full-image vehicle installation, kernel boot, physical radio session or full-flash recovery has been proven for it. Its `UI_ROLLBACK.zip` and `ENABLE_JAGUAR_UI.zip` change only state, returning to the included native interface or re-enabling Jaguar. Never restore the old field runner/manifest into this image. Keep the exact old overlay artifacts/public generic RC1 download and their evidence unchanged.
 
-The working wireless repair is W3. Current UI1 source is in `experimental/ui1`; the unchanged tested Glass + Clock package is published at [releases/2026.11-ui1-jaguar-xfr](../releases/2026.11-ui1-jaguar-xfr/README.md). The [6 November packaging snapshot](../experimental/ui1/candidates/glass-clock-2026-11-06/README.md) retains its original metadata. `python tools/check_cloud_handover.py` still verifies the immutable original handover artifacts; current release hashes/evidence are separate.
+The working wireless repair is W3. Current UI1 source is in `experimental/ui1`; the unchanged tested Glass + Clock package is published at [the preserved packaging snapshot](../experimental/ui1/candidates/glass-clock-2026-11-06/README.md). The [6 November packaging snapshot](../experimental/ui1/candidates/glass-clock-2026-11-06/README.md) retains its original metadata. `python tools/check_cloud_handover.py` still verifies the immutable original handover artifacts; current release hashes/evidence are separate.
 
 ## 7 November owner report and publication
 
-After receiving the exact installer SHA256 `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`, the owner reported: **"Flawless execution, all bugs fixed."** Record this as the owner's successful result on the development P401/Jaguar XFR, not independent field telemetry, a fleet/endurance test or proof of full-flash recovery. The user then explicitly requested publication under `releases` with the recovery bundle. The public folder includes the exact installer, unchanged UI rollback ZIP, source, native/delivery evidence, checksums and a separate field-report record. No device binary was rebuilt for publication. The rollback still requires a booting unit that accepts autocopy; no other proven recovery image exists here.
+After receiving the exact installer SHA256 `3fffedb75dd811ea6a41f0c81f756ced773b41a472420e6ff7f2c038dfead383`, the owner reported: **"Flawless execution, all bugs fixed."** Record this as the owner's successful result on the development P401/Jaguar XFR, not independent field telemetry, a fleet/endurance test or proof of full-flash recovery. The user then explicitly requested publication under `releases` with the recovery bundle. That publication preserved the exact installer, unchanged UI rollback ZIP, source, evidence and owner report. The owner later requested deleting that public overlay folder; its artifacts remain in the packaging snapshot and the report is docs/evidence/ui1-owner-report-2026-11-07.json. No device binary was rebuilt for publication. The rollback still requires a booting unit that accepts autocopy; no other proven recovery image exists here.
 
 ## State at original local handover
 
@@ -35,7 +39,7 @@ The user supplied a real-device photo showing the original UI1 theme running, bu
 
 The user approved Modern Graphite with photographic/glass tiles and requested a live clock replacing Main beside Home. The new exact ARM library is `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`. It passed fresh Cloud native checks: 13 production-mode naming cases, 11 menu/startup cases, and clock/header/artwork checks. These include actual mouse Save & restart through the native reboot request, name reload at all three endpoints, busy-lock protection, native footer actions and a real 60-second fail-open case. Physical radio renaming, hardware reboot and cold-boot appearance had not been confirmed when that packaging evidence was written; the later owner report is recorded above.
 
-The Cloud native harness now works through isolated Docker/QEMU and a fake framebuffer. There is no interactive Cloud viewer. Original native four-case/52-check evidence, original install/rollback ZIPs and public RC1 remain unchanged. See [release manifest](../releases/2026.11-ui1-jaguar-xfr/MANIFEST.json), [fresh evidence](../releases/2026.11-ui1-jaguar-xfr/NATIVE_EVIDENCE.json) and [Cloud lab](../experimental/ui1/lab/cloud/README.md).
+The Cloud native harness now works through isolated Docker/QEMU and a fake framebuffer. There is no interactive Cloud viewer. Original native four-case/52-check evidence, original install/rollback ZIPs and public RC1 remain unchanged. See [overlay packaging manifest](../experimental/ui1/candidates/glass-clock-2026-11-06/MANIFEST.json), [fresh overlay evidence](../experimental/ui1/candidates/glass-clock-2026-11-06/NATIVE_EVIDENCE.json) and [Cloud lab](../experimental/ui1/lab/cloud/README.md).
 
 ## Device and compatibility
 

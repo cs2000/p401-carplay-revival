@@ -1,6 +1,6 @@
 # Build and native lab
 
-The original installer and historical evidence refer to UI1 source at commit `84e454fa06b633cf732b988ee58379e18fe0d06f` and remain unchanged. The current Glass + Clock source adds the approved photographic theme, clock replacing Main, native name eligibility, Exit classification and early startup cover. Its packaged library is `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`. Fresh native evidence and source hashes are retained with the [packaging snapshot](candidates/glass-clock-2026-11-06/MANIFEST.json). The owner subsequently reported all bugs fixed on 7 November; the [public overlay release](../../releases/2026.11-ui1-jaguar-xfr/README.md) records that separately. Full-flash recovery remains unproven.
+The original installer and historical evidence refer to UI1 source at commit `84e454fa06b633cf732b988ee58379e18fe0d06f` and remain unchanged. Glass + Clock added the approved photographic theme, clock replacing Main, native name eligibility, Exit classification and early startup cover. Its packaged library is `c62c2d49d3ce423d9cf11d96325e7ee5e50d7967ce0a865b2cf6f3a6f6593639`. Native evidence and source hashes remain with the [packaging snapshot](candidates/glass-clock-2026-11-06/MANIFEST.json); the [owner's later successful report](../../docs/evidence/ui1-owner-report-2026-11-07.json) is separate. The obsolete public overlay folder was removed. Full-flash recovery remains unproven.
 
 ## Build inputs
 

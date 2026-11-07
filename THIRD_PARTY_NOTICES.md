@@ -8,7 +8,7 @@ The added DHCP binary is built from unmodified BusyBox 1.38.0 source with only t
 
 ## Standalone integrity verifier runtime
 
-The Jaguar full-image verifier statically links the ARM musl C runtime supplied by the documented build toolchain. The installed musl copyright and license notice is retained at `third_party/musl/COPYRIGHT`, in the full-image source archive and beside its download as `MUSL_COPYRIGHT.txt`. This runtime attribution is separate from the original verifier source's MIT license.
+The Jaguar full-image verifier statically links the ARM musl C runtime supplied by the documented build toolchain. The installed musl copyright and license notice is retained at `third_party/musl/COPYRIGHT`, in the full-image source archive and with its technical build records as `MUSL_COPYRIGHT.txt`. This runtime attribution is separate from the original verifier source's MIT license.
 
 ## Vendor firmware
 

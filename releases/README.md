@@ -3,7 +3,6 @@
 | Package | What it installs | Starting point |
 | --- | --- | --- |
 | [Jaguar full firmware RC1](2026.11-jaguar-xfr-rc1/README.md) | Firmware/kernel + W3 repair + Jaguar UI | Compatible stock P401; no prior development install |
-| [Legacy Jaguar UI-only overlay](2026.11-ui1-jaguar-xfr/README.md) | UI only | Existing R1 + field-W3 development layout |
 | [Generic W3 firmware RC1](2026.11-w3-rc1/README.md) | Firmware/kernel + W3 repair, native vendor UI | Compatible P401; no Jaguar theme |
 
 For a stock-to-Jaguar installation, use the **Jaguar full firmware RC1** entry. Both complete images remain release candidates pending exact-image vehicle installation tests.
@@ -13,10 +12,6 @@ For a stock-to-Jaguar installation, use the **Jaguar full firmware RC1** entry. 
 [**2026.11-jaguar-xfr-rc1 — complete stock-to-Jaguar firmware**](2026.11-jaguar-xfr-rc1/README.md)
 
 Includes the firmware/kernel, W3 wireless repair and Jaguar glass/clock/name features in one update. Compatible stock P401 units need no prior R1 or field-W3 setup. Existing native factory settings are retained. This exact combined image has passed offline/native checks and awaits a vehicle installation test.
-
-[**2026.11-ui1-jaguar-xfr — installer and UI rollback bundle**](2026.11-ui1-jaguar-xfr/README.md)
-
-The earlier small overlay: I've tested this exact package on my P401 in my Jaguar XFR and reported the bugs fixed. It retains its matching R1 + field-W3 requirement; use the complete bundle above when starting from stock. UI rollback requires a booting unit; no full-flash recovery is available.
 
 ## Full firmware
 

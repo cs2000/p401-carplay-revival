@@ -1,6 +1,8 @@
-Read `docs/cloud-handover.md` before continuing this project. Source and lab tools are in `experimental/ui1`; the owner-tested Jaguar UI1 overlay is `releases/2026.11-ui1-jaguar-xfr`. The separate combined firmware remains `2026.11-w3-rc1`.
+Read `docs/cloud-handover.md` before continuing this project. Source and lab tools are in `experimental/ui1`; the owner-tested historical overlay is preserved in `experimental/ui1/candidates/glass-clock-2026-11-06`. Its old public release folder was removed at the user's request. The generic combined firmware remains `2026.11-w3-rc1`.
 
 The stock-to-Jaguar full-image candidate is `releases/2026.11-jaguar-xfr-rc1`; it removes the private field-layout requirement using a standalone rootfs launcher. Its exact combined image is offline/native verified, not vehicle-tested. Preserve this distinction from the owner's successful overlay report.
+
+Keep public release folders simple: README, SHA256SUMS and firmware ZIP. RC1 build/source/evidence records are in `experimental/ui1/full-image-rc1`; its state-only UI controls are in `recovery/2026.11-jaguar-xfr-rc1`. Do not mix recovery autocopy payloads into the three-file full-firmware USB ZIP.
 
 Preserve the distinction between the field-tested W3 components, the offline-checked combined RC1 image, fresh native UI1 checks and the owner's 7 November report that the exact UI1 installer fixed all reported bugs. Do not extend that report to other hardware, new builds, endurance or complete flash recovery.
 
